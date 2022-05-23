@@ -63,17 +63,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DDB56D31283C095100C16CC3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DDB56D32283C0A9E00C16CC3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DDB56D3C283C0BC200C16CC3 /* Font */,
+				DDB56D43283C139A00C16CC3 /* Font */,
 				DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */,
 				DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */,
 			);
@@ -90,11 +83,18 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		DDB56D3C283C0BC200C16CC3 /* Font */ = {
+		DDB56D43283C139A00C16CC3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		DDB56D44283C13A700C16CC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DDBBD71A283C071B0092847A = {
@@ -116,9 +116,9 @@
 		DDBBD725283C071B0092847A /* PetsVille */ = {
 			isa = PBXGroup;
 			children = (
-				DDB56D33283C0AD400C16CC3 /* Manager */,
 				DDB56D32283C0A9E00C16CC3 /* Extension */,
-				DDB56D31283C095100C16CC3 /* Model */,
+				DDB56D33283C0AD400C16CC3 /* Manager */,
+				DDB56D44283C13A700C16CC3 /* Model */,
 				DDB56D30283C094E00C16CC3 /* View */,
 				DDB56D2F283C094B00C16CC3 /* Controller */,
 				DDBBD726283C071B0092847A /* AppDelegate.swift */,
