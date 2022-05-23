@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */; };
+		DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */; };
+		DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */; };
+		DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */; };
+		DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D3D283C0DA300C16CC3 /* FirebaseManager.swift */; };
 		DDBBD727283C071B0092847A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBD726283C071B0092847A /* AppDelegate.swift */; };
 		DDBBD729283C071B0092847A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBD728283C071B0092847A /* SceneDelegate.swift */; };
 		DDBBD72B283C071B0092847A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBD72A283C071B0092847A /* ViewController.swift */; };
-		DDBBD72E283C071B0092847A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD72C283C071B0092847A /* Main.storyboard */; };
 		DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBBD72F283C071B0092847A /* PetsVille.xcdatamodeld */; };
 		DDBBD733283C071D0092847A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD732283C071D0092847A /* Assets.xcassets */; };
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		DDB56D3D283C0DA300C16CC3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DDBBD723283C071B0092847A /* PetsVille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetsVille.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBBD726283C071B0092847A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDBBD728283C071B0092847A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDBBD72A283C071B0092847A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDBBD72D283C071B0092847A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDBBD730283C071B0092847A /* PetsVille.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetsVille.xcdatamodel; sourceTree = "<group>"; };
 		DDBBD732283C071D0092847A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDBBD735283C071D0092847A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +47,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDB56D2F283C094B00C16CC3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDBBD72A283C071B0092847A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDB56D30283C094E00C16CC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDBBD734283C071D0092847A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDB56D31283C095100C16CC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDB56D32283C0A9E00C16CC3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DDB56D3C283C0BC200C16CC3 /* Font */,
+				DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */,
+				DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DDB56D33283C0AD400C16CC3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */,
+				DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */,
+				DDB56D3D283C0DA300C16CC3 /* FirebaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		DDB56D3C283C0BC200C16CC3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		DDBBD71A283C071B0092847A = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +116,14 @@
 		DDBBD725283C071B0092847A /* PetsVille */ = {
 			isa = PBXGroup;
 			children = (
+				DDB56D33283C0AD400C16CC3 /* Manager */,
+				DDB56D32283C0A9E00C16CC3 /* Extension */,
+				DDB56D31283C095100C16CC3 /* Model */,
+				DDB56D30283C094E00C16CC3 /* View */,
+				DDB56D2F283C094B00C16CC3 /* Controller */,
 				DDBBD726283C071B0092847A /* AppDelegate.swift */,
 				DDBBD728283C071B0092847A /* SceneDelegate.swift */,
-				DDBBD72A283C071B0092847A /* ViewController.swift */,
-				DDBBD72C283C071B0092847A /* Main.storyboard */,
 				DDBBD732283C071D0092847A /* Assets.xcassets */,
-				DDBBD734283C071D0092847A /* LaunchScreen.storyboard */,
 				DDBBD737283C071D0092847A /* Info.plist */,
 				DDBBD72F283C071B0092847A /* PetsVille.xcdatamodeld */,
 			);
@@ -130,7 +190,6 @@
 			files = (
 				DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */,
 				DDBBD733283C071D0092847A /* Assets.xcassets in Resources */,
-				DDBBD72E283C071B0092847A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
+				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* ViewController.swift in Sources */,
+				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
 				DDBBD727283C071B0092847A /* AppDelegate.swift in Sources */,
+				DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */,
 				DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */,
+				DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */,
 				DDBBD729283C071B0092847A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDBBD72C283C071B0092847A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDBBD72D283C071B0092847A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DDBBD734283C071D0092847A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +352,6 @@
 				INFOPLIST_FILE = PetsVille/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +379,6 @@
 				INFOPLIST_FILE = PetsVille/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
