@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
+		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */; };
 		DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */; };
 		DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		DDB56D31283C095100C16CC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD69D80B2851307E00CE464B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 		DDB56D3C283C0BC200C16CC3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DD69D80D2851308D00CE464B /* Font.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
+				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* ViewController.swift in Sources */,
 				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
@@ -234,6 +241,7 @@
 				DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */,
 				DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */,
 				DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */,
+				DD69D80C2851307F00CE464B /* User.swift in Sources */,
 				DDBBD729283C071B0092847A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
