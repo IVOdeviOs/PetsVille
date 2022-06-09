@@ -24,6 +24,7 @@ final class MainTabBarController: UITabBarController {
     private func setupUITabBar(){
         careViewController.tabBarItem.image = UIImage(systemName: "pawprint")
         careViewController.title = "Забота"
+        tabBar.tintColor = .orange
         mapViewController.tabBarItem.image = UIImage(systemName: "map")
         mapViewController.title = "Карта"
         profileViewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
