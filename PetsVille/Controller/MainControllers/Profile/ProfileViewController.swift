@@ -19,7 +19,7 @@ final class ProfileViewController: UIViewController {
     private var forgotYourPasswordButton = UIButton()
     private var forgotView = UIView()
     private var orView = UIView()
-    private let orLable = UILabel()
+    private let orLabel = UILabel()
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(forgotYourPasswordButton)
         forgotYourPasswordButton.addSubview(forgotView)
         view.addSubview(orView)
-        orView.addSubview(orLable)
+        orView.addSubview(orLabel)
     }
 
     func setupConstrainsTabBar() {
@@ -141,11 +141,11 @@ final class ProfileViewController: UIViewController {
         orView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         orView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
-        orLable.translatesAutoresizingMaskIntoConstraints = false
-        orLable.centerYAnchor.constraint(equalTo: orView.centerYAnchor, constant: 0).isActive = true
-        orLable.centerXAnchor.constraint(equalTo: orView.centerXAnchor, constant: 0).isActive = true
-        orLable.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        orLable.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        orLabel.translatesAutoresizingMaskIntoConstraints = false
+        orLabel.centerYAnchor.constraint(equalTo: orView.centerYAnchor, constant: 0).isActive = true
+        orLabel.centerXAnchor.constraint(equalTo: orView.centerXAnchor, constant: 0).isActive = true
+        orLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        orLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
     }
 
     func setupTabBar() {
@@ -198,10 +198,10 @@ final class ProfileViewController: UIViewController {
         orView.backgroundColor = .gray
         orView.layer.opacity = 0.8
         
-        orLable.text = "ИЛИ"
-        orLable.backgroundColor = .white
-        orLable.textColor = .black
-        orLable.textAlignment = .center
+        orLabel.text = "ИЛИ"
+        orLabel.backgroundColor = .white
+        orLabel.textColor = .black
+        orLabel.textAlignment = .center
         
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
     }
