@@ -6,19 +6,19 @@ final class ProfileViewController: UIViewController {
     // MARK: Public
 
     // MARK: Private
-    private var logoImage = UIImageView()
-    private var tabBarView = UIView()
-    private var tabBarLabel = UILabel()
-    private var tabBarButtonQuestion = UIButton()
-    private var tabBarButtonSettings = UIButton()
-    private var loginLabel = UILabel()
+    private let logoImage = UIImageView()
+    private let tabBarView = UIView()
+    private let tabBarLabel = UILabel()
+    private let tabBarButtonQuestion = UIButton()
+    private let tabBarButtonSettings = UIButton()
+    private let loginLabel = UILabel()
     private var loginTextField = UITextField()
-    private var passwordLabel = UILabel()
+    private let passwordLabel = UILabel()
     private var passwordTextField = UITextField()
-    private var securityButton = UIButton()
-    private var forgotYourPasswordButton = UIButton()
-    private var forgotView = UIView()
-    private var orView = UIView()
+    private let securityButton = UIButton()
+    private let forgotYourPasswordButton = UIButton()
+    private let forgotView = UIView()
+    private let orView = UIView()
     private let orLabel = UILabel()
     // MARK: - Lifecycle
 
