@@ -24,13 +24,13 @@ final class MainTabBarController: UITabBarController {
     private func setupUITabBar(){
         careViewController.tabBarItem.image = UIImage(systemName: "pawprint")
         careViewController.title = "Забота"
-        tabBar.tintColor = .orange
         mapViewController.tabBarItem.image = UIImage(systemName: "map")
         mapViewController.title = "Карта"
         profileViewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         profileViewController.title = "Профиль"
         tabBar.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
         tabBar.layer.cornerRadius = 20
+        tabBar.tintColor = .orange
     }
     
     // MARK: - Helpers

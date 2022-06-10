@@ -20,6 +20,13 @@ final class ProfileViewController: UIViewController {
     private let forgotView = UIView()
     private let orView = UIView()
     private let orLabel = UILabel()
+    private let googleLogoButton = UIButton()
+    private let facebookLogoButton = UIButton()
+    private let appleLogoButton = UIButton()
+    private let signInButton = UIButton()
+    private let signUpButton = UIButton()
+    private let signUpView = UIView()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -34,7 +41,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - API
 
     // MARK: - Setups
-    func addSubviews() {
+    private func addSubviews() {
         view.addSubview(logoImage)
         view.addSubview(tabBarView)
         tabBarView.addSubview(tabBarLabel)
@@ -44,14 +51,20 @@ final class ProfileViewController: UIViewController {
         view.addSubview(loginTextField)
         view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
-        view.addSubview(securityButton) //
+        view.addSubview(securityButton)
         view.addSubview(forgotYourPasswordButton)
         forgotYourPasswordButton.addSubview(forgotView)
         view.addSubview(orView)
         orView.addSubview(orLabel)
+        view.addSubview(googleLogoButton)
+        view.addSubview(facebookLogoButton)
+        view.addSubview(appleLogoButton)
+        view.addSubview(signInButton)
+        view.addSubview(signUpButton)
+        view.addSubview(signUpView)
     }
 
-    func setupConstrainsTabBar() {
+    private func setupConstrainsTabBar() {
         tabBarView.translatesAutoresizingMaskIntoConstraints = false
         tabBarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         tabBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
@@ -79,7 +92,7 @@ final class ProfileViewController: UIViewController {
         tabBarButtonSettings.heightAnchor.constraint(equalToConstant: 30.06).isActive = true
     }
 
-    func setupConstrainsView() {
+    private func setupConstrainsView() {
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 82).isActive = true
         logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 56).isActive = true
@@ -121,13 +134,13 @@ final class ProfileViewController: UIViewController {
         securityButton.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: -11.72).isActive = true
         securityButton.widthAnchor.constraint(equalToConstant: 18.08).isActive = true
         securityButton.heightAnchor.constraint(equalToConstant: 15.81).isActive = true
-        
+
         forgotYourPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         forgotYourPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5).isActive = true
         forgotYourPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         forgotYourPasswordButton.heightAnchor.constraint(equalToConstant: 16).isActive = true
         forgotYourPasswordButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        
+
         forgotView.translatesAutoresizingMaskIntoConstraints = false
         forgotView.topAnchor.constraint(equalTo: forgotYourPasswordButton.bottomAnchor, constant: 1).isActive = true
         forgotView.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -140,15 +153,51 @@ final class ProfileViewController: UIViewController {
         orView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         orView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         orView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
+
         orLabel.translatesAutoresizingMaskIntoConstraints = false
         orLabel.centerYAnchor.constraint(equalTo: orView.centerYAnchor, constant: 0).isActive = true
         orLabel.centerXAnchor.constraint(equalTo: orView.centerXAnchor, constant: 0).isActive = true
         orLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         orLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
+
+        facebookLogoButton.translatesAutoresizingMaskIntoConstraints = false
+        facebookLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
+        facebookLogoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        facebookLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
+        facebookLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
+
+        googleLogoButton.translatesAutoresizingMaskIntoConstraints = false
+        googleLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
+        googleLogoButton.trailingAnchor.constraint(equalTo: facebookLogoButton.leadingAnchor, constant: -20).isActive = true
+        googleLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
+        googleLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
+
+        appleLogoButton.translatesAutoresizingMaskIntoConstraints = false
+        appleLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
+        appleLogoButton.leadingAnchor.constraint(equalTo: facebookLogoButton.trailingAnchor, constant: 20).isActive = true
+        appleLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
+        appleLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
+        
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.topAnchor.constraint(equalTo: facebookLogoButton.bottomAnchor, constant: 31).isActive = true
+        signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        signInButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 12).isActive = true
+        signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        signUpView.translatesAutoresizingMaskIntoConstraints = false
+        signUpView.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 1).isActive = true
+        signUpView.leadingAnchor.constraint(equalTo: signUpButton.leadingAnchor, constant: 20).isActive = true
+        signUpView.trailingAnchor.constraint(equalTo: signUpButton.trailingAnchor, constant: -20).isActive = true
+        signUpView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
-    func setupTabBar() {
+    private func setupTabBar() {
         tabBarView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         tabBarView.layer.cornerRadius = 20
         tabBarLabel.text = "Профиль"
@@ -162,7 +211,7 @@ final class ProfileViewController: UIViewController {
         tabBarButtonSettings.tintColor = .orange
     }
 
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         logoImage.image = UIImage(named: "Logo")
 
@@ -183,25 +232,50 @@ final class ProfileViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
-
+        passwordTextField.textAlignment = .natural
+        
         securityButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         securityButton.tintColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
-        
+
         forgotYourPasswordButton.setTitle("Забыли пароль?", for: .normal)
-        forgotYourPasswordButton.setTitleColor(.black, for: .normal)
+        forgotYourPasswordButton.setTitleColor(UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1), for: .normal)
         forgotYourPasswordButton.titleLabel?.font = .systemFont(ofSize: 13)
         forgotYourPasswordButton.titleLabel?.textAlignment = .left
-        
+
         forgotView.backgroundColor = .black
         forgotView.layer.opacity = 0.8
-        
+
         orView.backgroundColor = .gray
         orView.layer.opacity = 0.8
-        
+
         orLabel.text = "ИЛИ"
         orLabel.backgroundColor = .white
         orLabel.textColor = .black
         orLabel.textAlignment = .center
+
+        googleLogoButton.setImage(UIImage(named: "Google"), for: .normal)
+        facebookLogoButton.setImage(UIImage(named: "facebook"), for: .normal)
+        appleLogoButton.setImage(UIImage(named: "Apple"), for: .normal)
+        googleLogoButton.layer.borderWidth = 1
+        googleLogoButton.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
+        googleLogoButton.layer.cornerRadius = 21.5
+
+        facebookLogoButton.layer.borderWidth = 1
+        facebookLogoButton.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
+        facebookLogoButton.layer.cornerRadius = 21.5
+
+        appleLogoButton.layer.borderWidth = 1
+        appleLogoButton.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
+        appleLogoButton.layer.cornerRadius = 21.5
+
+        signInButton.setTitle("Войти", for: .normal)
+        signInButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
+        signInButton.layer.cornerRadius = 10
+        
+        signUpButton.setTitle("Зарегистрироваться", for: .normal)
+        signUpButton.setTitleColor(UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1), for: .normal)
+        
+        signUpView.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
     }
