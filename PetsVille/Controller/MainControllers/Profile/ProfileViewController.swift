@@ -7,10 +7,6 @@ final class ProfileViewController: UIViewController {
 
     // MARK: Private
     private let logoImage = UIImageView()
-    private let tabBarView = UIView()
-    private let tabBarLabel = UILabel()
-    private let tabBarButtonQuestion = UIButton()
-    private let tabBarButtonSettings = UIButton()
     private let loginLabel = UILabel()
     private var loginTextField = UITextField()
     private let passwordLabel = UILabel()
@@ -26,22 +22,20 @@ final class ProfileViewController: UIViewController {
     private let signInButton = UIButton()
     private let signUpButton = UIButton()
     private let signUpView = UIView()
-    
     private let popUpWindowView = UIView()
     private let closePopUpWindowButton = UIButton()
     private let logoPopUpWindowImage = UIImageView()
     private let popUpWindowSignUpButton = UIButton()
     private let popUpWindowSignInButton = UIButton()
     private let textPopUpWindow = UITextView()
-    
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         setupConstrainsView()
-//        setupConstrainsTabBar()
-//        setupTabBar()
+        setupTabBar()
         setupUI()
         popUpWindowSetupConstrains()
         setupPopUpWindow()
@@ -52,10 +46,6 @@ final class ProfileViewController: UIViewController {
     // MARK: - Setups
     private func addSubviews() {
         view.addSubview(logoImage)
-        view.addSubview(tabBarView)
-        tabBarView.addSubview(tabBarLabel)
-        tabBarView.addSubview(tabBarButtonQuestion)
-        tabBarView.addSubview(tabBarButtonSettings)
         view.addSubview(loginLabel)
         view.addSubview(loginTextField)
         view.addSubview(passwordLabel)
@@ -77,35 +67,6 @@ final class ProfileViewController: UIViewController {
         popUpWindowView.addSubview(popUpWindowSignUpButton)
         popUpWindowView.addSubview(popUpWindowSignInButton)
         popUpWindowView.addSubview(textPopUpWindow)
-
-    }
-
-    private func setupConstrainsTabBar() {
-        tabBarView.translatesAutoresizingMaskIntoConstraints = false
-        tabBarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        tabBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        tabBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tabBarView.heightAnchor.constraint(equalToConstant: 103).isActive = true
-
-        tabBarLabel.translatesAutoresizingMaskIntoConstraints = false
-        tabBarLabel.topAnchor.constraint(equalTo: tabBarView.topAnchor, constant: 66).isActive = true
-        tabBarLabel.centerXAnchor.constraint(equalTo: tabBarView.centerXAnchor, constant: 0).isActive = true
-        tabBarLabel.bottomAnchor.constraint(equalTo: tabBarView.bottomAnchor, constant: -13).isActive = true
-        tabBarLabel.widthAnchor.constraint(equalToConstant: 99).isActive = true
-
-        tabBarButtonQuestion.translatesAutoresizingMaskIntoConstraints = false
-        tabBarButtonQuestion.topAnchor.constraint(equalTo: tabBarView.topAnchor, constant: 63).isActive = true
-        tabBarButtonQuestion.leadingAnchor.constraint(equalTo: tabBarView.leadingAnchor, constant: 13).isActive = true
-        tabBarButtonQuestion.bottomAnchor.constraint(equalTo: tabBarView.bottomAnchor, constant: -12).isActive = true
-        tabBarButtonQuestion.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        tabBarButtonQuestion.heightAnchor.constraint(equalToConstant: 28).isActive = true
-
-        tabBarButtonSettings.translatesAutoresizingMaskIntoConstraints = false
-        tabBarButtonSettings.topAnchor.constraint(equalTo: tabBarView.topAnchor, constant: 61.92).isActive = true
-        tabBarButtonSettings.trailingAnchor.constraint(equalTo: tabBarView.trailingAnchor, constant: -11.03).isActive = true
-        tabBarButtonSettings.bottomAnchor.constraint(equalTo: tabBarView.bottomAnchor, constant: -12.47).isActive = true
-        tabBarButtonSettings.widthAnchor.constraint(equalToConstant: 30.06).isActive = true
-        tabBarButtonSettings.heightAnchor.constraint(equalToConstant: 30.06).isActive = true
     }
 
     private func setupConstrainsView() {
@@ -193,56 +154,60 @@ final class ProfileViewController: UIViewController {
         appleLogoButton.leadingAnchor.constraint(equalTo: facebookLogoButton.trailingAnchor, constant: 20).isActive = true
         appleLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
         appleLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
-        
+
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.topAnchor.constraint(equalTo: facebookLogoButton.bottomAnchor, constant: 31).isActive = true
         signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        
+
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 12).isActive = true
         signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100).isActive = true
         signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
+
         signUpView.translatesAutoresizingMaskIntoConstraints = false
         signUpView.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 1).isActive = true
         signUpView.leadingAnchor.constraint(equalTo: signUpButton.leadingAnchor, constant: 20).isActive = true
         signUpView.trailingAnchor.constraint(equalTo: signUpButton.trailingAnchor, constant: -20).isActive = true
         signUpView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
-    private func popUpWindowSetupConstrains(){
+
+    private func popUpWindowSetupConstrains() {
         popUpWindowView.translatesAutoresizingMaskIntoConstraints = false
-        popUpWindowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 85).isActive = true
+        popUpWindowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
         popUpWindowView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -198).isActive = true
         popUpWindowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         popUpWindowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
-        
+
         closePopUpWindowButton.translatesAutoresizingMaskIntoConstraints = false
         closePopUpWindowButton.topAnchor.constraint(equalTo: popUpWindowView.topAnchor, constant: 11).isActive = true
         closePopUpWindowButton.trailingAnchor.constraint(equalTo: popUpWindowView.trailingAnchor, constant: -11).isActive = true
         closePopUpWindowButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         closePopUpWindowButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-    
-        
-    }
-    
-    
-    private func setupTabBar() {
-        tabBarView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-        tabBarView.layer.cornerRadius = 20
-        tabBarLabel.text = "Профиль"
-        tabBarLabel.font = .systemFont(ofSize: 20)
-        tabBarLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
-        tabBarButtonQuestion.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        tabBarButtonQuestion.tintColor = .orange
-        
-        tabBarButtonSettings.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
-        tabBarButtonSettings.contentScaleFactor = 1.5
-        tabBarButtonSettings.tintColor = .orange
+        logoPopUpWindowImage.translatesAutoresizingMaskIntoConstraints = false
+        logoPopUpWindowImage.topAnchor.constraint(equalTo: popUpWindowView.topAnchor, constant: 60).isActive = true
+        logoPopUpWindowImage.bottomAnchor.constraint(equalTo: popUpWindowView.bottomAnchor, constant: -212).isActive = true
+        logoPopUpWindowImage.leadingAnchor.constraint(equalTo: popUpWindowView.leadingAnchor, constant: 34).isActive = true
+        logoPopUpWindowImage.trailingAnchor.constraint(equalTo: popUpWindowView.trailingAnchor, constant: -34).isActive = true
+
+        textPopUpWindow.translatesAutoresizingMaskIntoConstraints = false
+        textPopUpWindow.topAnchor.constraint(equalTo: logoPopUpWindowImage.bottomAnchor, constant: 29).isActive = true
+        textPopUpWindow.bottomAnchor.constraint(equalTo: popUpWindowView.bottomAnchor, constant: -78).isActive = true
+        textPopUpWindow.leadingAnchor.constraint(equalTo: popUpWindowView.leadingAnchor, constant: 21).isActive = true
+        textPopUpWindow.trailingAnchor.constraint(equalTo: popUpWindowView.trailingAnchor, constant: -21).isActive = true
+    }
+
+    private func setupTabBar() {
+        title = "Профиль"
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navigationController?.navigationBar.layer.cornerRadius = 20
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(closeWindowPopUp))
+        navigationItem.leftBarButtonItem?.tintColor = .orange
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(closeWindowPopUp))
+        navigationItem.rightBarButtonItem?.tintColor = .orange
     }
 
     private func setupUI() {
@@ -267,7 +232,7 @@ final class ProfileViewController: UIViewController {
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
         passwordTextField.textAlignment = .natural
-        
+
         securityButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         securityButton.tintColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
@@ -305,22 +270,46 @@ final class ProfileViewController: UIViewController {
         signInButton.setTitle("Войти", for: .normal)
         signInButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         signInButton.layer.cornerRadius = 10
-        
+
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
         signUpButton.setTitleColor(UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1), for: .normal)
-        
+
         signUpView.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
-        
+
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
     }
 
-    private func setupPopUpWindow(){
-        popUpWindowView.backgroundColor = .red
-        closePopUpWindowButton.setTitle("X", for: .normal)
-        closePopUpWindowButton.setTitleColor(.black, for: .normal)
+    private func setupPopUpWindow() {
+        popUpWindowView.backgroundColor = .white
+        popUpWindowView.layer.shadowColor = UIColor.gray.cgColor
+        popUpWindowView.layer.shadowOpacity = 1.5
+        popUpWindowView.layer.shadowOffset = .zero
+        popUpWindowView.layer.shadowRadius = 200
+        popUpWindowView.layer.cornerRadius = 16
+
+        closePopUpWindowButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        closePopUpWindowButton.tintColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
+        closePopUpWindowButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
+        closePopUpWindowButton.layer.borderColor = UIColor(red: 1, green: 0.737, blue: 0.546, alpha: 1).cgColor
+        closePopUpWindowButton.layer.borderWidth = 1
+        closePopUpWindowButton.layer.cornerRadius = 4
+
+        logoPopUpWindowImage.image = UIImage(named: "windowPopUp")
+
+        textPopUpWindow.text = """
+         Войдите или зарегистрируйтесь , чтобы добавить в приложение информацию о домашнем питомце.
+        Вы также сможете внести информацию о себе.
+        """
+        // \(popUpWindowSignInButton) \(popUpWindowSignUpButton)
+
+        textPopUpWindow.isEditable = false
+        textPopUpWindow.font = .systemFont(ofSize: 16)
+        popUpWindowSignInButton.setTitle("Войдите", for: .normal)
+        popUpWindowSignUpButton.setTitle("зарегистрируйтесь", for: .normal)
+
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
-        
     }
+
     // MARK: - Helpers
     @objc func securityEyeAction(_ sender: UIButton) {
 
@@ -334,12 +323,8 @@ final class ProfileViewController: UIViewController {
             passwordTextField.isSecureTextEntry = false
         }
     }
-    
-    @objc func closeWindowPopUp(){
-        popUpWindowView.isHidden = true
-        
-        
-        popUpWindowView.backgroundColor = .yellow
 
+    @objc func closeWindowPopUp() {
+        popUpWindowView.isHidden = true
     }
 }
