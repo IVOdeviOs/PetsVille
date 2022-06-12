@@ -31,6 +31,9 @@ final class CareCollectionViewCell: UICollectionViewCell {
         mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         mainView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        menuImageView.translatesAutoresizingMaskIntoConstraints = false
+        
     }
 }
 
