@@ -26,16 +26,25 @@ final class ProfileViewController: UIViewController {
     private let signInButton = UIButton()
     private let signUpButton = UIButton()
     private let signUpView = UIView()
-
+    
+    private let popUpWindowView = UIView()
+    private let closePopUpWindowButton = UIButton()
+    private let logoPopUpWindowImage = UIImageView()
+    private let popUpWindowSignUpButton = UIButton()
+    private let popUpWindowSignInButton = UIButton()
+    private let textPopUpWindow = UITextView()
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         setupConstrainsView()
-        setupConstrainsTabBar()
-        setupTabBar()
+//        setupConstrainsTabBar()
+//        setupTabBar()
         setupUI()
+        popUpWindowSetupConstrains()
+        setupPopUpWindow()
     }
 
     // MARK: - API
@@ -62,6 +71,13 @@ final class ProfileViewController: UIViewController {
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
         view.addSubview(signUpView)
+        view.addSubview(popUpWindowView)
+        popUpWindowView.addSubview(closePopUpWindowButton)
+        popUpWindowView.addSubview(logoPopUpWindowImage)
+        popUpWindowView.addSubview(popUpWindowSignUpButton)
+        popUpWindowView.addSubview(popUpWindowSignInButton)
+        popUpWindowView.addSubview(textPopUpWindow)
+
     }
 
     private func setupConstrainsTabBar() {
@@ -142,10 +158,10 @@ final class ProfileViewController: UIViewController {
         forgotYourPasswordButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
 
         forgotView.translatesAutoresizingMaskIntoConstraints = false
-        forgotView.topAnchor.constraint(equalTo: forgotYourPasswordButton.bottomAnchor, constant: 1).isActive = true
+        forgotView.topAnchor.constraint(equalTo: forgotYourPasswordButton.bottomAnchor, constant: 0).isActive = true
         forgotView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         forgotView.centerXAnchor.constraint(equalTo: forgotYourPasswordButton.centerXAnchor, constant: 0).isActive = true
-        forgotView.leadingAnchor.constraint(equalTo: forgotYourPasswordButton.leadingAnchor, constant: 4).isActive = true
+        forgotView.leadingAnchor.constraint(equalTo: forgotYourPasswordButton.leadingAnchor, constant: 5).isActive = true
         forgotView.trailingAnchor.constraint(equalTo: forgotYourPasswordButton.trailingAnchor, constant: -5).isActive = true
 
         orView.translatesAutoresizingMaskIntoConstraints = false
@@ -196,7 +212,24 @@ final class ProfileViewController: UIViewController {
         signUpView.trailingAnchor.constraint(equalTo: signUpButton.trailingAnchor, constant: -20).isActive = true
         signUpView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
-
+    private func popUpWindowSetupConstrains(){
+        popUpWindowView.translatesAutoresizingMaskIntoConstraints = false
+        popUpWindowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 85).isActive = true
+        popUpWindowView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -198).isActive = true
+        popUpWindowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        popUpWindowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        
+        closePopUpWindowButton.translatesAutoresizingMaskIntoConstraints = false
+        closePopUpWindowButton.topAnchor.constraint(equalTo: popUpWindowView.topAnchor, constant: 11).isActive = true
+        closePopUpWindowButton.trailingAnchor.constraint(equalTo: popUpWindowView.trailingAnchor, constant: -11).isActive = true
+        closePopUpWindowButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        closePopUpWindowButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+    
+        
+    }
+    
+    
     private func setupTabBar() {
         tabBarView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         tabBarView.layer.cornerRadius = 20
@@ -206,8 +239,9 @@ final class ProfileViewController: UIViewController {
 
         tabBarButtonQuestion.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
         tabBarButtonQuestion.tintColor = .orange
-
-        tabBarButtonSettings.setImage(UIImage(systemName: "gearshape"), for: .normal)
+        
+        tabBarButtonSettings.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+        tabBarButtonSettings.contentScaleFactor = 1.5
         tabBarButtonSettings.tintColor = .orange
     }
 
@@ -280,6 +314,13 @@ final class ProfileViewController: UIViewController {
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
     }
 
+    private func setupPopUpWindow(){
+        popUpWindowView.backgroundColor = .red
+        closePopUpWindowButton.setTitle("X", for: .normal)
+        closePopUpWindowButton.setTitleColor(.black, for: .normal)
+        closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
+        
+    }
     // MARK: - Helpers
     @objc func securityEyeAction(_ sender: UIButton) {
 
@@ -292,5 +333,13 @@ final class ProfileViewController: UIViewController {
             securityButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
             passwordTextField.isSecureTextEntry = false
         }
+    }
+    
+    @objc func closeWindowPopUp(){
+        popUpWindowView.isHidden = true
+        
+        
+        popUpWindowView.backgroundColor = .yellow
+
     }
 }
