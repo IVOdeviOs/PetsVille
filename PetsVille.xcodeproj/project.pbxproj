@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8B285643690076ABC4 /* MedicineViewController.swift */; };
+		355C0E8E285643BD0076ABC4 /* СalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */; };
+		355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E94285644410076ABC4 /* NursingViewController.swift */; };
+		355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */; };
+		355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -33,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		355C0E8B285643690076ABC4 /* MedicineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewController.swift; sourceTree = "<group>"; };
+		355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СalendarViewController.swift"; sourceTree = "<group>"; };
+		355C0E94285644410076ABC4 /* NursingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingViewController.swift; sourceTree = "<group>"; };
+		355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +81,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		355C0E8A285643400076ABC4 /* CareViewControllets  */ = {
+			isa = PBXGroup;
+			children = (
+				355C0E8B285643690076ABC4 /* MedicineViewController.swift */,
+				355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */,
+				355C0E94285644410076ABC4 /* NursingViewController.swift */,
+				355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */,
+			);
+			path = "CareViewControllets ";
+			sourceTree = "<group>";
+		};
+		355C0E9A285647170076ABC4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		DD69D80F2851372000CE464B /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +121,8 @@
 		DD69D81728513CC000CE464B /* Care */ = {
 			isa = PBXGroup;
 			children = (
+				355C0E9A285647170076ABC4 /* Cells */,
+				355C0E8A285643400076ABC4 /* CareViewControllets  */,
 				DD69D8142851379100CE464B /* CareViewController.swift */,
 			);
 			path = Care;
@@ -273,9 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
+				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
+				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
 				DDBBD727283C071B0092847A /* AppDelegate.swift in Sources */,
@@ -284,8 +318,10 @@
 				DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */,
 				DD69D8152851379100CE464B /* CareViewController.swift in Sources */,
 				DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */,
+				355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */,
 				DD69D8132851377A00CE464B /* ProfileViewController.swift in Sources */,
 				DD69D80C2851307F00CE464B /* User.swift in Sources */,
+				355C0E8E285643BD0076ABC4 /* СalendarViewController.swift in Sources */,
 				DDBBD729283C071B0092847A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
