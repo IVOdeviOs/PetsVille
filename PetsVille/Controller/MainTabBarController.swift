@@ -30,6 +30,7 @@ final class MainTabBarController: UITabBarController {
         profileViewController.title = "Профиль"
         tabBar.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
         tabBar.layer.cornerRadius = 20
+        tabBar.tintColor = .orange
     }
     
     // MARK: - Helpers
