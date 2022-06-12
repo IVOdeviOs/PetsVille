@@ -11,10 +11,10 @@ final class CareViewController: UIViewController {
     private let layout = UICollectionViewLayout()
     
     private let dataSource: [Menu] = [
-        Menu(image: UIImage(imageLiteralResourceName: "Nursing.png"), title: "Уход"),
-        Menu(image: UIImage(imageLiteralResourceName: "Medicine.png"), title: "Медицина"),
-        Menu(image: UIImage(imageLiteralResourceName: "Calendar.png"), title: "Календарь"),
-        Menu(image: UIImage(imageLiteralResourceName: "Subscription.png"), title: "Подписка")
+        Menu(image: UIImage(imageLiteralResourceName: "Nursing"), title: "Уход"),
+        Menu(image: UIImage(imageLiteralResourceName: "Medicine"), title: "Медицина"),
+        Menu(image: UIImage(imageLiteralResourceName: "Calendar"), title: "Календарь"),
+        Menu(image: UIImage(imageLiteralResourceName: "Subscription"), title: "Подписка")
     ]
     
     override func viewDidLoad() {

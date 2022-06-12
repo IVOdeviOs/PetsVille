@@ -12,6 +12,7 @@
 		355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E94285644410076ABC4 /* NursingViewController.swift */; };
 		355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */; };
 		355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */; };
+		355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9F2856636B0076ABC4 /* UIView+.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -43,6 +44,7 @@
 		355C0E94285644410076ABC4 /* NursingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingViewController.swift; sourceTree = "<group>"; };
 		355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
+		355C0E9F2856636B0076ABC4 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				DDB56D3C283C0BC200C16CC3 /* Font */,
 				DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */,
 				DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */,
+				355C0E9F2856636B0076ABC4 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */,
 				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
