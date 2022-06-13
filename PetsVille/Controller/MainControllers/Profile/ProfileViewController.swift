@@ -222,7 +222,9 @@ final class ProfileViewController: UIViewController {
         loginTextField.layer.cornerRadius = 8
         loginTextField.layer.borderWidth = 1
         loginTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
-
+        loginTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: loginTextField.frame.height))
+        loginTextField.leftViewMode = .always
+        
         passwordLabel.text = "Пароль"
         passwordLabel.font = .systemFont(ofSize: 16)
         passwordLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
@@ -231,8 +233,10 @@ final class ProfileViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
-        passwordTextField.textAlignment = .natural
+        passwordTextField.textAlignment = .left
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordTextField.frame.height))
+        passwordTextField.leftViewMode = .always
 
         securityButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         securityButton.tintColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
@@ -279,7 +283,7 @@ final class ProfileViewController: UIViewController {
 
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
     }
-
+   
     private func setupPopUpWindow() {
         popUpWindowView.backgroundColor = .white
         popUpWindowView.layer.shadowColor = UIColor.gray.cgColor
@@ -311,7 +315,9 @@ final class ProfileViewController: UIViewController {
 
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     // MARK: - Helpers
     @objc func securityEyeAction(_ sender: UIButton) {
 
