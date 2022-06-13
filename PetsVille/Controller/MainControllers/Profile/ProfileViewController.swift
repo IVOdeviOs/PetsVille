@@ -234,6 +234,7 @@ final class ProfileViewController: UIViewController {
         passwordTextField.textAlignment = .natural
         passwordTextField.isSecureTextEntry = true
 
+        
         securityButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         securityButton.tintColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
