@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 final class ProfileViewController: UIViewController {
     // MARK: - Properties
@@ -321,9 +322,9 @@ final class ProfileViewController: UIViewController {
         // \(popUpWindowSignInButton) \(popUpWindowSignUpButton)
 
         textPopUpWindow.isEditable = false
-        textPopUpWindow.font = .systemFont(ofSize: 16)
+        textPopUpWindow.isSelectable = false
+        textPopUpWindow.font = .montserrat(16, .medium)
        
-
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
