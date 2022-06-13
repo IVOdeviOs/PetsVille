@@ -28,7 +28,7 @@ final class ProfileViewController: UIViewController {
     private let popUpWindowSignUpButton = UIButton()
     private let popUpWindowSignInButton = UIButton()
     private let textPopUpWindow = UITextView()
-
+    private let appearance = UINavigationBarAppearance()
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -202,12 +202,22 @@ final class ProfileViewController: UIViewController {
 
     private func setupTabBar() {
         title = "Профиль"
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+//        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(closeWindowPopUp))
         navigationItem.leftBarButtonItem?.tintColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(closeWindowPopUp))
         navigationItem.rightBarButtonItem?.tintColor = .orange
+      
+        appearance.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.standardAppearance = appearance
+//        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.layer.cornerRadius = 20
     }
 
     private func setupUI() {
