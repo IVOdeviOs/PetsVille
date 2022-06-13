@@ -234,8 +234,6 @@ final class ProfileViewController: UIViewController {
         passwordTextField.textAlignment = .natural
         passwordTextField.isSecureTextEntry = true
 
-        
-        
         securityButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         securityButton.tintColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
@@ -298,17 +296,18 @@ final class ProfileViewController: UIViewController {
         closePopUpWindowButton.layer.cornerRadius = 4
 
         logoPopUpWindowImage.image = UIImage(named: "windowPopUp")
-
+        popUpWindowSignInButton.setTitle("Войдите", for: .normal)
+        popUpWindowSignUpButton.setTitle("зарегистрируйтесь", for: .normal)
+        
         textPopUpWindow.text = """
-         Войдите или зарегистрируйтесь , чтобы добавить в приложение информацию о домашнем питомце.
+        \(popUpWindowSignInButton)  или зарегистрируйтесь , чтобы добавить в приложение информацию о домашнем питомце.
         Вы также сможете внести информацию о себе.
         """
         // \(popUpWindowSignInButton) \(popUpWindowSignUpButton)
 
         textPopUpWindow.isEditable = false
         textPopUpWindow.font = .systemFont(ofSize: 16)
-        popUpWindowSignInButton.setTitle("Войдите", for: .normal)
-        popUpWindowSignUpButton.setTitle("зарегистрируйтесь", for: .normal)
+       
 
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
     }
