@@ -116,7 +116,7 @@ final class ProfileViewController: UIViewController {
         forgotYourPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5).isActive = true
         forgotYourPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         forgotYourPasswordButton.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        forgotYourPasswordButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        forgotYourPasswordButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 
         forgotView.translatesAutoresizingMaskIntoConstraints = false
         forgotView.topAnchor.constraint(equalTo: forgotYourPasswordButton.bottomAnchor, constant: 0).isActive = true
@@ -169,8 +169,8 @@ final class ProfileViewController: UIViewController {
 
         signUpView.translatesAutoresizingMaskIntoConstraints = false
         signUpView.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 1).isActive = true
-        signUpView.leadingAnchor.constraint(equalTo: signUpButton.leadingAnchor, constant: 20).isActive = true
-        signUpView.trailingAnchor.constraint(equalTo: signUpButton.trailingAnchor, constant: -20).isActive = true
+        signUpView.leadingAnchor.constraint(equalTo: signUpButton.leadingAnchor, constant: 30).isActive = true
+        signUpView.trailingAnchor.constraint(equalTo: signUpButton.trailingAnchor, constant: -30).isActive = true
         signUpView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
@@ -202,8 +202,7 @@ final class ProfileViewController: UIViewController {
 
     private func setupTabBar() {
         title = "Профиль"
-//        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-        navigationController?.navigationBar.layer.cornerRadius = 20
+//        navigationController?.navigationBar.layer.cornerRadius = 20
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(closeWindowPopUp))
         navigationItem.leftBarButtonItem?.tintColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(closeWindowPopUp))
@@ -214,8 +213,6 @@ final class ProfileViewController: UIViewController {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         
         navigationController?.navigationBar.tintColor = .white
-//        navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.layer.cornerRadius = 20
     }
@@ -225,10 +222,11 @@ final class ProfileViewController: UIViewController {
         logoImage.image = UIImage(named: "Logo")
 
         loginLabel.text = "Логин"
-        loginLabel.font = .systemFont(ofSize: 16)
+        loginLabel.font = .montserrat(16, .medium)
         loginLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
         loginTextField.placeholder = " Введите логин "
+        loginTextField.font = .montserrat(16, .regular)
         loginTextField.layer.cornerRadius = 8
         loginTextField.layer.borderWidth = 1
         loginTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
@@ -236,14 +234,14 @@ final class ProfileViewController: UIViewController {
         loginTextField.leftViewMode = .always
         
         passwordLabel.text = "Пароль"
-        passwordLabel.font = .systemFont(ofSize: 16)
+        passwordLabel.font = .montserrat(16, .medium)
         passwordLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
 
         passwordTextField.placeholder = " Введите пароль "
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
+        passwordTextField.font = .montserrat(16, .regular)
         passwordTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
-        passwordTextField.textAlignment = .left
         passwordTextField.isSecureTextEntry = true
         passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordTextField.frame.height))
         passwordTextField.leftViewMode = .always
@@ -253,7 +251,7 @@ final class ProfileViewController: UIViewController {
 
         forgotYourPasswordButton.setTitle("Забыли пароль?", for: .normal)
         forgotYourPasswordButton.setTitleColor(UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1), for: .normal)
-        forgotYourPasswordButton.titleLabel?.font = .systemFont(ofSize: 13)
+        forgotYourPasswordButton.titleLabel?.font = .montserrat(13, .medium)
         forgotYourPasswordButton.titleLabel?.textAlignment = .left
 
         forgotView.backgroundColor = .black
@@ -263,6 +261,7 @@ final class ProfileViewController: UIViewController {
         orView.layer.opacity = 0.8
 
         orLabel.text = "ИЛИ"
+        orLabel.font = .montserrat(16, .regular)
         orLabel.backgroundColor = .white
         orLabel.textColor = .black
         orLabel.textAlignment = .center
@@ -283,10 +282,12 @@ final class ProfileViewController: UIViewController {
         appleLogoButton.layer.cornerRadius = 21.5
 
         signInButton.setTitle("Войти", for: .normal)
+        signInButton.titleLabel?.font = .montserrat(20, .semibold)
         signInButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         signInButton.layer.cornerRadius = 10
 
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
+        signUpButton.titleLabel?.font = .montserrat(16, .medium)
         signUpButton.setTitleColor(UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1), for: .normal)
 
         signUpView.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)

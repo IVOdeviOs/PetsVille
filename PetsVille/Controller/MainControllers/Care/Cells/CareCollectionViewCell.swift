@@ -44,7 +44,7 @@ final class CareCollectionViewCell: UICollectionViewCell {
         menuTextLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
         menuTextLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
         
-        menuTextLabel.font = .
+//        menuTextLabel.font = .
     }
     
 }
