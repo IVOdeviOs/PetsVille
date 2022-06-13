@@ -41,6 +41,10 @@ final class CareViewController: UIViewController {
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
     }
+    
+    private func setupSearchController() {
+        
+    }
 }
 
 

@@ -33,7 +33,19 @@ final class CareCollectionViewCell: UICollectionViewCell {
         mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         menuImageView.translatesAutoresizingMaskIntoConstraints = false
+        menuImageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: 10).isActive = true
+        menuImageView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+        menuImageView.topAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+        menuImageView.widthAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 4/10).isActive = true
         
+        menuTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        menuTextLabel.trailingAnchor.constraint(equalTo: menuImageView.leadingAnchor, constant: 10).isActive = true
+        menuTextLabel.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
+        menuTextLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+        menuTextLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
+        
+        menuTextLabel.font = .
     }
+    
 }
 
