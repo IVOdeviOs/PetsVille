@@ -18,6 +18,7 @@
 		35D1B0D32857488600022C5D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D1B0CF2857488600022C5D /* Montserrat-Regular.ttf */; };
 		35D1B0D42857488600022C5D /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D1B0D02857488600022C5D /* Montserrat-SemiBold.ttf */; };
 		35D1B0D52857488600022C5D /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35D1B0D12857488600022C5D /* Montserrat-Bold.ttf */; };
+		35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -55,6 +56,7 @@
 		35D1B0CF2857488600022C5D /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		35D1B0D02857488600022C5D /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		35D1B0D12857488600022C5D /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizibleLayout.swift; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		355C0E8A285643400076ABC4 /* CareViewControllets  */ = {
 			isa = PBXGroup;
 			children = (
+				35F52B2B2858BF4E002C37E3 /* CareViewController */,
 				355C0E8B285643690076ABC4 /* MedicineViewController.swift */,
 				355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */,
 				355C0E94285644410076ABC4 /* NursingViewController.swift */,
@@ -110,6 +113,16 @@
 				355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		35F52B2B2858BF4E002C37E3 /* CareViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */,
+				DD69D8142851379100CE464B /* CareViewController.swift */,
+				355C0E9A285647170076ABC4 /* Cells */,
+			);
+			path = CareViewController;
 			sourceTree = "<group>";
 		};
 		DD69D80F2851372000CE464B /* MainControllers */ = {
@@ -133,9 +146,7 @@
 		DD69D81728513CC000CE464B /* Care */ = {
 			isa = PBXGroup;
 			children = (
-				355C0E9A285647170076ABC4 /* Cells */,
 				355C0E8A285643400076ABC4 /* CareViewControllets  */,
-				DD69D8142851379100CE464B /* CareViewController.swift */,
 			);
 			path = Care;
 			sourceTree = "<group>";
@@ -331,6 +342,7 @@
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
+				35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */,
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,

@@ -21,8 +21,7 @@ final class CareCollectionViewCell: UICollectionViewCell {
     
     private func addSubviews() {
         contentView.addSubview(mainView)
-        mainView.addSubview(menuImageView)
-        mainView.addSubview(menuTextLabel)
+        mainView.addAllSubviews(menuTextLabel, menuImageView)
     }
     
     private func addConstraints() {
