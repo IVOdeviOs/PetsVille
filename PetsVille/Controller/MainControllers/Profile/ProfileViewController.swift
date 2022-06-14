@@ -204,11 +204,18 @@ final class ProfileViewController: UIViewController {
     private func setupTabBar() {
         title = "Профиль"
 //        navigationController?.navigationBar.layer.cornerRadius = 20
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(closeWindowPopUp))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(questionPopUpWindow))
         navigationItem.leftBarButtonItem?.tintColor = .orange
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(closeWindowPopUp))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(closeWindowPopUp))
         navigationItem.rightBarButtonItem?.tintColor = .orange
-      
+    
+        
         appearance.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -346,5 +353,8 @@ final class ProfileViewController: UIViewController {
 
     @objc func closeWindowPopUp() {
         popUpWindowView.isHidden = true
+    }
+    @objc func questionPopUpWindow() {
+        popUpWindowView.isHidden = false
     }
 }
