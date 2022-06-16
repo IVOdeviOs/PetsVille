@@ -41,6 +41,7 @@
 		DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBBD72F283C071B0092847A /* PetsVille.xcdatamodeld */; };
 		DDBBD733283C071D0092847A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD732283C071D0092847A /* Assets.xcassets */; };
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
+		DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		DDBBD732283C071D0092847A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDBBD735283C071D0092847A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDBBD737283C071D0092847A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				DD69D8122851377A00CE464B /* ProfileViewController.swift */,
+				DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */,
 				DD69D8112851376600CE464B /* MapViewController.swift in Sources */,
 				DDBBD731283C071B0092847A /* PetsVille.xcdatamodeld in Sources */,
+				DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */,
 				DD69D8152851379100CE464B /* CareViewController.swift in Sources */,
 				DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */,
 				355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */,
