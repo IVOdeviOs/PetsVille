@@ -12,6 +12,7 @@ final class CareCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubviews()
         addConstraints()
+        setupUI()
     }
     
     @available(*, unavailable)
@@ -43,8 +44,28 @@ final class CareCollectionViewCell: UICollectionViewCell {
         menuTextLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
         menuTextLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
         
-//        menuTextLabel.font = .
     }
     
+    private func setupUI() {
+        menuTextLabel.font = .montserrat(36, .semibold)
+        menuTextLabel.textAlignment = .center
+        menuTextLabel.textColor = .black
+        
+        menuImageView.contentMode = .scaleAspectFill
+        mainView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+        menuTextLabel.layer.cornerRadius = 10
+        menuImageView.layer.cornerRadius = 10
+        mainView.addShadow(0.3)
+        mainView.layer.cornerRadius = 10
+        
+        /*
+         в следующий подход нужно
+         */
+    }
+    
+    func setInfo(_ params: Menu) {
+        menuTextLabel.text = params.title
+        menuImageView.image = params.image
+    }
 }
 

@@ -95,7 +95,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		355C0E8A285643400076ABC4 /* CareViewControllets  */ = {
+		355C0E8A285643400076ABC4 /* CareViewControllers  */ = {
 			isa = PBXGroup;
 			children = (
 				35F52B2B2858BF4E002C37E3 /* CareViewController */,
@@ -104,7 +104,7 @@
 				355C0E94285644410076ABC4 /* NursingViewController.swift */,
 				355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */,
 			);
-			path = "CareViewControllets ";
+			path = "CareViewControllers ";
 			sourceTree = "<group>";
 		};
 		355C0E9A285647170076ABC4 /* Cells */ = {
@@ -146,7 +146,7 @@
 		DD69D81728513CC000CE464B /* Care */ = {
 			isa = PBXGroup;
 			children = (
-				355C0E8A285643400076ABC4 /* CareViewControllets  */,
+				355C0E8A285643400076ABC4 /* CareViewControllers  */,
 			);
 			path = Care;
 			sourceTree = "<group>";
