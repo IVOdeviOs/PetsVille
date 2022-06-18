@@ -83,7 +83,7 @@ final class RegistrationViewController: UIViewController {
         registrationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         registrationLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         registrationLabel.widthAnchor.constraint(equalToConstant: 261).isActive = true
-        
+
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
         loginLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 171).isActive = true
         loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
@@ -162,32 +162,32 @@ final class RegistrationViewController: UIViewController {
         lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
+
         ownerPetsButton.translatesAutoresizingMaskIntoConstraints = false
         ownerPetsButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 18).isActive = true
         ownerPetsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         ownerPetsButton.widthAnchor.constraint(equalToConstant: 156).isActive = true
         ownerPetsButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        
+
         companyButton.translatesAutoresizingMaskIntoConstraints = false
         companyButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 18).isActive = true
         companyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         companyButton.widthAnchor.constraint(equalToConstant: 156).isActive = true
         companyButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        
+
         privacyPolicyTextView.translatesAutoresizingMaskIntoConstraints = false
         privacyPolicyTextView.topAnchor.constraint(equalTo: companyButton.bottomAnchor, constant: 22).isActive = true
         privacyPolicyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         privacyPolicyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         privacyPolicyTextView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: 22).isActive = true
-        
+
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
 //        signUpButton.topAnchor.constraint(equalTo: facebookLogoButton.bottomAnchor, constant: 31).isActive = true
         signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         signUpButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -142).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        
+
         iHaveAnAccountButton.translatesAutoresizingMaskIntoConstraints = false
         iHaveAnAccountButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 12).isActive = true
         iHaveAnAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
@@ -255,7 +255,7 @@ final class RegistrationViewController: UIViewController {
 
         registrationLabel.text = "Создать учетную запись"
         registrationLabel.textAlignment = .center
-       
+
         loginLabel.text = "Логин"
         loginLabel.font = .montserrat(16, .medium)
         loginLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
@@ -314,7 +314,7 @@ final class RegistrationViewController: UIViewController {
         appleLogoButton.layer.cornerRadius = 21.5
 
         lineView.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
-        
+
         ownerPetsButton.setTitle(" Владелец домашнего  животного", for: .normal)
         ownerPetsButton.titleLabel?.textAlignment = .center
         ownerPetsButton.titleLabel?.numberOfLines = 3
@@ -333,17 +333,17 @@ final class RegistrationViewController: UIViewController {
         companyButton.layer.borderColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1).cgColor
         companyButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
         companyButton.titleLabel?.font = .montserrat(14, .medium)
-        
+
         privacyPolicyTextView.text = """
         Регистрируясь, вы принимаете условия Политики конфиденциальности и Пользовательского соглашения
         """
         privacyPolicyTextView.textContainer.maximumNumberOfLines = 0
-        
+
         privacyPolicyTextView.isEditable = false
         privacyPolicyTextView.isSelectable = false
         privacyPolicyTextView.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         privacyPolicyTextView.font = .montserrat(12, .regular)
-        
+
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
         signUpButton.titleLabel?.font = .montserrat(20, .semibold)
         signUpButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
@@ -359,7 +359,6 @@ final class RegistrationViewController: UIViewController {
         iHaveAnAccountButton.addTarget(self, action: #selector(backProfileVC), for: .touchUpInside)
         ownerPetsButton.addTarget(self, action: #selector(colorOwner), for: .touchUpInside)
         companyButton.addTarget(self, action: #selector(colorCompany), for: .touchUpInside)
-        
     }
 
     private func setupPopUpWindow() {
@@ -371,7 +370,6 @@ final class RegistrationViewController: UIViewController {
         popUpWindowView.layer.cornerRadius = 16
         popUpWindowView.isHidden = true
 
-        
         closePopUpWindowButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         closePopUpWindowButton.tintColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         closePopUpWindowButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
@@ -413,23 +411,22 @@ final class RegistrationViewController: UIViewController {
             passwordTextField.isSecureTextEntry = false
         }
     }
-    
+
     @objc func colorOwner() {
         ownerPetsButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         companyButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
-
     }
+
     @objc func colorCompany() {
         companyButton.backgroundColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         ownerPetsButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
+    }
 
-    }
-    @objc func backProfileVC(){
-        
+    @objc func backProfileVC() {
+
         navigationController?.popViewController(animated: true)
-        
     }
-    
+
     @objc func closeWindowPopUp() {
         popUpWindowView.isHidden = true
     }
