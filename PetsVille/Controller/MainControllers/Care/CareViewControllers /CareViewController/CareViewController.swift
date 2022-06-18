@@ -23,6 +23,8 @@ final class CareViewController: UIViewController {
         addSubviews()
         addConstraints()
         setupMenuCollectionView()
+        setupNavigationBar()
+        title = "Home"
     }
     
     private func addSubviews() {
@@ -50,6 +52,11 @@ final class CareViewController: UIViewController {
     
     private func setupSearchController() {
     }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.layer.cornerRadius = 7
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+    }
 }
 
 
@@ -71,7 +78,6 @@ extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //        let itemPerRow: CGFloat = 3
 //        let paddingWidth = 10 * (itemPerRow + 1)
 //        let widthForItem = collectionView.frame.width - paddingWidth
-//        
         let width = view.frame.width * 0.75
         let heigth = view.frame.height * 0.15
         

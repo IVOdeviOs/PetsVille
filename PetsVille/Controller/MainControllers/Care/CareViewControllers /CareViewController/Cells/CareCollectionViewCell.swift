@@ -33,10 +33,10 @@ final class CareCollectionViewCell: UICollectionViewCell {
         mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         menuImageView.translatesAutoresizingMaskIntoConstraints = false
-        menuImageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: 10).isActive = true
+        menuImageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = true
         menuImageView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
-        menuImageView.topAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
-        menuImageView.widthAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 4/10).isActive = true
+        menuImageView.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
+        menuImageView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 3.5/10).isActive = true
         
         menuTextLabel.translatesAutoresizingMaskIntoConstraints = false
         menuTextLabel.trailingAnchor.constraint(equalTo: menuImageView.leadingAnchor, constant: 10).isActive = true
@@ -47,20 +47,17 @@ final class CareCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        menuTextLabel.font = .montserrat(36, .semibold)
+        menuTextLabel.font = .montserrat(24, .semibold)
         menuTextLabel.textAlignment = .center
         menuTextLabel.textColor = .black
         
-        menuImageView.contentMode = .scaleAspectFill
         mainView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         menuTextLabel.layer.cornerRadius = 10
         menuImageView.layer.cornerRadius = 10
+        menuImageView.layer.masksToBounds = true
         mainView.addShadow(0.3)
         mainView.layer.cornerRadius = 10
         
-        /*
-         в следующий подход нужно
-         */
     }
     
     func setInfo(_ params: Menu) {
