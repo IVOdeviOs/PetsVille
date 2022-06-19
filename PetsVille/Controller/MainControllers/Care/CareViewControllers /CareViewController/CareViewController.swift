@@ -8,6 +8,7 @@ struct Menu {
 final class CareViewController: UIViewController {
 
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+    private let navBarAppearence = UINavigationBarAppearance()
     
     private let layout = UICollectionViewFlowLayout()
     
@@ -24,7 +25,6 @@ final class CareViewController: UIViewController {
         addConstraints()
         setupMenuCollectionView()
         setupNavigationBar()
-        title = "Home"
     }
     
     private func addSubviews() {
