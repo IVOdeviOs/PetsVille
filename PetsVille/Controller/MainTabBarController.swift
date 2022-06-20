@@ -4,10 +4,11 @@ final class MainTabBarController: UITabBarController {
 
     // MARK: - Properties
     // MARK: Public
+    var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     // MARK: Private
     private let careViewController = UINavigationController(rootViewController: CareViewController())
     private let mapViewController = UINavigationController(rootViewController: MapViewController())
-    private let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+    lazy var profileViewController = UINavigationController(rootViewController: authorizationCheck())
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,24 @@ final class MainTabBarController: UITabBarController {
         tabBar.layer.cornerRadius = 20
         tabBar.tintColor = .orange
     }
-    
+    func authorizationCheck() -> UIViewController{
+        if status{
+            return MedicineViewController()
+        }else{
+            return ProfileViewController()
+        }
+        
+    }
+    func notificationCenter(){
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"),
+                                               object: nil,
+                                               queue: .main)
+        { _ in
+            let status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+            self.status = status
+        }
+        
+    }
     // MARK: - Helpers
     
 }

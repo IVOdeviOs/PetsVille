@@ -149,7 +149,6 @@ final class RegistrationViewController: UIViewController {
         orView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         orLabel.translatesAutoresizingMaskIntoConstraints = false
-//        orLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40).isActive = true
         orLabel.centerYAnchor.constraint(equalTo: orView.centerYAnchor, constant: 0).isActive = true
         orLabel.centerXAnchor.constraint(equalTo: orView.centerXAnchor, constant: 0).isActive = true
         orLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
@@ -158,21 +157,18 @@ final class RegistrationViewController: UIViewController {
         facebookLogoButton.translatesAutoresizingMaskIntoConstraints = false
         facebookLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
         facebookLogoButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
-//        facebookLogoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225).isActive = true
         facebookLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
         facebookLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
 
         googleLogoButton.translatesAutoresizingMaskIntoConstraints = false
         googleLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
         googleLogoButton.trailingAnchor.constraint(equalTo: facebookLogoButton.leadingAnchor, constant: -20).isActive = true
-//        googleLogoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225).isActive = true
         googleLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
         googleLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
 
         appleLogoButton.translatesAutoresizingMaskIntoConstraints = false
         appleLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
         appleLogoButton.leadingAnchor.constraint(equalTo: facebookLogoButton.trailingAnchor, constant: 20).isActive = true
-//        appleLogoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225).isActive = true
         appleLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
         appleLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
 
@@ -198,11 +194,10 @@ final class RegistrationViewController: UIViewController {
         privacyPolicyTextView.topAnchor.constraint(equalTo: companyButton.bottomAnchor, constant: 22).isActive = true
         privacyPolicyTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         privacyPolicyTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
-//        privacyPolicyTextView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -22).isActive = true
         privacyPolicyTextView.heightAnchor.constraint(equalToConstant: 53).isActive = true
         
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.topAnchor.constraint(equalTo: privacyPolicyTextView.bottomAnchor, constant: 22).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: privacyPolicyTextView.bottomAnchor, constant: 28).isActive = true
         signUpButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         signUpButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         signUpButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50).isActive = true
@@ -287,6 +282,7 @@ final class RegistrationViewController: UIViewController {
         loginTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
         loginTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: loginTextField.frame.height))
         loginTextField.leftViewMode = .always
+        loginTextField.autocapitalizationType = .none
 
         passwordLabel.text = "Пароль"
         passwordLabel.font = .montserrat(16, .medium)
@@ -412,6 +408,7 @@ final class RegistrationViewController: UIViewController {
         textPopUpWindow.font = .montserrat(16, .medium)
 
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpProfile), for: .touchUpInside)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -453,5 +450,28 @@ final class RegistrationViewController: UIViewController {
 
     @objc func questionPopUpWindow() {
         popUpWindowView.isHidden = false
+    }
+    
+    @objc func signUpProfile(){
+        let login = loginTextField.text!
+        let password = passwordTextField.text!
+        signUpWithEmail(email:login ,
+                        password: password ) { verified, status in
+            if !verified {
+                let alert = UIAlertController(title: "Ошибка" ,
+                                              message: status ,
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: true,
+                        completion: nil)
+            } else {
+                UserDefaults.standard.set(true, forKey: "status")
+                let vc = MedicineViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+//                UserDefaults.standard.set(signUP.email, forKey: "1")
+            }
+        }
+        
     }
 }

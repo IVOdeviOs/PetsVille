@@ -43,6 +43,7 @@
 		DDBBD733283C071D0092847A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD732283C071D0092847A /* Assets.xcassets */; };
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
 		DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */; };
+		DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC1087E28609DA000F5116E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		DDBBD735283C071D0092847A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDBBD737283C071D0092847A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		DDC1087E28609DA000F5116E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				DDBBD728283C071B0092847A /* SceneDelegate.swift */,
 				DDBBD732283C071D0092847A /* Assets.xcassets */,
 				DDBBD737283C071D0092847A /* Info.plist */,
+				DDC1087E28609DA000F5116E /* GoogleService-Info.plist */,
 				DDBBD72F283C071B0092847A /* PetsVille.xcdatamodeld */,
 			);
 			path = PetsVille;
@@ -330,6 +333,7 @@
 				354D0E56285DEE29001989C8 /* Montserrat-Medium.ttf in Resources */,
 				354D0E57285DEE29001989C8 /* Montserrat-Regular.ttf in Resources */,
 				354D0E52285DEE0D001989C8 /* Montserrat-Bold.ttf in Resources */,
+				DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

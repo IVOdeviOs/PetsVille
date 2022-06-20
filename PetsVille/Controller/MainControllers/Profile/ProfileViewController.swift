@@ -242,6 +242,7 @@ final class ProfileViewController: UIViewController {
         loginTextField.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
         loginTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: loginTextField.frame.height))
         loginTextField.leftViewMode = .always
+        loginTextField.autocapitalizationType = .none
 
         passwordLabel.text = "Пароль"
         passwordLabel.font = .montserrat(16, .medium)
@@ -334,7 +335,9 @@ final class ProfileViewController: UIViewController {
         textPopUpWindow.isEditable = false
         textPopUpWindow.isSelectable = false
         textPopUpWindow.font = .montserrat(16, .medium)
-
+        
+        signInButton.addTarget(self, action: #selector(signInProfile), for: .touchUpInside)
+        
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
     }
 
@@ -357,7 +360,31 @@ final class ProfileViewController: UIViewController {
     }
     @objc func registrationView(){
         let vc = RegistrationViewController()
+        
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func signInProfile(){
+        let login = loginTextField.text!
+        let password = passwordTextField.text!
+        signInWithEmail(email: login, password: password) { verified, status in
+            if !verified {
+                let alert = UIAlertController(title: "Ошибка" ,
+                                              message: status,
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: true,
+                        completion: nil)
+                
+            } else {
+                UserDefaults.standard.set(true, forKey: "status")
+                NotificationCenter.default
+                    .post(name: NSNotification.Name("statusChange"), object: nil)
+                let vc = MedicineViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+//                UserDefaults.standard.set(login.email, forKey: "1")
+            }
+        }
         
     }
     
