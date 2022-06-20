@@ -8,10 +8,8 @@ enum FontWeight: String {
 }
 
 extension UIFont {
-    
+
     static func montserrat(_ size: CGFloat, _ weight: FontWeight) -> UIFont {
-        UIFont(name: weight.rawValue, size: size) ?? .systemFont(ofSize: 25)
-        
+        UIFont(name: weight.rawValue, size: size) ?? .systemFont(ofSize: 14)
     }
 }
-
