@@ -7,6 +7,8 @@ final class RegistrationViewController: UIViewController {
     // MARK: Public
 
     // MARK: Private
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     private let registrationLabel = UILabel()
     private let loginLabel = UILabel()
     private var loginTextField = UITextField()
@@ -49,7 +51,10 @@ final class RegistrationViewController: UIViewController {
 
     // MARK: - Setups
     private func addSubviews() {
-        view.addAllSubviews(registrationLabel,
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addAllSubviews(
+                            registrationLabel,
                             loginLabel,
                             loginTextField,
                             passwordLabel,
@@ -78,35 +83,49 @@ final class RegistrationViewController: UIViewController {
     }
 
     private func setupConstrainsView() {
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+       
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1.0).isActive = true
+        
         registrationLabel.translatesAutoresizingMaskIntoConstraints = false
-        registrationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 118).isActive = true
-        registrationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        registrationLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 35).isActive = true
+        registrationLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
         registrationLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         registrationLabel.widthAnchor.constraint(equalToConstant: 261).isActive = true
 
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
-        loginLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 171).isActive = true
-        loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        loginLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 88).isActive = true
+        loginLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         loginLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         loginLabel.widthAnchor.constraint(equalToConstant: 72).isActive = true
 
         loginTextField.translatesAutoresizingMaskIntoConstraints = false
         loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 5).isActive = true
-        loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        loginTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        loginTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         loginTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         loginTextField.widthAnchor.constraint(equalToConstant: 325).isActive = true
 
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
         passwordLabel.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 10).isActive = true
-        passwordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        passwordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         passwordLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         passwordLabel.widthAnchor.constraint(equalToConstant: 72).isActive = true
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5).isActive = true
-        passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         passwordTextField.widthAnchor.constraint(equalToConstant: 325).isActive = true
 
@@ -119,14 +138,14 @@ final class RegistrationViewController: UIViewController {
 
         countSymbolLabel.translatesAutoresizingMaskIntoConstraints = false
         countSymbolLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5).isActive = true
-        countSymbolLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        countSymbolLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         countSymbolLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
         countSymbolLabel.widthAnchor.constraint(equalToConstant: 170).isActive = true
 
         orView.translatesAutoresizingMaskIntoConstraints = false
         orView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40).isActive = true
-        orView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        orView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        orView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        orView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         orView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         orLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +157,7 @@ final class RegistrationViewController: UIViewController {
 
         facebookLogoButton.translatesAutoresizingMaskIntoConstraints = false
         facebookLogoButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 18).isActive = true
-        facebookLogoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        facebookLogoButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
 //        facebookLogoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225).isActive = true
         facebookLogoButton.widthAnchor.constraint(equalToConstant: 43).isActive = true
         facebookLogoButton.heightAnchor.constraint(equalToConstant: 43).isActive = true
@@ -159,39 +178,40 @@ final class RegistrationViewController: UIViewController {
 
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.topAnchor.constraint(equalTo: facebookLogoButton.bottomAnchor, constant: 28).isActive = true
-        lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        lineView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        lineView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         ownerPetsButton.translatesAutoresizingMaskIntoConstraints = false
         ownerPetsButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 18).isActive = true
-        ownerPetsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        ownerPetsButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         ownerPetsButton.widthAnchor.constraint(equalToConstant: 156).isActive = true
         ownerPetsButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
 
         companyButton.translatesAutoresizingMaskIntoConstraints = false
         companyButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 18).isActive = true
-        companyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        companyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         companyButton.widthAnchor.constraint(equalToConstant: 156).isActive = true
         companyButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
 
         privacyPolicyTextView.translatesAutoresizingMaskIntoConstraints = false
         privacyPolicyTextView.topAnchor.constraint(equalTo: companyButton.bottomAnchor, constant: 22).isActive = true
-        privacyPolicyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        privacyPolicyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
-        privacyPolicyTextView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: 22).isActive = true
-
+        privacyPolicyTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        privacyPolicyTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
+//        privacyPolicyTextView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -22).isActive = true
+        privacyPolicyTextView.heightAnchor.constraint(equalToConstant: 53).isActive = true
+        
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-//        signUpButton.topAnchor.constraint(equalTo: facebookLogoButton.bottomAnchor, constant: 31).isActive = true
-        signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
-        signUpButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -142).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: privacyPolicyTextView.bottomAnchor, constant: 22).isActive = true
+        signUpButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
+        signUpButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
 
         iHaveAnAccountButton.translatesAutoresizingMaskIntoConstraints = false
         iHaveAnAccountButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 12).isActive = true
-        iHaveAnAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        iHaveAnAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110).isActive = true
+        iHaveAnAccountButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
+        iHaveAnAccountButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18).isActive = true
         iHaveAnAccountButton.widthAnchor.constraint(equalToConstant: 153).isActive = true
 
         iHaveAnAccountView.translatesAutoresizingMaskIntoConstraints = false
@@ -342,7 +362,7 @@ final class RegistrationViewController: UIViewController {
         privacyPolicyTextView.isEditable = false
         privacyPolicyTextView.isSelectable = false
         privacyPolicyTextView.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        privacyPolicyTextView.font = .montserrat(12, .regular)
+        privacyPolicyTextView.font = .systemFont(ofSize: 12)
 
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
         signUpButton.titleLabel?.font = .montserrat(20, .semibold)
