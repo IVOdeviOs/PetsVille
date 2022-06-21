@@ -44,6 +44,11 @@
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
 		DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */; };
 		DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC1087E28609DA000F5116E /* GoogleService-Info.plist */; };
+		DDD3C2712861AA0600F8BDCF /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = DDD3C2702861AA0600F8BDCF /* GoogleMaps */; };
+		DDD3C2732861AA0600F8BDCF /* GoogleMapsBase in Frameworks */ = {isa = PBXBuildFile; productRef = DDD3C2722861AA0600F8BDCF /* GoogleMapsBase */; };
+		DDD3C2752861AA0600F8BDCF /* GoogleMapsCore in Frameworks */ = {isa = PBXBuildFile; productRef = DDD3C2742861AA0600F8BDCF /* GoogleMapsCore */; };
+		DDD3C2772861AA0600F8BDCF /* GoogleMapsM4B in Frameworks */ = {isa = PBXBuildFile; productRef = DDD3C2762861AA0600F8BDCF /* GoogleMapsM4B */; };
+		DDD3C2792861AA0600F8BDCF /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = DDD3C2782861AA0600F8BDCF /* GooglePlaces */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,11 +91,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD3C2712861AA0600F8BDCF /* GoogleMaps in Frameworks */,
+				DDD3C2772861AA0600F8BDCF /* GoogleMapsM4B in Frameworks */,
 				DDB56D4D283C1B8000C16CC3 /* FirebaseDatabaseSwift in Frameworks */,
 				DDB56D4B283C1B8000C16CC3 /* FirebaseDatabase in Frameworks */,
+				DDD3C2732861AA0600F8BDCF /* GoogleMapsBase in Frameworks */,
 				DDB56D47283C1B8000C16CC3 /* FirebaseAuth in Frameworks */,
+				DDD3C2752861AA0600F8BDCF /* GoogleMapsCore in Frameworks */,
 				DDB56D4F283C1B8000C16CC3 /* FirebaseFirestore in Frameworks */,
 				DDB56D53283C1B8000C16CC3 /* FirebaseStorage in Frameworks */,
+				DDD3C2792861AA0600F8BDCF /* GooglePlaces in Frameworks */,
 				DDB56D49283C1B8000C16CC3 /* FirebaseCrashlytics in Frameworks */,
 				DDB56D51283C1B8000C16CC3 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -281,6 +291,11 @@
 				DDB56D4E283C1B8000C16CC3 /* FirebaseFirestore */,
 				DDB56D50283C1B8000C16CC3 /* FirebaseFirestoreSwift */,
 				DDB56D52283C1B8000C16CC3 /* FirebaseStorage */,
+				DDD3C2702861AA0600F8BDCF /* GoogleMaps */,
+				DDD3C2722861AA0600F8BDCF /* GoogleMapsBase */,
+				DDD3C2742861AA0600F8BDCF /* GoogleMapsCore */,
+				DDD3C2762861AA0600F8BDCF /* GoogleMapsM4B */,
+				DDD3C2782861AA0600F8BDCF /* GooglePlaces */,
 			);
 			productName = PetsVille;
 			productReference = DDBBD723283C071B0092847A /* PetsVille.app */;
@@ -312,6 +327,7 @@
 			mainGroup = DDBBD71A283C071B0092847A;
 			packageReferences = (
 				DDB56D45283C1B8000C16CC3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
 			);
 			productRefGroup = DDBBD724283C071B0092847A /* Products */;
 			projectDirPath = "";
@@ -588,6 +604,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/YAtechnologies/GoogleMaps-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -625,6 +649,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DDB56D45283C1B8000C16CC3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		DDD3C2702861AA0600F8BDCF /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMaps;
+		};
+		DDD3C2722861AA0600F8BDCF /* GoogleMapsBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsBase;
+		};
+		DDD3C2742861AA0600F8BDCF /* GoogleMapsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsCore;
+		};
+		DDD3C2762861AA0600F8BDCF /* GoogleMapsM4B */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsM4B;
+		};
+		DDD3C2782861AA0600F8BDCF /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDD3C26F2861AA0600F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GooglePlaces;
 		};
 /* End XCSwiftPackageProductDependency section */
 
