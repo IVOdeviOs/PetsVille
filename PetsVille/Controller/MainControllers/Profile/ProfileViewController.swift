@@ -1,3 +1,6 @@
+import FacebookCore
+import FacebookLogin
+import FirebaseAuth
 import SwiftUI
 import UIKit
 
@@ -60,17 +63,16 @@ final class ProfileViewController: UIViewController {
                             signInButton,
                             signUpButton,
                             signUpView,
-                            popUpWindowView
-        )
+                            popUpWindowView)
         popUpWindowView.addAllSubviews(closePopUpWindowButton,
                                        logoPopUpWindowImage,
                                        popUpWindowSignUpButton,
                                        popUpWindowSignInButton,
-                                       textPopUpWindow
-        )
+                                       textPopUpWindow)
         forgotYourPasswordButton.addSubview(forgotView)
         orView.addSubview(orLabel)
     }
+
     private func setupConstrainsView() {
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 59).isActive = true
@@ -130,7 +132,6 @@ final class ProfileViewController: UIViewController {
         orView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
         orView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
-        
         orLabel.translatesAutoresizingMaskIntoConstraints = false
         orLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true
         orLabel.centerYAnchor.constraint(equalTo: orView.centerYAnchor, constant: 0).isActive = true
@@ -305,6 +306,7 @@ final class ProfileViewController: UIViewController {
 
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(registrationView), for: .touchUpInside)
+        facebookLogoButton.addTarget(self, action: #selector(facebookRegistration), for: .touchUpInside)
     }
 
     private func setupPopUpWindow() {
@@ -314,7 +316,7 @@ final class ProfileViewController: UIViewController {
         popUpWindowView.layer.shadowOffset = .zero
         popUpWindowView.layer.shadowRadius = 200
         popUpWindowView.layer.cornerRadius = 16
-        
+
         closePopUpWindowButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         closePopUpWindowButton.tintColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1)
         closePopUpWindowButton.backgroundColor = UIColor(red: 0.996, green: 0.954, blue: 0.921, alpha: 1)
@@ -335,9 +337,9 @@ final class ProfileViewController: UIViewController {
         textPopUpWindow.isEditable = false
         textPopUpWindow.isSelectable = false
         textPopUpWindow.font = .montserrat(16, .medium)
-        
+
         signInButton.addTarget(self, action: #selector(signInProfile), for: .touchUpInside)
-        
+
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
     }
 
@@ -358,24 +360,25 @@ final class ProfileViewController: UIViewController {
             passwordTextField.isSecureTextEntry = false
         }
     }
-    @objc func registrationView(){
+
+    @objc func registrationView() {
         let vc = RegistrationViewController()
-        
+
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc func signInProfile(){
+
+    @objc func signInProfile() {
         let login = loginTextField.text!
         let password = passwordTextField.text!
         signInWithEmail(email: login, password: password) { verified, status in
             if !verified {
-                let alert = UIAlertController(title: "Ошибка" ,
+                let alert = UIAlertController(title: "Ошибка",
                                               message: status,
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 self.present(alert, animated: true,
-                        completion: nil)
-                
+                             completion: nil)
+
             } else {
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default
@@ -384,14 +387,30 @@ final class ProfileViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
     }
-    
+
     @objc func closeWindowPopUp() {
         popUpWindowView.isHidden = true
     }
 
     @objc func questionPopUpWindow() {
         popUpWindowView.isHidden = false
+    }
+
+    @objc func facebookRegistration() {
+
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile"], from: self) { result, error in
+            if let error = error {
+                print("Encountered Erorr: \(error)")
+            } else if let result = result, result.isCancelled {
+                print("Cancelled")
+            } else {
+                print("Logged In")
+                UserDefaults.standard.set(true, forKey: "status")
+                let vc = MedicineViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }

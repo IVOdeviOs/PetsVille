@@ -1,7 +1,8 @@
+import FacebookCore
+import FacebookLogin
+import FirebaseAuth
 import SwiftUI
 import UIKit
-import FirebaseAuth
-
 final class RegistrationViewController: UIViewController {
     // MARK: - Properties
 
@@ -55,25 +56,26 @@ final class RegistrationViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addAllSubviews(
-                            registrationLabel,
-                            loginLabel,
-                            loginTextField,
-                            passwordLabel,
-                            passwordTextField,
-                            securityButton,
-                            countSymbolLabel,
-                            orView,
-                            googleLogoButton,
-                            facebookLogoButton,
-                            appleLogoButton,
-                            lineView,
-                            ownerPetsButton,
-                            privacyPolicyTextView,
-                            companyButton,
-                            signUpButton,
-                            iHaveAnAccountButton,
-                            iHaveAnAccountView,
-                            popUpWindowView)
+            registrationLabel,
+            loginLabel,
+            loginTextField,
+            passwordLabel,
+            passwordTextField,
+            securityButton,
+            countSymbolLabel,
+            orView,
+            googleLogoButton,
+            facebookLogoButton,
+            appleLogoButton,
+            lineView,
+            ownerPetsButton,
+            privacyPolicyTextView,
+            companyButton,
+            signUpButton,
+            iHaveAnAccountButton,
+            iHaveAnAccountView,
+            popUpWindowView
+        )
         popUpWindowView.addAllSubviews(closePopUpWindowButton,
                                        logoPopUpWindowImage,
                                        popUpWindowSignUpButton,
@@ -84,20 +86,20 @@ final class RegistrationViewController: UIViewController {
     }
 
     private func setupConstrainsView() {
-        
+
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-       
+
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1.0).isActive = true
-        
+
         registrationLabel.translatesAutoresizingMaskIntoConstraints = false
         registrationLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 35).isActive = true
         registrationLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
@@ -196,7 +198,7 @@ final class RegistrationViewController: UIViewController {
         privacyPolicyTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
         privacyPolicyTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
         privacyPolicyTextView.heightAnchor.constraint(equalToConstant: 53).isActive = true
-        
+
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.topAnchor.constraint(equalTo: privacyPolicyTextView.bottomAnchor, constant: 28).isActive = true
         signUpButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25).isActive = true
@@ -321,7 +323,7 @@ final class RegistrationViewController: UIViewController {
         googleLogoButton.layer.borderWidth = 1
         googleLogoButton.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
         googleLogoButton.layer.cornerRadius = 21.5
-
+//
         facebookLogoButton.layer.borderWidth = 1
         facebookLogoButton.layer.borderColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1).cgColor
         facebookLogoButton.layer.cornerRadius = 21.5
@@ -374,6 +376,8 @@ final class RegistrationViewController: UIViewController {
 
         securityButton.addTarget(self, action: #selector(securityEyeAction), for: .touchUpInside)
         iHaveAnAccountButton.addTarget(self, action: #selector(backProfileVC), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpProfile), for: .touchUpInside)
+        facebookLogoButton.addTarget(self, action: #selector(facebookRegistration), for: .touchUpInside)
         ownerPetsButton.addTarget(self, action: #selector(colorOwner), for: .touchUpInside)
         companyButton.addTarget(self, action: #selector(colorCompany), for: .touchUpInside)
     }
@@ -409,7 +413,6 @@ final class RegistrationViewController: UIViewController {
         textPopUpWindow.font = .montserrat(16, .medium)
 
         closePopUpWindowButton.addTarget(self, action: #selector(closeWindowPopUp), for: .touchUpInside)
-        signUpButton.addTarget(self, action: #selector(signUpProfile), for: .touchUpInside)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -452,19 +455,19 @@ final class RegistrationViewController: UIViewController {
     @objc func questionPopUpWindow() {
         popUpWindowView.isHidden = false
     }
-    
-    @objc func signUpProfile(){
+
+    @objc func signUpProfile() {
         let login = loginTextField.text!
         let password = passwordTextField.text!
-        signUpWithEmail(email:login ,
-                        password: password ) { verified, status in
+        signUpWithEmail(email: login,
+                        password: password) { verified, status in
             if !verified {
-                let alert = UIAlertController(title: "Ошибка" ,
-                                              message: status ,
+                let alert = UIAlertController(title: "Ошибка",
+                                              message: status,
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 self.present(alert, animated: true,
-                        completion: nil)
+                             completion: nil)
             } else {
                 UserDefaults.standard.set(true, forKey: "status")
                 let vc = MedicineViewController()
@@ -472,11 +475,23 @@ final class RegistrationViewController: UIViewController {
                 NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
             }
         }
-        
     }
-//    @objc func facebookRegistration() {
-//        if let accessToken = AccessToken
-//        
-//        faceBookLogin(accessToken: <#T##String#>)
-//    }
+
+    @objc func facebookRegistration() {
+
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile"], from: self) { result, error in
+            if let error = error {
+                print("Encountered Erorr: \(error)")
+            } else if let result = result, result.isCancelled {
+                print("Cancelled")
+            } else {
+                print("Logged In")
+                UserDefaults.standard.set(true, forKey: "status")
+                let vc = MedicineViewController()
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
 }

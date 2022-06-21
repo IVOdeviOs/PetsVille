@@ -24,6 +24,11 @@
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
 		DD69D8132851377A00CE464B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8122851377A00CE464B /* ProfileViewController.swift */; };
 		DD69D8152851379100CE464B /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8142851379100CE464B /* CareViewController.swift */; };
+		DD98594B28622728008801A1 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = DD98594A28622728008801A1 /* FacebookAEM */; };
+		DD98594D28622728008801A1 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = DD98594C28622728008801A1 /* FacebookBasics */; };
+		DD98594F28622728008801A1 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = DD98594E28622728008801A1 /* FacebookCore */; };
+		DD98595128622728008801A1 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = DD98595028622728008801A1 /* FacebookLogin */; };
+		DD98595328622728008801A1 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = DD98595228622728008801A1 /* FacebookShare */; };
 		DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */; };
 		DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */; };
 		DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */; };
@@ -101,14 +106,19 @@
 				DDD3C2A32861BA8200F8BDCF /* GooglePlaces in Frameworks */,
 				DDD3C29D2861BA8200F8BDCF /* GoogleMapsBase in Frameworks */,
 				DDD3C28F2861B64D00F8BDCF /* FirebaseStorage in Frameworks */,
+				DD98594D28622728008801A1 /* FacebookBasics in Frameworks */,
+				DD98594F28622728008801A1 /* FacebookCore in Frameworks */,
 				DDD3C27F2861B64D00F8BDCF /* FirebaseAppCheck in Frameworks */,
 				DDD3C29B2861BA8200F8BDCF /* GoogleMaps in Frameworks */,
+				DD98594B28622728008801A1 /* FacebookAEM in Frameworks */,
 				DDD3C28B2861B64D00F8BDCF /* FirebaseInAppMessaging-Beta in Frameworks */,
+				DD98595128622728008801A1 /* FacebookLogin in Frameworks */,
 				DDD3C2A12861BA8200F8BDCF /* GoogleMapsM4B in Frameworks */,
 				DDD3C2832861B64D00F8BDCF /* FirebaseCrashlytics in Frameworks */,
 				DDD3C2812861B64D00F8BDCF /* FirebaseAuth in Frameworks */,
 				DDD3C27D2861B64D00F8BDCF /* FirebaseAnalytics in Frameworks */,
 				DDD3C29F2861BA8200F8BDCF /* GoogleMapsCore in Frameworks */,
+				DD98595328622728008801A1 /* FacebookShare in Frameworks */,
 				DDD3C2872861B64D00F8BDCF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +317,11 @@
 				DDD3C29E2861BA8200F8BDCF /* GoogleMapsCore */,
 				DDD3C2A02861BA8200F8BDCF /* GoogleMapsM4B */,
 				DDD3C2A22861BA8200F8BDCF /* GooglePlaces */,
+				DD98594A28622728008801A1 /* FacebookAEM */,
+				DD98594C28622728008801A1 /* FacebookBasics */,
+				DD98594E28622728008801A1 /* FacebookCore */,
+				DD98595028622728008801A1 /* FacebookLogin */,
+				DD98595228622728008801A1 /* FacebookShare */,
 			);
 			productName = PetsVille;
 			productReference = DDBBD723283C071B0092847A /* PetsVille.app */;
@@ -339,6 +354,7 @@
 			packageReferences = (
 				DDD3C27B2861B64D00F8BDCF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DDD3C2992861BA8200F8BDCF /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+				DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = DDBBD724283C071B0092847A /* Products */;
 			projectDirPath = "";
@@ -609,6 +625,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
 		DDD3C27B2861B64D00F8BDCF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -628,6 +652,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD98594A28622728008801A1 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		DD98594C28622728008801A1 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		DD98594E28622728008801A1 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		DD98595028622728008801A1 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		DD98595228622728008801A1 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD98594928622728008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
 		DDD3C27C2861B64D00F8BDCF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDD3C27B2861B64D00F8BDCF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
