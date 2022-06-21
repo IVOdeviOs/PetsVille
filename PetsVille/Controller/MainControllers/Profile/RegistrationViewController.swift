@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import FirebaseAuth
 
 final class RegistrationViewController: UIViewController {
     // MARK: - Properties
@@ -469,9 +470,13 @@ final class RegistrationViewController: UIViewController {
                 let vc = MedicineViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
-//                UserDefaults.standard.set(signUP.email, forKey: "1")
             }
         }
         
     }
+//    @objc func facebookRegistration() {
+//        if let accessToken = AccessToken
+//        
+//        faceBookLogin(accessToken: <#T##String#>)
+//    }
 }

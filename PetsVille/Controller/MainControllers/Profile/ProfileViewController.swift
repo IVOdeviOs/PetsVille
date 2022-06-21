@@ -382,7 +382,6 @@ final class ProfileViewController: UIViewController {
                     .post(name: NSNotification.Name("statusChange"), object: nil)
                 let vc = MedicineViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
-//                UserDefaults.standard.set(login.email, forKey: "1")
             }
         }
         
