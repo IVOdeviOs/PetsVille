@@ -384,7 +384,8 @@ final class ProfileViewController: UIViewController {
                 NotificationCenter.default
                     .post(name: NSNotification.Name("statusChange"), object: nil)
                 let vc = MedicineViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                vc.modalPresentationStyle = .currentContext
+                self.present(vc, animated: true)
             }
         }
     }
