@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35229CC828649C8A00E9C917 /* UIViewController+.swift */; };
 		354D0E52285DEE0D001989C8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */; };
 		354D0E56285DEE29001989C8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */; };
 		354D0E57285DEE29001989C8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35229CC828649C8A00E9C917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				DDB56D3A283C0BB700C16CC3 /* UIColor+.swift */,
 				355C0E9F2856636B0076ABC4 /* UIView+.swift */,
 				35D1B0CC285724E400022C5D /* UIStackView+.swift */,
+				35229CC828649C8A00E9C917 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */,
 				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
+				35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,

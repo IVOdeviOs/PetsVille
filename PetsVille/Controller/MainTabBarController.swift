@@ -29,7 +29,7 @@ final class MainTabBarController: UITabBarController {
         mapViewController.title = "Карта"
         profileViewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         profileViewController.title = "Профиль"
-        tabBar.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
+        tabBar.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         tabBar.layer.cornerRadius = 20
         tabBar.tintColor = .orange
     }

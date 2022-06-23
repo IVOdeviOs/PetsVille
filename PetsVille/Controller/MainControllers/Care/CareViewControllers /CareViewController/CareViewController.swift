@@ -9,6 +9,7 @@ final class CareViewController: UIViewController {
 
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let navBarAppearence = UINavigationBarAppearance()
+    private var searchController = UISearchController()
     
     private let layout = UICollectionViewFlowLayout()
     
@@ -25,10 +26,12 @@ final class CareViewController: UIViewController {
         addConstraints()
         setupMenuCollectionView()
         setupNavigationBar()
+        setupSearchController()
     }
     
     private func addSubviews() {
         view.addSubview(menuCollectionView)
+        view.backgroundColor = .white
     }
     
     private func addConstraints() {
@@ -47,15 +50,28 @@ final class CareViewController: UIViewController {
         
         
         menuCollectionView.backgroundColor = .clear
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+//        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
     }
     
     private func setupSearchController() {
-    }
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchResultsUpdater = self
+            searchController.searchBar.placeholder = "Search"
+            navigationItem.searchController = searchController
+            searchController.searchBar.searchTextField.layer.masksToBounds = true
+            searchController.searchBar.searchTextField.layer.cornerRadius = 5
+            searchController.searchBar.barTintColor = .systemIndigo
+        }
     
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.layer.cornerRadius = 7
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+    private func setupNavigationBar() { 
+        navBarAppearence.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+//        navBarAppearence.layer.cornerRadius = 25
+//        navBarAppearence.clipsToBounds = true
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearence
+        navigationController?.navigationBar.layer.cornerRadius = 20
+        navigationController?.navigationBar.clipsToBounds = true
+//        navigationController?.navigationBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        
     }
 }
 
@@ -88,4 +104,19 @@ extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
     
+}
+
+extension CareViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func filterContent(for SearchText: String) {
+//        desiredArray = dataSource.filter { array -> Bool in
+//            let nameOfCurrency = array.name.lowercased()
+//                return nameOfCurrency.hasPrefix(SearchText.lowercased())
+        }
+    func updateSearchResults(for searchController: UISearchController) {
+//        if let searchedText = searchController.searchBar.text {
+//            filterContent(for: searchedText)
+//            tableView.reloadData()
+//        }
+//    }
+    }
 }
