@@ -3,7 +3,7 @@ import MapKit
 import CoreLocation
 
 final class MapViewController: UIViewController {
-
+    
     // MARK: Private
     
     private let mapView = MKMapView()
@@ -12,11 +12,26 @@ final class MapViewController: UIViewController {
     private let arrayOfShops: [Shop] = [bestFish, zooBazar, priroda]
     private let arrayOfWalkingGrounds: [WalkingGround] = [landera, sobachiaPloschadka, pogulianka]
     private let arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
-    private var arrayOfClinicsPoints = [MKPointAnnotation()]
-    private var arrayOfShopsPoints = [MKPointAnnotation()]
-    private var arrayOfWalkingGroundsPoints = [MKPointAnnotation()]
-    private var arrayOfCafePoints = [MKPointAnnotation()]
-
+    private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+    private let layout = UICollectionViewFlowLayout()
+//    private let clinicsButton = UIButton()
+//    private let zooShopsButton = UIButton()
+//    private let cafesButton = UIButton()
+//    private let walkingGroundsButton = UIButton()
+//    private let listButton = UIButton()
+//    private let isOpenedButton = UIButton()
+//    private let isContainsPhotosButton = UIButton()
+//    private var arrayOfButtons = [UIButton]() {
+//        didSet {
+//            collectionView.reloadData()
+//        }
+//    }
+    private var arrayOfButtons: [String] = ["Клиники", "Зоомагазины", "Заведения", "Площадки"] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -24,13 +39,17 @@ final class MapViewController: UIViewController {
         mapView.delegate = self
         addSubviews()
         addConstraints()
+        addingPointsIntoTheMap()
         setupUI()
+        setupCollectionView()
+
     }
     
     // MARK: - Setups
-   
+    
     private func addSubviews() {
         view.addSubview(mapView)
+        view.addSubview(collectionView)
     }
     
     private func addConstraints() {
@@ -39,57 +58,116 @@ final class MapViewController: UIViewController {
         mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 111).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 42).isActive = true
     }
     
     private func setupUI() {
-        
-//        userLocation
+//        clinicsButton.setTitle("Клиники", for: .normal)
+//        zooShopsButton.setTitle("Зоомагазины", for: .normal)
+//        cafesButton.setTitle("Заведения", for: .normal)
+//        walkingGroundsButton.setTitle("Площадки", for: .normal)
+//        arrayOfButtons.append(clinicsButton)
+//        arrayOfButtons.append(zooShopsButton)
+//        arrayOfButtons.append(cafesButton)
+//        arrayOfButtons.append(walkingGroundsButton)
+    }
+    
+        private func addingPointsIntoTheMap() {
+        //        userLocation
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
-        let myLatitude = locationManager.location?.coordinate.latitude
-        let myLongitude = locationManager.location?.coordinate.longitude
-        let myLocation = CLLocationCoordinate2D(
-            latitude: myLatitude ?? 53.904541,
-            longitude: myLongitude ?? 27.561523
-        )
+        
         let coordinatesRegion = MKCoordinateRegion(
-            center: myLocation,
-            latitudinalMeters: 300,
-            longitudinalMeters: 300
+            center: CLLocationCoordinate2D(
+                latitude: 53.902284,
+                longitude: 27.561831
+            ),
+            latitudinalMeters: 13000,
+            longitudinalMeters: 13000
         )
         mapView.setRegion(coordinatesRegion, animated: true)
         
-//        objectsPoints
+        //        objectsPoints
         
         for clinic in arrayOfClinics {
-            let point = MKPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: clinic.latitude, longitude: clinic.longitude)
-            mapView.addAnnotation(point)
-            arrayOfClinicsPoints.append(point)
+            let marker = MyAnnotation(
+                title: "title",
+                subtitle: "subtitle",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: clinic.latitude,
+                    longitude: clinic.longitude
+                )
+            )
+            let image = UIImage(named: "hospital")
+            let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
+            marker.image = resizedImage
+            self.mapView.addAnnotation(marker)
         }
         
         for shop in arrayOfShops {
-            let point = MKPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude)
-            mapView.addAnnotation(point)
-            arrayOfShopsPoints.append(point)
+            let marker = MyAnnotation(
+                title: "title",
+                subtitle: "subtitle",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: shop.latitude,
+                    longitude: shop.longitude
+                )
+            )
+            let image = UIImage(named: "shop")
+            let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
+            marker.image = resizedImage
+            self.mapView.addAnnotation(marker)
         }
         
         for ground in arrayOfWalkingGrounds {
-            let point = MKPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: ground.latitude, longitude: ground.longitude)
-            mapView.addAnnotation(point)
-            arrayOfWalkingGroundsPoints.append(point)
+            let marker = MyAnnotation(
+                title: "title",
+                subtitle: "subtitle",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: ground.latitude,
+                    longitude: ground.longitude
+                )
+            )
+            let image = UIImage(named: "walkingGround")
+            let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
+            marker.image = resizedImage
+            self.mapView.addAnnotation(marker)
         }
         
         for cafe in arrayOfCafes {
-            let point = MKPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: cafe.latitude, longitude: cafe.longitude)
-            mapView.addAnnotation(point)
-            arrayOfCafePoints.append(point)
+            let marker = MyAnnotation(
+                title: "title",
+                subtitle: "subtitle",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: cafe.latitude,
+                    longitude: cafe.longitude
+                )
+            )
+            let image = UIImage(named: "cafe")
+            let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
+            marker.image = resizedImage
+            self.mapView.addAnnotation(marker)
         }
+        
+
+    }
+        
+    private func setupCollectionView() {
+        collectionView.register(MapCollectionViewCell.self, forCellWithReuseIdentifier: MapCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = layout
+        layout.itemSize = CGSize(width: 110, height: 32)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.scrollDirection = .horizontal
+        collectionView.backgroundColor = .clear
     }
 }
 
@@ -97,6 +175,52 @@ final class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? MyAnnotation {
+            let identifier = "identifier"
+            var annotationView: MKAnnotationView?
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.image = annotation.image
+            annotationView?.canShowCallout = false
+            annotationView?.calloutOffset = CGPoint(x: -5, y: 5)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            return annotationView
+        }
         return nil
     }
 }
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
+}
+
+extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrayOfButtons.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
+            cell.setButtonText(buttonText: arrayOfButtons[indexPath.row])
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
+//            if arrayOfButtons[indexPath.row] != "Список"||"Открыто"||"С фото" {
+            arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+        arrayOfButtons[1] = "Список"
+        arrayOfButtons[2] = "Открыто"
+        arrayOfButtons[3] = "С фото"
+            cell.label.backgroundColor = .red
+    }
+//    }
+    }
+}
+
+
+

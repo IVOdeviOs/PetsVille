@@ -24,6 +24,8 @@
 		DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A92864B7CA00A60679 /* Cafe.swift */; };
 		DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AB2864B7D800A60679 /* WalkingGround.swift */; };
 		DC85A8AE2864B94900A60679 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AD2864B94900A60679 /* Shop.swift */; };
+		DC85A8B02864FC0200A60679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */; };
+		DC85A8B32865062800A60679 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -82,6 +84,8 @@
 		DC85A8A92864B7CA00A60679 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		DC85A8AB2864B7D800A60679 /* WalkingGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingGround.swift; sourceTree = "<group>"; };
 		DC85A8AD2864B94900A60679 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -170,11 +174,20 @@
 			isa = PBXGroup;
 			children = (
 				DC85A8A72864B79C00A60679 /* VetClinic.swift */,
+				DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */,
 				DC85A8AD2864B94900A60679 /* Shop.swift */,
 				DC85A8AB2864B7D800A60679 /* WalkingGround.swift */,
 				DC85A8A92864B7CA00A60679 /* Cafe.swift */,
 			);
 			path = MapModels;
+			sourceTree = "<group>";
+		};
+		DC85A8B1286505FF00A60679 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DD69D80F2851372000CE464B /* MainControllers */ = {
@@ -191,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				DD69D8102851376600CE464B /* MapViewController.swift */,
+				DC85A8B1286505FF00A60679 /* Cells */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -411,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */,
+				DC85A8B02864FC0200A60679 /* MyAnnotation.swift in Sources */,
 				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
 				35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
@@ -424,6 +439,7 @@
 				DC85A8AE2864B94900A60679 /* Shop.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
+				DC85A8B32865062800A60679 /* MapCollectionViewCell.swift in Sources */,
 				DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */,
 				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
 				DDBBD727283C071B0092847A /* AppDelegate.swift in Sources */,

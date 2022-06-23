@@ -27,6 +27,7 @@ final class CareViewController: UIViewController {
         setupMenuCollectionView()
         setupNavigationBar()
         setupSearchController()
+        
     }
     
     private func addSubviews() {
@@ -71,7 +72,6 @@ final class CareViewController: UIViewController {
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationController?.navigationBar.clipsToBounds = true
 //        navigationController?.navigationBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        
     }
 }
 
