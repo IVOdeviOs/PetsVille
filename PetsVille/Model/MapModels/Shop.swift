@@ -1,5 +1,6 @@
 import UIKit
 struct Shop {
+    let type: String
     let name: String
     let address: String
     let district: String
@@ -11,6 +12,7 @@ struct Shop {
 }
 
 let bestFish = Shop(
+    type: "Зоомагазины",
     name: "Бест Фиш",
     address: "просп. Дзержинского, 123",
     district: "Московский",
@@ -22,6 +24,7 @@ let bestFish = Shop(
 )
 
 let zooBazar = Shop(
+    type: "Зоомагазины",
     name: "zoobazar",
     address: "ул. Волоха, 2",
     district: "Московский",
@@ -33,6 +36,7 @@ let zooBazar = Shop(
 )
 
 let priroda = Shop(
+    type: "Зоомагазины",
     name: "Природа",
     address: "просп. Независимости, 89",
     district: "Первомайский",

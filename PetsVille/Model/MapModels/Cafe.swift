@@ -1,5 +1,6 @@
 import UIKit
 struct Cafe {
+    let type: String
     let name: String
     let address: String
     let district: String
@@ -11,6 +12,7 @@ struct Cafe {
 }
 
 let imbir = Cafe(
+    type: "Заведения",
     name: "Имбирь",
     address: "ул. Притыцкого, 2А",
     district: "Фрунзенский",
@@ -22,6 +24,7 @@ let imbir = Cafe(
 )
 
 let naUgliah = Cafe(
+    type: "Заведения",
     name: "На углях",
     address: "ул. Калиновского, 66А",
     district: "Советский",
@@ -33,6 +36,7 @@ let naUgliah = Cafe(
 )
 
 let sochi = Cafe(
+    type: "Заведения",
     name: "Cочи",
     address: "ул. Пономаренко, 35А",
     district: "Фрунзенский",

@@ -1,5 +1,6 @@
 import UIKit
 struct VetClinic {
+    let type: String
     let name: String
     let address: String
     let district: String
@@ -12,6 +13,7 @@ struct VetClinic {
 }
 
 let aibolit = VetClinic(
+    type: "Клиники",
     name: "Айболит",
     address: "ул. Колесникова, 18",
     district: "Фрунзенский",
@@ -24,6 +26,7 @@ let aibolit = VetClinic(
 )
 
 let nineLifes = VetClinic(
+    type: "Клиники",
     name: "Девять жизней",
     address: "ул. Осиповичская, 7",
     district: "Октябрьский",
@@ -36,6 +39,7 @@ let nineLifes = VetClinic(
 )
 
 let doctorVet = VetClinic(
+    type: "Клиники",
     name: "Доктор Вет",
     address: "Подшипниковый пр., 9",
     district: "Заводской",

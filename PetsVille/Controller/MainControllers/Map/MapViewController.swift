@@ -8,10 +8,10 @@ final class MapViewController: UIViewController {
     
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
-    private let arrayOfClinics: [VetClinic] = [aibolit, nineLifes, doctorVet]
-    private let arrayOfShops: [Shop] = [bestFish, zooBazar, priroda]
-    private let arrayOfWalkingGrounds: [WalkingGround] = [landera, sobachiaPloschadka, pogulianka]
-    private let arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
+    private var arrayOfClinics: [VetClinic] = [aibolit, nineLifes, doctorVet]
+    private var arrayOfShops: [Shop] = [bestFish, zooBazar, priroda]
+    private var arrayOfWalkingGrounds: [WalkingGround] = [landera, sobachiaPloschadka, pogulianka]
+    private var arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
 //    private let clinicsButton = UIButton()
@@ -210,15 +210,19 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         return UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
-//            if arrayOfButtons[indexPath.row] != "Список"||"Открыто"||"С фото" {
-            arrayOfButtons[0] = arrayOfButtons[indexPath.row]
-        arrayOfButtons[1] = "Список"
-        arrayOfButtons[2] = "Открыто"
-        arrayOfButtons[3] = "С фото"
-            cell.label.backgroundColor = .red
-    }
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
+//            switch arrayOfButtons[indexPath.row] {
+//            case "Клиники", "Зоомагазины", "Заведения", "Площадки":
+//            arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+//        arrayOfButtons[1] = "Список"
+//        arrayOfButtons[2] = "Открыто"
+//        arrayOfButtons[3] = "С фото"
+//            cell.label.backgroundColor = .red
+//            default:
+//                break
 //    }
+//    }
+
     }
 }
 

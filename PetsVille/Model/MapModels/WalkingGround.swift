@@ -1,5 +1,6 @@
 import UIKit
 struct WalkingGround {
+    let type: String
     let name: String
     let address: String
     let district: String
@@ -11,6 +12,7 @@ struct WalkingGround {
 }
 
 let landera = WalkingGround(
+    type: "Площадки",
     name: "Ландера",
     address: "ул. Ландера",
     district: "Октябрьский",
@@ -22,6 +24,7 @@ let landera = WalkingGround(
 )
 
 let sobachiaPloschadka = WalkingGround(
+    type: "Площадки",
     name: "Собачья площадка",
     address: "Зеленый Луг-7",
     district: "Советский",
@@ -33,6 +36,7 @@ let sobachiaPloschadka = WalkingGround(
 )
 
 let pogulianka = WalkingGround(
+    type: "Площадки",
     name: "Погулянка",
     address: "сквер Погулянка",
     district: "Фрунзенский",

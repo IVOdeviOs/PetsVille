@@ -22,13 +22,6 @@ final class MapCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        addSubviews()
-//        setupConstraints()
-//        setupUI()
-//    }
-    
     // MARK: - API
 
     func setButtonText(buttonText: String) {
@@ -60,7 +53,5 @@ final class MapCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-//        button.titleLabel?.adjustsFontSizeToFitWidth = true
-//        button.titleLabel?.minimumScaleFactor = 0.5
     }
 }
