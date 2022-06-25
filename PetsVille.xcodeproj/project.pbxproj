@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35229CC828649C8A00E9C917 /* UIViewController+.swift */; };
+		3532AB0B2867C299008DE88F /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532AB0A2867C299008DE88F /* CustomNavBar.swift */; };
 		354D0E52285DEE0D001989C8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */; };
 		354D0E56285DEE29001989C8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */; };
 		354D0E57285DEE29001989C8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		35229CC828649C8A00E9C917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		3532AB0A2867C299008DE88F /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -128,9 +130,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3532AB092867C285008DE88F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				3532AB0A2867C299008DE88F /* CustomNavBar.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		355C0E8A285643400076ABC4 /* CareViewControllers  */ = {
 			isa = PBXGroup;
 			children = (
+				3532AB092867C285008DE88F /* CustomViews */,
 				35F52B2B2858BF4E002C37E3 /* CareViewController */,
 				355C0E8B285643690076ABC4 /* MedicineViewController.swift */,
 				355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */,
@@ -399,6 +410,7 @@
 				35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */,
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
+				3532AB0B2867C299008DE88F /* CustomNavBar.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
