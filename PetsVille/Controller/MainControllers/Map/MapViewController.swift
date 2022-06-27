@@ -142,6 +142,7 @@ final class MapViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.scrollDirection = .horizontal
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

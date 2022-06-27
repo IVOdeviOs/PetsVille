@@ -27,7 +27,6 @@ final class CareViewController: UIViewController {
         setupMenuCollectionView()
         setupNavigationBar()
         setupSearchController()
-        
     }
     
     private func addSubviews() {
