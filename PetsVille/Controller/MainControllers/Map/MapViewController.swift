@@ -14,18 +14,6 @@ final class MapViewController: UIViewController {
     private var arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
-//    private let clinicsButton = UIButton()
-//    private let zooShopsButton = UIButton()
-//    private let cafesButton = UIButton()
-//    private let walkingGroundsButton = UIButton()
-//    private let listButton = UIButton()
-//    private let isOpenedButton = UIButton()
-//    private let isContainsPhotosButton = UIButton()
-//    private var arrayOfButtons = [UIButton]() {
-//        didSet {
-//            collectionView.reloadData()
-//        }
-//    }
     private var arrayOfButtons: [String] = ["Клиники", "Зоомагазины", "Заведения", "Площадки"] {
         didSet {
             collectionView.reloadData()
@@ -40,7 +28,6 @@ final class MapViewController: UIViewController {
         addSubviews()
         addConstraints()
         addingPointsIntoTheMap()
-        setupUI()
         setupCollectionView()
 
     }
@@ -64,17 +51,6 @@ final class MapViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 42).isActive = true
-    }
-    
-    private func setupUI() {
-//        clinicsButton.setTitle("Клиники", for: .normal)
-//        zooShopsButton.setTitle("Зоомагазины", for: .normal)
-//        cafesButton.setTitle("Заведения", for: .normal)
-//        walkingGroundsButton.setTitle("Площадки", for: .normal)
-//        arrayOfButtons.append(clinicsButton)
-//        arrayOfButtons.append(zooShopsButton)
-//        arrayOfButtons.append(cafesButton)
-//        arrayOfButtons.append(walkingGroundsButton)
     }
     
         private func addingPointsIntoTheMap() {
@@ -155,8 +131,6 @@ final class MapViewController: UIViewController {
             marker.image = resizedImage
             self.mapView.addAnnotation(marker)
         }
-        
-
     }
         
     private func setupCollectionView() {
@@ -222,7 +196,6 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 //                break
 //    }
 //    }
-
     }
 }
 
