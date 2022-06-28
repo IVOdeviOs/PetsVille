@@ -12,6 +12,10 @@ final class MapViewController: UIViewController {
     private var arrayOfShops: [Shop] = [bestFish, zooBazar, priroda]
     private var arrayOfWalkingGrounds: [WalkingGround] = [landera, sobachiaPloschadka, pogulianka]
     private var arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
+    private var arrayOfClinicAnnotations = [MyAnnotation]()
+    private var arrayOfShopAnnotations = [MyAnnotation]()
+    private var arrayOfWalkingGroundsAnnotations = [MyAnnotation]()
+    private var arrayOfCafeAnnotations = [MyAnnotation]()
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
     private var arrayOfButtons: [String] = ["Клиники", "Зоомагазины", "Заведения", "Площадки"] {
@@ -84,7 +88,8 @@ final class MapViewController: UIViewController {
             let image = UIImage(named: "hospital")
             let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
             marker.image = resizedImage
-            self.mapView.addAnnotation(marker)
+            arrayOfClinicAnnotations.append(marker)
+            self.mapView.addAnnotations(arrayOfClinicAnnotations)
         }
         
         for shop in arrayOfShops {
@@ -99,7 +104,8 @@ final class MapViewController: UIViewController {
             let image = UIImage(named: "shop")
             let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
             marker.image = resizedImage
-            self.mapView.addAnnotation(marker)
+            arrayOfShopAnnotations.append(marker)
+            self.mapView.addAnnotations(arrayOfShopAnnotations)
         }
         
         for ground in arrayOfWalkingGrounds {
@@ -114,7 +120,8 @@ final class MapViewController: UIViewController {
             let image = UIImage(named: "walkingGround")
             let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
             marker.image = resizedImage
-            self.mapView.addAnnotation(marker)
+            arrayOfWalkingGroundsAnnotations.append(marker)
+            self.mapView.addAnnotations(arrayOfWalkingGroundsAnnotations)
         }
         
         for cafe in arrayOfCafes {
@@ -129,7 +136,8 @@ final class MapViewController: UIViewController {
             let image = UIImage(named: "cafe")
             let resizedImage = image?.resized(to: CGSize(width: 40, height: 40))
             marker.image = resizedImage
-            self.mapView.addAnnotation(marker)
+            arrayOfCafeAnnotations.append(marker)
+            self.mapView.addAnnotations(arrayOfCafeAnnotations)
         }
     }
         
@@ -184,21 +192,51 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         return UICollectionViewCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
-//            switch arrayOfButtons[indexPath.row] {
-//            case "Клиники", "Зоомагазины", "Заведения", "Площадки":
-//            arrayOfButtons[0] = arrayOfButtons[indexPath.row]
-//        arrayOfButtons[1] = "Список"
-//        arrayOfButtons[2] = "Открыто"
-//        arrayOfButtons[3] = "С фото"
-//            cell.label.backgroundColor = .red
-//            default:
-//                break
-//    }
-//    }
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
+            switch arrayOfButtons[indexPath.row] {
+            case "Клиники":
+        arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+        arrayOfButtons[1] = "Список"
+        arrayOfButtons[2] = "Открыто"
+        arrayOfButtons[3] = "С фото"
+            cell.label.backgroundColor = .red
+                mapView.removeAnnotations(arrayOfCafeAnnotations)
+                mapView.removeAnnotations(arrayOfShopAnnotations)
+                mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+            case "Зоомагазины":
+        arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+        arrayOfButtons[1] = "Список"
+        arrayOfButtons[2] = "Открыто"
+        arrayOfButtons[3] = "С фото"
+            cell.label.backgroundColor = .red
+                mapView.removeAnnotations(arrayOfCafeAnnotations)
+                mapView.removeAnnotations(arrayOfClinicAnnotations)
+                mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+            case "Заведения":
+        arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+        arrayOfButtons[1] = "Список"
+        arrayOfButtons[2] = "Открыто"
+        arrayOfButtons[3] = "С фото"
+            cell.label.backgroundColor = .red
+                mapView.removeAnnotations(arrayOfClinicAnnotations)
+                mapView.removeAnnotations(arrayOfShopAnnotations)
+                mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+            case "Площадки":
+        arrayOfButtons[0] = arrayOfButtons[indexPath.row]
+        arrayOfButtons[1] = "Список"
+        arrayOfButtons[2] = "Открыто"
+        arrayOfButtons[3] = "С фото"
+            cell.label.backgroundColor = .red
+                mapView.removeAnnotations(arrayOfCafeAnnotations)
+                mapView.removeAnnotations(arrayOfShopAnnotations)
+                mapView.removeAnnotations(arrayOfClinicAnnotations)
+                
+            default:
+                break
     }
+    }
+    }
+
 }
-
-
-

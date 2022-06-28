@@ -51,6 +51,7 @@ final class MapCollectionViewCell: UICollectionViewCell {
         label.font = .montserrat(24, .semibold)
         label.textAlignment = .center
         label.textColor = .black
+        label.font = UIFont(name: "Montserrat-Regular", size: 15)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
     }
