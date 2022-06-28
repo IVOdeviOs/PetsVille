@@ -35,13 +35,13 @@ final class MainTabBarController: UITabBarController {
     }
     func authorizationCheck() -> UIViewController{
         if status{
-            return MedicineViewController()
+            return ShowProfileViewController()
         }else{
-            return ProfileViewController()
+            return LoginToProfileViewController()
         }
         
     }
-    func notificationCenter(){
+   private func notificationCenter(){
         NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"),
                                                object: nil,
                                                queue: .main)

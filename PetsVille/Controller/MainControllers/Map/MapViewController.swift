@@ -1,11 +1,11 @@
-import UIKit
-import MapKit
 import CoreLocation
+import MapKit
+import UIKit
 
 final class MapViewController: UIViewController {
-    
+
     // MARK: Private
-    
+
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
     private var arrayOfClinics: [VetClinic] = [aibolit, nineLifes, doctorVet]
@@ -25,7 +25,7 @@ final class MapViewController: UIViewController {
     }
     
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -33,23 +33,22 @@ final class MapViewController: UIViewController {
         addConstraints()
         addingPointsIntoTheMap()
         setupCollectionView()
-
     }
-    
+
     // MARK: - Setups
-    
+
     private func addSubviews() {
         view.addSubview(mapView)
         view.addSubview(collectionView)
     }
-    
+
     private func addConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        
+
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 111).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
@@ -123,7 +122,7 @@ final class MapViewController: UIViewController {
             arrayOfWalkingGroundsAnnotations.append(marker)
             self.mapView.addAnnotations(arrayOfWalkingGroundsAnnotations)
         }
-        
+
         for cafe in arrayOfCafes {
             let marker = MyAnnotation(
                 title: "title",
@@ -140,7 +139,7 @@ final class MapViewController: UIViewController {
             self.mapView.addAnnotations(arrayOfCafeAnnotations)
         }
     }
-        
+
     private func setupCollectionView() {
         collectionView.register(MapCollectionViewCell.self, forCellWithReuseIdentifier: MapCollectionViewCell.identifier)
         collectionView.delegate = self

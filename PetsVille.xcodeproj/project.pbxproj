@@ -29,7 +29,7 @@
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
-		DD69D8132851377A00CE464B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8122851377A00CE464B /* ProfileViewController.swift */; };
+		DD69D8132851377A00CE464B /* LoginToProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8122851377A00CE464B /* LoginToProfileViewController.swift */; };
 		DD69D8152851379100CE464B /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8142851379100CE464B /* CareViewController.swift */; };
 		DD9859562864E632008801A1 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = DD9859552864E632008801A1 /* FacebookBasics */; };
 		DD9859582864E632008801A1 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9859572864E632008801A1 /* FacebookCore */; };
@@ -46,6 +46,8 @@
 		DD98596F2864E689008801A1 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = DD98596E2864E689008801A1 /* FirebaseInstallations */; };
 		DD9859712864E689008801A1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DD9859702864E689008801A1 /* FirebaseMessaging */; };
 		DD9859732864E689008801A1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9859722864E689008801A1 /* FirebaseStorage */; };
+		DD985977286B6807008801A1 /* ShowProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD985976286B6807008801A1 /* ShowProfileViewController.swift */; };
+		DD98597A286B9D3E008801A1 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD985979286B9D3E008801A1 /* PetsTableViewCell.swift */; };
 		DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */; };
 		DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */; };
 		DDB56D39283C0BAA00C16CC3 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */; };
@@ -84,9 +86,11 @@
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		DD69D8122851377A00CE464B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD69D8122851377A00CE464B /* LoginToProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToProfileViewController.swift; sourceTree = "<group>"; };
 		DD69D8142851379100CE464B /* CareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
 		DD98592228621C37008801A1 /* PetsVille.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetsVille.entitlements; sourceTree = "<group>"; };
+		DD985976286B6807008801A1 /* ShowProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileViewController.swift; sourceTree = "<group>"; };
+		DD985979286B9D3E008801A1 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		DDB56D34283C0B6400C16CC3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DDB56D36283C0B7C00C16CC3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DDB56D38283C0BAA00C16CC3 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -210,10 +214,28 @@
 		DD69D81828513CC700CE464B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				DD69D8122851377A00CE464B /* ProfileViewController.swift */,
-				DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */,
+				DD985978286B9D16008801A1 /* Cells */,
+				DD985974286B67CB008801A1 /* Auth */,
+				DD985976286B6807008801A1 /* ShowProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		DD985974286B67CB008801A1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */,
+				DD69D8122851377A00CE464B /* LoginToProfileViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DD985978286B9D16008801A1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD985979286B9D3E008801A1 /* PetsTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DDB56D2F283C094B00C16CC3 /* Controller */ = {
@@ -420,10 +442,12 @@
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */,
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
+				DD985977286B6807008801A1 /* ShowProfileViewController.swift in Sources */,
 				DC85A8AE2864B94900A60679 /* Shop.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DC85A8B32865062800A60679 /* MapCollectionViewCell.swift in Sources */,
+				DD98597A286B9D3E008801A1 /* PetsTableViewCell.swift in Sources */,
 				DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */,
 				DDB56D3E283C0DA300C16CC3 /* FirebaseManager.swift in Sources */,
 				DDBBD727283C071B0092847A /* AppDelegate.swift in Sources */,
@@ -434,7 +458,7 @@
 				DD69D8152851379100CE464B /* CareViewController.swift in Sources */,
 				DDB56D35283C0B6400C16CC3 /* CoreDataManager.swift in Sources */,
 				355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */,
-				DD69D8132851377A00CE464B /* ProfileViewController.swift in Sources */,
+				DD69D8132851377A00CE464B /* LoginToProfileViewController.swift in Sources */,
 				DD69D80C2851307F00CE464B /* User.swift in Sources */,
 				355C0E8E285643BD0076ABC4 /* СalendarViewController.swift in Sources */,
 				DDBBD729283C071B0092847A /* SceneDelegate.swift in Sources */,
