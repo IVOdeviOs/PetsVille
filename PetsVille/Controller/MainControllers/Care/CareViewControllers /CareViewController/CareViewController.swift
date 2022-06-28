@@ -8,8 +8,10 @@ struct Menu {
 final class CareViewController: UIViewController {
 
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-    private let navBarAppearence = UINavigationBarAppearance()
+    private let navBar = UINavigationBar()
     private var searchController = UISearchController()
+    
+    private let navBarView = UIView()
     
     private let layout = UICollectionViewFlowLayout()
     
@@ -31,7 +33,9 @@ final class CareViewController: UIViewController {
     
     private func addSubviews() {
         view.addSubview(menuCollectionView)
+        view.addSubview(navBarView)
         view.backgroundColor = .white
+        navBarView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
     }
     
     private func addConstraints() {
@@ -40,6 +44,12 @@ final class CareViewController: UIViewController {
         menuCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         menuCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         menuCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive = true
+        
+        navBarView.translatesAutoresizingMaskIntoConstraints = false
+        navBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        navBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        navBarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        navBarView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
     private func setupMenuCollectionView() {
@@ -61,14 +71,17 @@ final class CareViewController: UIViewController {
             searchController.searchBar.searchTextField.layer.masksToBounds = true
             searchController.searchBar.searchTextField.layer.cornerRadius = 5
             searchController.searchBar.barTintColor = .systemIndigo
+        searchController.searchBar.setShowsCancelButton(false, animated: false)
         }
     
     private func setupNavigationBar() { 
-        navBarAppearence.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+//        navBarAppearence.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
 //        navBarAppearence.layer.cornerRadius = 25
 //        navBarAppearence.clipsToBounds = true
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearence
-        navigationController?.navigationBar.layer.cornerRadius = 20
+        
+//        navigationController?.navigationBar.standardAppearance = navBarAppearence
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navigationController?.navigationBar.layer.cornerRadius = 15
         navigationController?.navigationBar.clipsToBounds = true
 //        navigationController?.navigationBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         
