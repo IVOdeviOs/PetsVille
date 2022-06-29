@@ -40,7 +40,6 @@ final class MapCollectionViewCell: UICollectionViewCell {
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-    
     }
 
     private func setupUI() {

@@ -1,5 +1,5 @@
 import UIKit
-struct VetClinic {
+struct Object {
     let type: String
     let name: String
     let address: String
@@ -12,7 +12,7 @@ struct VetClinic {
     let arrayOfPhoto: [UIImageView]
 }
 
-let aibolit = VetClinic(
+let aibolit = Object(
     type: "Клиники",
     name: "Айболит",
     address: "ул. Колесникова, 18",
@@ -25,7 +25,7 @@ let aibolit = VetClinic(
     arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
 )
 
-let nineLifes = VetClinic(
+let nineLifes = Object(
     type: "Клиники",
     name: "Девять жизней",
     address: "ул. Осиповичская, 7",
@@ -38,7 +38,7 @@ let nineLifes = VetClinic(
     arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
 )
 
-let doctorVet = VetClinic(
+let doctorVet = Object(
     type: "Клиники",
     name: "Доктор Вет",
     address: "Подшипниковый пр., 9",
@@ -50,3 +50,5 @@ let doctorVet = VetClinic(
     rating: 4.6,
     arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
 )
+
+let arrayOfClinics: [Object] = [aibolit, nineLifes, doctorVet]

@@ -8,10 +8,6 @@ final class MapViewController: UIViewController {
 
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
-    private var arrayOfClinics: [VetClinic] = [aibolit, nineLifes, doctorVet]
-    private var arrayOfShops: [Shop] = [bestFish, zooBazar, priroda]
-    private var arrayOfWalkingGrounds: [WalkingGround] = [landera, sobachiaPloschadka, pogulianka]
-    private var arrayOfCafes: [Cafe] = [imbir, naUgliah, sochi]
     private var arrayOfClinicAnnotations = [MyAnnotation]()
     private var arrayOfShopAnnotations = [MyAnnotation]()
     private var arrayOfWalkingGroundsAnnotations = [MyAnnotation]()
@@ -23,6 +19,7 @@ final class MapViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    var idToObjectsList: Int8 = 0
     
     // MARK: - Lifecycle
 
@@ -196,6 +193,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
             switch arrayOfButtons[indexPath.row] {
             case "Клиники":
+        idToObjectsList = 1
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
@@ -205,6 +203,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
             case "Зоомагазины":
+                idToObjectsList = 2
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
@@ -214,6 +213,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
             case "Заведения":
+                idToObjectsList = 3
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
@@ -223,6 +223,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
             case "Площадки":
+                idToObjectsList = 4
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
@@ -231,10 +232,17 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
-                
             default:
                 break
     }
+            if arrayOfButtons[indexPath.row] == "Список" {
+                let vc = ListViewController()
+                vc.arrayOfClinics = arrayOfClinics
+                vc.arrayOfCafes = arrayOfCafes
+                vc.arrayOfShops = arrayOfShops
+                vc.arrayOfWalkingGrounds = arrayOfWalkingGrounds
+                navigationController?.pushViewController(vc, animated: true)
+            }
     }
     }
 

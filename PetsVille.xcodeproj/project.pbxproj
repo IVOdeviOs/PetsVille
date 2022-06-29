@@ -20,12 +20,14 @@
 		355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9F2856636B0076ABC4 /* UIView+.swift */; };
 		35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1B0CC285724E400022C5D /* UIStackView+.swift */; };
 		35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */; };
-		DC85A8A82864B79C00A60679 /* VetClinic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A72864B79C00A60679 /* VetClinic.swift */; };
+		DC85A8A82864B79C00A60679 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A72864B79C00A60679 /* Object.swift */; };
 		DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A92864B7CA00A60679 /* Cafe.swift */; };
 		DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AB2864B7D800A60679 /* WalkingGround.swift */; };
 		DC85A8AE2864B94900A60679 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AD2864B94900A60679 /* Shop.swift */; };
 		DC85A8B02864FC0200A60679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */; };
 		DC85A8B32865062800A60679 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */; };
+		DC85A8DE286CEC9700A60679 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8DD286CEC9700A60679 /* ListViewController.swift */; };
+		DC85A8E0286CECE000A60679 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8DF286CECE000A60679 /* ListTableViewCell.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -77,12 +79,14 @@
 		355C0E9F2856636B0076ABC4 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		35D1B0CC285724E400022C5D /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizibleLayout.swift; sourceTree = "<group>"; };
-		DC85A8A72864B79C00A60679 /* VetClinic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetClinic.swift; sourceTree = "<group>"; };
+		DC85A8A72864B79C00A60679 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		DC85A8A92864B7CA00A60679 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		DC85A8AB2864B7D800A60679 /* WalkingGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingGround.swift; sourceTree = "<group>"; };
 		DC85A8AD2864B94900A60679 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC85A8DD286CEC9700A60679 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		DC85A8DF286CECE000A60679 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +171,7 @@
 		DC85A8A62864B76200A60679 /* MapModels */ = {
 			isa = PBXGroup;
 			children = (
-				DC85A8A72864B79C00A60679 /* VetClinic.swift */,
+				DC85A8A72864B79C00A60679 /* Object.swift */,
 				DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */,
 				DC85A8AD2864B94900A60679 /* Shop.swift */,
 				DC85A8AB2864B7D800A60679 /* WalkingGround.swift */,
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				DC85A8B22865062800A60679 /* MapCollectionViewCell.swift */,
+				DC85A8DF286CECE000A60679 /* ListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				DD69D8102851376600CE464B /* MapViewController.swift */,
+				DC85A8DD286CEC9700A60679 /* ListViewController.swift */,
 				DC85A8B1286505FF00A60679 /* Cells */,
 			);
 			path = Map;
@@ -435,9 +441,11 @@
 				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
 				35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
+				DC85A8E0286CECE000A60679 /* ListTableViewCell.swift in Sources */,
+				DC85A8DE286CEC9700A60679 /* ListViewController.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
-				DC85A8A82864B79C00A60679 /* VetClinic.swift in Sources */,
+				DC85A8A82864B79C00A60679 /* Object.swift in Sources */,
 				35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */,
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */,
