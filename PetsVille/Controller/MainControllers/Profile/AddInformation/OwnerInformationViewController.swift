@@ -6,7 +6,7 @@ final class OwnerInformationViewController: UIViewController {
 
     // MARK: Private
     private let appearance = UINavigationBarAppearance()
-    private let backButton = UIBarButtonItem()
+    private var backButton = UIBarButtonItem()
     private let ownerImage = UIImageView()
     private let imageLabel = UILabel()
     private let nameTextField = UITextField()
@@ -94,7 +94,6 @@ final class OwnerInformationViewController: UIViewController {
         aboutMeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         aboutMeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -88).isActive = true
 
-        tabBarController?.tabBar.isHidden = true
     }
 
     private func setupTextField() {
@@ -127,8 +126,7 @@ final class OwnerInformationViewController: UIViewController {
 
     private func setupNavigationBar() {
         title = "Профиль"
-        backButton.title = ""
-
+        
         appearance.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -136,6 +134,9 @@ final class OwnerInformationViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.layer.cornerRadius = 20
+        tabBarController?.tabBar.isHidden = true
+
+        backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backNavButton))
     }
     private func tapImageView() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imagePickerBtnAction))
@@ -146,6 +147,11 @@ final class OwnerInformationViewController: UIViewController {
         view.endEditing(true)
     }
     // MARK: - Helpers
+    
+    @objc private func backNavButton(){
+        print(#function)
+
+    }
     @objc private func imagePickerBtnAction() {
         let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in

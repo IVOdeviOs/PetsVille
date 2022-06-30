@@ -27,11 +27,7 @@ final class ShowProfileViewController: UIViewController {
         setupOwnerView()
         setupTableView()
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tabBarController?.tabBar.isHidden = false
 
-    }
     // MARK: - API
 
     // MARK: - Setups
@@ -108,10 +104,6 @@ final class ShowProfileViewController: UIViewController {
         viewOwner.layer.borderWidth = 1
         viewOwner.layer.borderColor = UIColor(red: 0.929, green: 0.361, blue: 0.114, alpha: 1).cgColor
         viewOwner.layer.cornerRadius = 8
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ownerInformation))
-        viewOwner.isUserInteractionEnabled = true
-        viewOwner.addGestureRecognizer(tap)
-
     }
 
     private func setupNavigationBar() {
@@ -131,16 +123,10 @@ final class ShowProfileViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationItem.hidesBackButton = true
-        
     }
 
     // MARK: - Helpers
     @objc func settingsProfile() {}
-    @objc func ownerInformation(){
-        let vc = OwnerInformationViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
 }
 
 extension ShowProfileViewController: UITableViewDelegate, UITableViewDataSource {
