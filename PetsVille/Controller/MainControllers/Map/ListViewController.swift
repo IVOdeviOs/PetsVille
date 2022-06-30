@@ -32,7 +32,6 @@ final class ListViewController: UIViewController {
     
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -103,11 +102,9 @@ final class ListViewController: UIViewController {
     }
     
     // MARK: - Helpers
-
 }
 
     // MARK: - Extensions
-
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -19,6 +19,7 @@ final class MapViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    var selectedIndex = 5
     var idToObjectsList: Int8 = 0
     
     // MARK: - Lifecycle
@@ -208,6 +209,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+                selectedIndex = indexPath.startIndex
             case "Зоомагазины":
                 idToObjectsList = 2
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
@@ -218,6 +220,8 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+                selectedIndex = indexPath.startIndex
+
             case "Заведения":
                 idToObjectsList = 3
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
@@ -228,6 +232,8 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
+                selectedIndex = indexPath.startIndex
+
             case "Площадки":
                 idToObjectsList = 4
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
@@ -238,18 +244,20 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
+                selectedIndex = indexPath.startIndex
+
 
             default:
                 break
     }
-            if arrayOfButtons[indexPath.row] == "Список" {
-                let vc = ListViewController()
-                vc.arrayOfClinics = arrayOfClinics
-                vc.arrayOfCafes = arrayOfCafes
-                vc.arrayOfShops = arrayOfShops
-                vc.arrayOfWalkingGrounds = arrayOfWalkingGrounds
-                navigationController?.pushViewController(vc, animated: true)
-            }
+//            if arrayOfButtons[indexPath.row] == "Список" {
+//                let vc = ListViewController()
+//                vc.arrayOfClinics = arrayOfClinics
+//                vc.arrayOfCafes = arrayOfCafes
+//                vc.arrayOfShops = arrayOfShops
+//                vc.arrayOfWalkingGrounds = arrayOfWalkingGrounds
+//                navigationController?.pushViewController(vc, animated: true)
+//            }
     }
     }
 }
