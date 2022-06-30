@@ -64,6 +64,7 @@
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
 		DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */; };
 		DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC1087E28609DA000F5116E /* GoogleService-Info.plist */; };
+		DDCEC6AB286DBF8000BC31DA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		DDBBD737283C071D0092847A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDC1087E28609DA000F5116E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				355C0E9F2856636B0076ABC4 /* UIView+.swift */,
 				35D1B0CC285724E400022C5D /* UIStackView+.swift */,
 				35229CC828649C8A00E9C917 /* UIViewController+.swift */,
+				DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
 				DD985977286B6807008801A1 /* ShowProfileViewController.swift in Sources */,
 				DC85A8AE2864B94900A60679 /* Shop.swift in Sources */,
+				DDCEC6AB286DBF8000BC31DA /* UITextField+.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DD0BBF3E286CFFB400D3310A /* OwnerInformationViewController.swift in Sources */,
