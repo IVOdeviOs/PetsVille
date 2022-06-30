@@ -24,8 +24,13 @@ final class OwnerInformationViewController: UIViewController {
         setupUI()
         setupNavigationBar()
         setupTextField()
+        tapImageView()
     }
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ownerImage.layer.cornerRadius = 8
+        ownerImage.layer.masksToBounds = true
+    }
     // MARK: - API
 
     // MARK: - Setups
@@ -132,9 +137,67 @@ final class OwnerInformationViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.layer.cornerRadius = 20
     }
-
+    private func tapImageView() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imagePickerBtnAction))
+        ownerImage.isUserInteractionEnabled = true
+        ownerImage.addGestureRecognizer(tap)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     // MARK: - Helpers
+    @objc private func imagePickerBtnAction() {
+        let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+extension OwnerInformationViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    private func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Warning",
+                                          message: "You don't have permission to access gallery.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
+    {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage {
+            ownerImage.image = image
+        }
+        if let image = info[.editedImage] as? UIImage {
+            ownerImage.image = image
+        }
+    }
 }
