@@ -6,34 +6,22 @@ final class ListViewController: UIViewController {
     
     private var tableView = UITableView()
     private let separatorLine = UIView()
+    var id: Int = 0
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
     private var arrayOfButtons: [String] = ["Клиники", "На карте", "Открыто", "Фото"]
-     var arrayOfClinics = [Object]() {
+     var arrayOfObject = [Object]() {
         didSet {
             tableView.reloadData()
         }
     }
-     var arrayOfShops = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-     var arrayOfWalkingGrounds = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-     var arrayOfCafes = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(id)
+        print(arrayOfObject.count)
+        appendingArrayOfObject()
         addSubviews()
         setupCollectionView()
         setupTableView()
@@ -45,6 +33,21 @@ final class ListViewController: UIViewController {
     
     
     // MARK: - Setups
+    
+    private func appendingArrayOfObject() {
+        switch id {
+        case 1:
+            arrayOfObject = arrayOfClinics
+            case 2:
+            arrayOfObject = arrayOfShops
+                case 3:
+            arrayOfObject = arrayOfCafes
+                    case 4:
+            arrayOfObject = arrayOfWalkingGrounds
+        default:
+            arrayOfObject = arrayOfClinics
+        }
+    }
     
     private func addSubviews() {
         view.addSubview(tableView)
@@ -108,43 +111,20 @@ final class ListViewController: UIViewController {
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let vc = MapViewController()
-        switch vc.idToObjectsList {
-        case 1:
-            return arrayOfClinics.count
-            case 2:
-                return arrayOfShops.count
-                case 3:
-                    return arrayOfCafes.count
-                    case 4:
-                        return arrayOfWalkingGrounds.count
-        default:
-            return 0
-        }
+        return arrayOfObject.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell {
-            let vc = MapViewController()
-            switch vc.idToObjectsList {
-            case 1:
-                cell.set(object: arrayOfClinics[indexPath.row])
-            case 2:
-                cell.set(object: arrayOfShops[indexPath.row])
-            case 3:
-                cell.set(object: arrayOfCafes[indexPath.row])
-            case 4:
-                cell.set(object: arrayOfWalkingGrounds[indexPath.row])
-            default:
-                break
-            }
+                cell.set(object: arrayOfObject[indexPath.row])
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
 //        let vc = InfoAboutObjectViewController()
 //        self.navigationController?.pushViewController(vc, animated: true)
     }

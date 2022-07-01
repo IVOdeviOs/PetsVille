@@ -19,8 +19,10 @@ final class MapViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-    var selectedIndex = 5
-    var idToObjectsList: Int8 = 0
+    private var selectedIndex = 5
+    var idToObjectsList: Int = 0
+    var listButtonIsTrue: Bool = false
+    
     
     // MARK: - Lifecycle
 
@@ -186,7 +188,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
             cell.setButtonText(buttonText: arrayOfButtons[indexPath.row])
             if selectedIndex == indexPath.row {
-                cell.label.backgroundColor = .red
+                cell.label.backgroundColor = UIColor(red: 237/255, green: 92/255, blue: 29/255, alpha: 1)
             } else {
                 cell.label.backgroundColor =  UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
             }
@@ -194,9 +196,10 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         return UICollectionViewCell()
     }
-
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as? MapCollectionViewCell {
 
             switch arrayOfButtons[indexPath.row] {
             case "Клиники":
@@ -205,59 +208,52 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
         arrayOfButtons[3] = "С фото"
-            cell.label.backgroundColor = .red
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
                 selectedIndex = indexPath.startIndex
+                listButtonIsTrue = true
             case "Зоомагазины":
                 idToObjectsList = 2
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
         arrayOfButtons[3] = "С фото"
-            cell.label.backgroundColor = .red
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
                 selectedIndex = indexPath.startIndex
-
+                listButtonIsTrue = true
             case "Заведения":
                 idToObjectsList = 3
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
         arrayOfButtons[3] = "С фото"
-            cell.label.backgroundColor = .red
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfWalkingGroundsAnnotations)
                 selectedIndex = indexPath.startIndex
-
+                listButtonIsTrue = true
             case "Площадки":
                 idToObjectsList = 4
         arrayOfButtons[0] = arrayOfButtons[indexPath.row]
         arrayOfButtons[1] = "Список"
         arrayOfButtons[2] = "Открыто"
         arrayOfButtons[3] = "С фото"
-            cell.label.backgroundColor = .red
                 mapView.removeAnnotations(arrayOfCafeAnnotations)
                 mapView.removeAnnotations(arrayOfShopAnnotations)
                 mapView.removeAnnotations(arrayOfClinicAnnotations)
                 selectedIndex = indexPath.startIndex
-
-
+                listButtonIsTrue = true
             default:
                 break
     }
-//            if arrayOfButtons[indexPath.row] == "Список" {
-//                let vc = ListViewController()
-//                vc.arrayOfClinics = arrayOfClinics
-//                vc.arrayOfCafes = arrayOfCafes
-//                vc.arrayOfShops = arrayOfShops
-//                vc.arrayOfWalkingGrounds = arrayOfWalkingGrounds
-//                navigationController?.pushViewController(vc, animated: true)
-//            }
-    }
+            
+        if listButtonIsTrue == true && arrayOfButtons[indexPath.row] == "Список" {
+                let vc = ListViewController()
+            vc.id = idToObjectsList
+                navigationController?.pushViewController(vc, animated: true)
+            }
     }
 }
