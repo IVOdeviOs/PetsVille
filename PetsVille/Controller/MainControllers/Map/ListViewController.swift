@@ -1,7 +1,7 @@
 import UIKit
 
 final class ListViewController: UIViewController {
-
+    
     // MARK: Private
     
     private var tableView = UITableView()
@@ -10,7 +10,7 @@ final class ListViewController: UIViewController {
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
     private var arrayOfButtons: [String] = ["Клиники", "На карте", "Открыто", "Фото"]
-     var arrayOfObject = [Object]() {
+    var arrayOfObject = [Object]() {
         didSet {
             tableView.reloadData()
         }
@@ -19,7 +19,6 @@ final class ListViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(id)
         print(arrayOfObject.count)
         appendingArrayOfObject()
         addSubviews()
@@ -38,11 +37,11 @@ final class ListViewController: UIViewController {
         switch id {
         case 1:
             arrayOfObject = arrayOfClinics
-            case 2:
+        case 2:
             arrayOfObject = arrayOfShops
-                case 3:
+        case 3:
             arrayOfObject = arrayOfCafes
-                    case 4:
+        case 4:
             arrayOfObject = arrayOfWalkingGrounds
         default:
             arrayOfObject = arrayOfClinics
@@ -54,15 +53,14 @@ final class ListViewController: UIViewController {
         view.addSubview(separatorLine)
         view.addSubview(collectionView)
     }
-
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorStyle = .none
-        
-//        tableView.separatorColor = UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
         self.tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func addConstraints() {
@@ -109,7 +107,7 @@ final class ListViewController: UIViewController {
     // MARK: - Helpers
 }
 
-    // MARK: - Extensions
+// MARK: - Extensions
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,24 +117,24 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell {
-                cell.set(object: arrayOfObject[indexPath.row])
-            let viewSeparatorLine = UIView(frame: CGRect(
-                x: 0,
-                y: cell.contentView.frame.size.height - 2.0,
-                width: cell.contentView.frame.size.width,
-                height: 2
-            ))
-            viewSeparatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
-            cell.contentView.addSubview(viewSeparatorLine)
+            cell.set(object: arrayOfObject[indexPath.row])
+            //            let viewSeparatorLine = UIView(frame: CGRect(
+            //                x: 0,
+            //                y: cell.contentView.frame.size.height - 2.0,
+            //                width: cell.contentView.frame.size.width,
+            //                height: 2
+            //            ))
+            //            viewSeparatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
+            //            cell.contentView.addSubview(viewSeparatorLine)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-//        let vc = InfoAboutObjectViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        //        let vc = InfoAboutObjectViewController()
+        //        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -5,23 +5,16 @@ final class ListTableViewCell: UITableViewCell {
     
     // MARK: Private
     
+    private let backgroundTableView = UIView()
     private let objectName = UILabel()
     private let objectAddress = UILabel()
-    private var star1 = UIImageView()
-    private var star2 = UIImageView()
-    private var star3 = UIImageView()
-    private var star4 = UIImageView()
-    private var star5 = UIImageView()
     private let objectImage = UIImageView()
-    private var rating = Double()
-    private let star = UIImage(named: "Apple")
-        private let starFill = UIImage(named: "Google")
-//    private let starFill = UIImage(named: "star.fill")
-   
+    private let ratingLabel = UILabel()
+    private var rating: Double = 0
+    
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        numberOfStars()
         addSubviews()
         setupConstraints()
         setupUI()
@@ -29,120 +22,125 @@ final class ListTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - API
+    
     func set(object: Object) {
         objectImage.image = object.arrayOfPhoto[0].image
         objectName.text = object.name
         objectAddress.text = object.address
         rating = object.rating
-    }
+        ratingLabel.attributedText = objectRating(rating)
 
+    }
+    
     // MARK: - Setups
     
-    private func numberOfStars() {
-        starFill?.withTintColor(UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1))
-        switch rating {
-        case 0...1:
-            star1.image = starFill
-            star2.image = star
-            star3.image = star
-            star4.image = star
-            star5.image = star
-        case 1.1...2:
-            star1.image = starFill
-            star2.image = starFill
-            star3.image = star
-            star4.image = star
-            star5.image = star
-        case 2.1...3:
-            star1.image = starFill
-            star2.image = starFill
-            star3.image = starFill
-            star4.image = star
-            star5.image = star
-        case 3.1...4:
-            star1.image = starFill
-            star2.image = starFill
-            star3.image = starFill
-            star4.image = starFill
-            star5.image = star
-        case 4.1...5:
-            star1.image = starFill
-            star2.image = starFill
-            star3.image = starFill
-            star4.image = starFill
-            star5.image = starFill
-        default:
-            break
-        }
-    }
+    func objectRating(_ rating: Double) -> NSAttributedString {
+       let firstAttributes = [NSAttributedString.Key.foregroundColor: UIColor(
+           red: 255/255,
+           green: 155/255,
+           blue: 82/255,
+           alpha: 1
+       ), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+       let secondAttributes = [NSAttributedString.Key.foregroundColor: UIColor(
+           red: 196/255,
+           green: 196/255,
+           blue: 196/255,
+           alpha: 1
+       ), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+       let firstString = NSAttributedString(string: "\u{2605}", attributes: firstAttributes)
+       let secondString = NSAttributedString(string: "\u{2605}", attributes: secondAttributes)
+        let returnedString = NSMutableAttributedString()
+       switch rating {
+       case 0...1.9:
+           returnedString.append(firstString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           return returnedString
+       case 2...2.9:
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           return returnedString
+       case 3...3.9:
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(secondString)
+           returnedString.append(secondString)
+           return returnedString
+       case 4...4.9:
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(secondString)
+           return returnedString
+       case 5:
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           returnedString.append(firstString)
+           return returnedString
+       default:
+           return returnedString
+       }
+   }
+    
     private func addSubviews() {
-        contentView.addSubview(objectName)
-        contentView.addSubview(objectAddress)
-        contentView.addSubview(star1)
-        contentView.addSubview(star2)
-        contentView.addSubview(star3)
-        contentView.addSubview(star4)
-        contentView.addSubview(star5)
-        contentView.addSubview(objectImage)
+        contentView.addSubview(backgroundTableView)
+        backgroundTableView.addSubview(objectName)
+        backgroundTableView.addSubview(objectAddress)
+        backgroundTableView.addSubview(ratingLabel)
+        backgroundTableView.addSubview(objectImage)
     }
-
+    
     private func setupConstraints() {
         
+        backgroundTableView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundTableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        backgroundTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        backgroundTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -0).isActive = true
+        backgroundTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
+        backgroundTableView.heightAnchor.constraint(equalToConstant: 71).isActive = true
+        
         objectName.translatesAutoresizingMaskIntoConstraints = false
-        objectName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        objectName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        objectName.topAnchor.constraint(equalTo: backgroundTableView.topAnchor, constant: 5).isActive = true
+        objectName.leadingAnchor.constraint(equalTo: backgroundTableView.leadingAnchor, constant: 16).isActive = true
         objectName.widthAnchor.constraint(equalToConstant: 250).isActive = true
         objectName.heightAnchor.constraint(equalToConstant: 21).isActive = true
-
+        
         objectAddress.translatesAutoresizingMaskIntoConstraints = false
         objectAddress.topAnchor.constraint(equalTo: objectName.bottomAnchor, constant: 1).isActive = true
-        objectAddress.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        objectAddress.leadingAnchor.constraint(equalTo: backgroundTableView.leadingAnchor, constant: 16).isActive = true
         objectAddress.widthAnchor.constraint(equalToConstant: 250).isActive = true
         objectAddress.heightAnchor.constraint(equalToConstant: 17).isActive = true
         
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 1).isActive = true
+        ratingLabel.leadingAnchor.constraint(equalTo: backgroundTableView.leadingAnchor, constant: 16).isActive = true
+        ratingLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        ratingLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        
         objectImage.translatesAutoresizingMaskIntoConstraints = false
-        objectImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11).isActive = true
-        objectImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+        objectImage.topAnchor.constraint(equalTo: backgroundTableView.topAnchor, constant: 11).isActive = true
+        objectImage.trailingAnchor.constraint(equalTo: backgroundTableView.trailingAnchor, constant: -16).isActive = true
         objectImage.widthAnchor.constraint(equalToConstant: 49).isActive = true
         objectImage.heightAnchor.constraint(equalToConstant: 49).isActive = true
         
-        star1.translatesAutoresizingMaskIntoConstraints = false
-        star1.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 8).isActive = true
-        star1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        star1.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        star1.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        star2.translatesAutoresizingMaskIntoConstraints = false
-        star2.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 8).isActive = true
-        star2.leadingAnchor.constraint(equalTo: star1.trailingAnchor, constant: 1).isActive = true
-        star2.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        star2.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        star3.translatesAutoresizingMaskIntoConstraints = false
-        star3.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 8).isActive = true
-        star3.leadingAnchor.constraint(equalTo: star2.trailingAnchor, constant: 1).isActive = true
-        star3.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        star3.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        star4.translatesAutoresizingMaskIntoConstraints = false
-        star4.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 8).isActive = true
-        star4.leadingAnchor.constraint(equalTo: star3.trailingAnchor, constant: 1).isActive = true
-        star4.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        star4.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        star5.translatesAutoresizingMaskIntoConstraints = false
-        star5.topAnchor.constraint(equalTo: objectAddress.bottomAnchor, constant: 8).isActive = true
-        star5.leadingAnchor.constraint(equalTo: star4.trailingAnchor, constant: 1).isActive = true
-        star5.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        star5.heightAnchor.constraint(equalToConstant: 12).isActive = true
-
     }
-
+    
     private func setupUI() {
+        
         contentView.backgroundColor = .white
-
+        backgroundTableView.backgroundColor = .clear
+        
         objectImage.contentMode = .scaleToFill
         
         objectName.textAlignment = .left
@@ -156,5 +154,7 @@ final class ListTableViewCell: UITableViewCell {
         objectAddress.minimumScaleFactor = 0.6
         objectAddress.adjustsFontSizeToFitWidth = true
         objectAddress.font = .montserrat(14, .regular)
+        
+        ratingLabel.textAlignment = .left
     }
 }

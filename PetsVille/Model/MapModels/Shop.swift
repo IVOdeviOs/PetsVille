@@ -9,8 +9,11 @@ let bestFish = Object(
     longitude: 27.476404,
     isAroundTheClock: false,
     phoneNumber: "+375-29-662-16-67",
-    rating: 4.9,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 3.5,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "bestFish1")),
+                   UIImageView(image: UIImage(named: "bestFish2")),
+                   UIImageView(image: UIImage(named: "bestFish3"))
+                  ]
 )
 
 let zooBazar = Object(
@@ -23,7 +26,10 @@ let zooBazar = Object(
     isAroundTheClock: false,
     phoneNumber: "+375-44-516-18-57",
     rating: 4.4,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "zooBazar1")),
+                   UIImageView(image: UIImage(named: "zooBazar2")),
+                   UIImageView(image: UIImage(named: "zooBazar3"))
+                  ]
 )
 
 let priroda = Object(
@@ -35,8 +41,11 @@ let priroda = Object(
     longitude: 27.605924,
     isAroundTheClock: false,
     phoneNumber: "+375-17-251-00-63",
-    rating: 4.3,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 5.0,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "priroda1")),
+                   UIImageView(image: UIImage(named: "priroda2")),
+                   UIImageView(image: UIImage(named: "priroda3"))
+                  ]
 )
 
 let arrayOfShops: [Object] = [bestFish, zooBazar, priroda]

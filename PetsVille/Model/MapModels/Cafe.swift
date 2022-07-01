@@ -9,7 +9,7 @@ let imbir = Object(
     longitude: 27.503272,
     isAroundTheClock: false,
     phoneNumber: "+375-29-664-51-10",
-    rating: 4.2,
+    rating: 2.2,
     arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
 )
 
