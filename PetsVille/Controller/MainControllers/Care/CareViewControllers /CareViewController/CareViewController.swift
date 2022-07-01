@@ -32,6 +32,7 @@ final class CareViewController: UIViewController {
         setupMenuCollectionView()
         setupNavigationBar()
         setupUI()
+        setupSearchBar()
         //        print(dataSource.count)
         //        setupSearchController()
     }
@@ -71,13 +72,21 @@ final class CareViewController: UIViewController {
         searchController.searchBar.searchTextField.layer.masksToBounds = true
         searchController.searchBar.searchTextField.layer.cornerRadius = 5
         searchController.searchBar.barTintColor = .systemIndigo
+    
+        
     }
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-        navigationItem.titleView = searchBar
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationController?.navigationBar.clipsToBounds = true
+    }
+    
+    private func setupSearchBar() {
+        navigationItem.titleView = searchBar
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.placeholder = "Поиск"
+        searchBar.searchTextField.font = .montserrat(17, .regular)
     }
     
     private func setupUI() {
