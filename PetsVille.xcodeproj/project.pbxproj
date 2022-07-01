@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35229CC828649C8A00E9C917 /* UIViewController+.swift */; };
-		354D0E52285DEE0D001989C8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */; };
-		354D0E56285DEE29001989C8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */; };
-		354D0E57285DEE29001989C8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */; };
-		354D0E58285DEE29001989C8 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354D0E55285DEE28001989C8 /* Montserrat-SemiBold.ttf */; };
 		355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8B285643690076ABC4 /* MedicineViewController.swift */; };
 		355C0E8E285643BD0076ABC4 /* СalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */; };
 		355C0E95285644410076ABC4 /* NursingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E94285644410076ABC4 /* NursingViewController.swift */; };
 		355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */; };
 		355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */; };
 		355C0EA02856636B0076ABC4 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E9F2856636B0076ABC4 /* UIView+.swift */; };
+		35B06543286EE6B30056723E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B06542286EE6B20056723E /* Montserrat-Medium.ttf */; };
+		35B06545286EE6C30056723E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B06544286EE6C30056723E /* Montserrat-Regular.ttf */; };
+		35B06547286EE6DA0056723E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B06546286EE6D90056723E /* Montserrat-SemiBold.ttf */; };
+		35B06549286EE6E90056723E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B06548286EE6E90056723E /* Montserrat-Bold.ttf */; };
 		35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1B0CC285724E400022C5D /* UIStackView+.swift */; };
 		35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */; };
 		DC85A8A82864B79C00A60679 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A72864B79C00A60679 /* Object.swift */; };
@@ -64,20 +64,21 @@
 		DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBD734283C071D0092847A /* LaunchScreen.storyboard */; };
 		DDC1087D285BAEB700F5116E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */; };
 		DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC1087E28609DA000F5116E /* GoogleService-Info.plist */; };
+		DDCEC6AB286DBF8000BC31DA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35229CC828649C8A00E9C917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		354D0E55285DEE28001989C8 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		355C0E8B285643690076ABC4 /* MedicineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewController.swift; sourceTree = "<group>"; };
 		355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СalendarViewController.swift"; sourceTree = "<group>"; };
 		355C0E94285644410076ABC4 /* NursingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingViewController.swift; sourceTree = "<group>"; };
 		355C0E972856448E0076ABC4 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
 		355C0E9F2856636B0076ABC4 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		35B06542286EE6B20056723E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		35B06544286EE6C30056723E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../../Downloads/Montserrat 2/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		35B06546286EE6D90056723E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../../../Downloads/Montserrat 2/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		35B06548286EE6E90056723E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../../../Downloads/Montserrat 2/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		35D1B0CC285724E400022C5D /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizibleLayout.swift; sourceTree = "<group>"; };
 		DC85A8A72864B79C00A60679 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		DDBBD737283C071D0092847A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC1087C285BAEB700F5116E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDC1087E28609DA000F5116E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				355C0E9F2856636B0076ABC4 /* UIView+.swift */,
 				35D1B0CC285724E400022C5D /* UIStackView+.swift */,
 				35229CC828649C8A00E9C917 /* UIViewController+.swift */,
+				DDCEC6AA286DBF8000BC31DA /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,10 +310,10 @@
 		DDB56D3C283C0BC200C16CC3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				354D0E53285DEE28001989C8 /* Montserrat-Medium.ttf */,
-				354D0E54285DEE28001989C8 /* Montserrat-Regular.ttf */,
-				354D0E55285DEE28001989C8 /* Montserrat-SemiBold.ttf */,
-				354D0E51285DEE0D001989C8 /* Montserrat-Bold.ttf */,
+				35B06542286EE6B20056723E /* Montserrat-Medium.ttf */,
+				35B06544286EE6C30056723E /* Montserrat-Regular.ttf */,
+				35B06546286EE6D90056723E /* Montserrat-SemiBold.ttf */,
+				35B06548286EE6E90056723E /* Montserrat-Bold.ttf */,
 				DD69D80D2851308D00CE464B /* Font.swift */,
 			);
 			path = Font;
@@ -430,12 +433,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				354D0E58285DEE29001989C8 /* Montserrat-SemiBold.ttf in Resources */,
+				35B06545286EE6C30056723E /* Montserrat-Regular.ttf in Resources */,
 				DDBBD736283C071D0092847A /* LaunchScreen.storyboard in Resources */,
 				DDBBD733283C071D0092847A /* Assets.xcassets in Resources */,
-				354D0E56285DEE29001989C8 /* Montserrat-Medium.ttf in Resources */,
-				354D0E57285DEE29001989C8 /* Montserrat-Regular.ttf in Resources */,
-				354D0E52285DEE0D001989C8 /* Montserrat-Bold.ttf in Resources */,
+				35B06543286EE6B30056723E /* Montserrat-Medium.ttf in Resources */,
+				35B06549286EE6E90056723E /* Montserrat-Bold.ttf in Resources */,
+				35B06547286EE6DA0056723E /* Montserrat-SemiBold.ttf in Resources */,
 				DDC1087F28609DA100F5116E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +465,7 @@
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,
 				DD985977286B6807008801A1 /* ShowProfileViewController.swift in Sources */,
 				DC85A8AE2864B94900A60679 /* Shop.swift in Sources */,
+				DDCEC6AB286DBF8000BC31DA /* UITextField+.swift in Sources */,
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DD0BBF3E286CFFB400D3310A /* OwnerInformationViewController.swift in Sources */,
@@ -622,9 +626,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B9S2MDX3F7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetsVille/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешить использовать камеру телефона?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -637,7 +642,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.PetsVille;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PetsVille;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -655,9 +660,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B9S2MDX3F7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetsVille/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешить использовать камеру телефона?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -670,7 +676,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.PetsVille;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PetsVille;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
