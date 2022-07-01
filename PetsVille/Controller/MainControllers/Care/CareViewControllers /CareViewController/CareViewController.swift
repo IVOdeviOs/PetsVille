@@ -6,10 +6,13 @@ struct Menu {
 }
 
 final class CareViewController: UIViewController {
-
+    
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let navBarAppearence = UINavigationBarAppearance()
     private var searchController = UISearchController()
+    private let searchBar = UISearchBar()
+    
+    private let navView = UIView()
     
     private let layout = UICollectionViewFlowLayout()
     
@@ -20,18 +23,21 @@ final class CareViewController: UIViewController {
         Menu(image: UIImage(imageLiteralResourceName: "Subscription"), title: "Подписка")
     ]
     
+    private let array: [Int] = [1, 2, 3, 4]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
         setupMenuCollectionView()
         setupNavigationBar()
-        setupSearchController()
+        setupUI()
+        //        print(dataSource.count)
+        //        setupSearchController()
     }
     
     private func addSubviews() {
-        view.addSubview(menuCollectionView)
-        view.backgroundColor = .white
+        view.addAllSubviews(menuCollectionView, navView)
     }
     
     private func addConstraints() {
@@ -40,37 +46,44 @@ final class CareViewController: UIViewController {
         menuCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         menuCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         menuCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive = true
+        
+        navView.translatesAutoresizingMaskIntoConstraints = false
+        navView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        navView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        navView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        navView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
-
+    
     private func setupMenuCollectionView() {
         menuCollectionView.register(CareCollectionViewCell.self, forCellWithReuseIdentifier: CareCollectionViewCell.identifier)
         layout.scrollDirection = .vertical
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
-        
-        
         menuCollectionView.backgroundColor = .clear
-//        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        
     }
     
     private func setupSearchController() {
-            searchController = UISearchController(searchResultsController: nil)
-            searchController.searchResultsUpdater = self
-            searchController.searchBar.placeholder = "Search"
-            navigationItem.searchController = searchController
-            searchController.searchBar.searchTextField.layer.masksToBounds = true
-            searchController.searchBar.searchTextField.layer.cornerRadius = 5
-            searchController.searchBar.barTintColor = .systemIndigo
-        }
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        searchController.searchBar.searchTextField.layer.masksToBounds = true
+        searchController.searchBar.searchTextField.layer.cornerRadius = 5
+        searchController.searchBar.barTintColor = .systemIndigo
+    }
     
-    private func setupNavigationBar() { 
-        navBarAppearence.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-//        navBarAppearence.layer.cornerRadius = 25
-//        navBarAppearence.clipsToBounds = true
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearence
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navigationItem.titleView = searchBar
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationController?.navigationBar.clipsToBounds = true
-//        navigationController?.navigationBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+        navView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navView.layer.cornerRadius = 20
     }
 }
 
@@ -90,9 +103,6 @@ extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-//        let itemPerRow: CGFloat = 3
-//        let paddingWidth = 10 * (itemPerRow + 1)
-//        let widthForItem = collectionView.frame.width - paddingWidth
         let width = view.frame.width * 0.75
         let heigth = view.frame.height * 0.15
         
@@ -103,19 +113,43 @@ extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            let nursingVC = NursingViewController()
+            navigationController?.pushViewController(nursingVC, animated: true)
+            
+        case 1:
+            let medicineVC = MedicineViewController()
+            navigationController?.pushViewController(medicineVC, animated: true)
+            
+        case 2:
+            let calendarVC = CalendarViewController()
+            navigationController?.pushViewController(calendarVC, animated: true)
+        
+        case 3:
+            let subscriptionVC = SubscriptionViewController()
+            navigationController?.pushViewController(subscriptionVC, animated: true)
+            
+        default:
+            break
+        }
+        
+    }
 }
 
 extension CareViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func filterContent(for SearchText: String) {
-//        desiredArray = dataSource.filter { array -> Bool in
-//            let nameOfCurrency = array.name.lowercased()
-//                return nameOfCurrency.hasPrefix(SearchText.lowercased())
-        }
+        //        desiredArray = dataSource.filter { array -> Bool in
+        //            let nameOfCurrency = array.name.lowercased()
+        //                return nameOfCurrency.hasPrefix(SearchText.lowercased())
+    }
     func updateSearchResults(for searchController: UISearchController) {
-//        if let searchedText = searchController.searchBar.text {
-//            filterContent(for: searchedText)
-//            tableView.reloadData()
-//        }
-//    }
+        //        if let searchedText = searchController.searchBar.text {
+        //            filterContent(for: searchedText)
+        //            tableView.reloadData()
+        //        }
+        //    }
     }
 }
