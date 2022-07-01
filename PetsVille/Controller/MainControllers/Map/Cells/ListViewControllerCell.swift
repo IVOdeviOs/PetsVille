@@ -5,7 +5,7 @@ final class ListTableViewCell: UITableViewCell {
     
     // MARK: Private
     
-    private let backgroundTableView = UIView()
+     let backgroundTableView = UIView()
     private let objectName = UILabel()
     private let objectAddress = UILabel()
     private let objectImage = UIImageView()
