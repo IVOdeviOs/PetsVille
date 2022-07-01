@@ -13,10 +13,15 @@ final class ListTableViewCell: UITableViewCell {
     private var star4 = UIImageView()
     private var star5 = UIImageView()
     private let objectImage = UIImageView()
+    private var rating = Double()
+    private let star = UIImage(named: "Apple")
+        private let starFill = UIImage(named: "Google")
+//    private let starFill = UIImage(named: "star.fill")
    
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        numberOfStars()
         addSubviews()
         setupConstraints()
         setupUI()
@@ -30,10 +35,14 @@ final class ListTableViewCell: UITableViewCell {
         objectImage.image = object.arrayOfPhoto[0].image
         objectName.text = object.name
         objectAddress.text = object.address
-        let star = UIImage(named: "star")
-        let starFill = UIImage(named: "star.fill")
+        rating = object.rating
+    }
+
+    // MARK: - Setups
+    
+    private func numberOfStars() {
         starFill?.withTintColor(UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1))
-        switch object.rating {
+        switch rating {
         case 0...1:
             star1.image = starFill
             star2.image = star
@@ -68,8 +77,6 @@ final class ListTableViewCell: UITableViewCell {
             break
         }
     }
-
-    // MARK: - Setups
     private func addSubviews() {
         contentView.addSubview(objectName)
         contentView.addSubview(objectAddress)
@@ -82,16 +89,17 @@ final class ListTableViewCell: UITableViewCell {
     }
 
     private func setupConstraints() {
+        
         objectName.translatesAutoresizingMaskIntoConstraints = false
         objectName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         objectName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        objectName.widthAnchor.constraint(equalToConstant: 68).isActive = true
+        objectName.widthAnchor.constraint(equalToConstant: 250).isActive = true
         objectName.heightAnchor.constraint(equalToConstant: 21).isActive = true
 
         objectAddress.translatesAutoresizingMaskIntoConstraints = false
         objectAddress.topAnchor.constraint(equalTo: objectName.bottomAnchor, constant: 1).isActive = true
         objectAddress.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        objectAddress.widthAnchor.constraint(equalToConstant: 144).isActive = true
+        objectAddress.widthAnchor.constraint(equalToConstant: 250).isActive = true
         objectAddress.heightAnchor.constraint(equalToConstant: 17).isActive = true
         
         objectImage.translatesAutoresizingMaskIntoConstraints = false
@@ -139,8 +147,14 @@ final class ListTableViewCell: UITableViewCell {
         
         objectName.textAlignment = .left
         objectName.textColor = .black
+        objectName.font = .montserrat(16, .semibold)
+        objectName.minimumScaleFactor = 0.6
+        objectName.adjustsFontSizeToFitWidth = true
         
         objectAddress.textAlignment = .left
         objectAddress.textColor = .black
+        objectAddress.minimumScaleFactor = 0.6
+        objectAddress.adjustsFontSizeToFitWidth = true
+        objectAddress.font = .montserrat(14, .regular)
     }
 }

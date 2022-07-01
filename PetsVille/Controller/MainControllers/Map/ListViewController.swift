@@ -59,8 +59,9 @@ final class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
+        tableView.separatorStyle = .none
+        
+//        tableView.separatorColor = UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
         self.tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
     }
     
@@ -73,13 +74,13 @@ final class ListViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
         separatorLine.translatesAutoresizingMaskIntoConstraints = false
-        separatorLine.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 0).isActive = true
+        separatorLine.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 5).isActive = true
         separatorLine.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         separatorLine.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         separatorLine.heightAnchor.constraint(equalToConstant: 4).isActive = true
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: separatorLine.topAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
@@ -90,6 +91,7 @@ final class ListViewController: UIViewController {
         view.backgroundColor = .white
         tableView.backgroundColor = .white
         collectionView.backgroundColor = .white
+        separatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
     }
     
     private func setupCollectionView() {
@@ -118,6 +120,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell {
                 cell.set(object: arrayOfObject[indexPath.row])
+            let viewSeparatorLine = UIView(frame: CGRect(
+                x: 0,
+                y: cell.contentView.frame.size.height - 2.0,
+                width: cell.contentView.frame.size.width,
+                height: 2
+            ))
+            viewSeparatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
+            cell.contentView.addSubview(viewSeparatorLine)
             return cell
         }
         return UITableViewCell()
