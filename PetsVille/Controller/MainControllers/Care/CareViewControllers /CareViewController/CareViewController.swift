@@ -10,20 +10,19 @@ final class CareViewController: UIViewController {
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let navBarAppearence = UINavigationBarAppearance()
     private var searchController = UISearchController()
+    
     private let searchBar = UISearchBar()
     
     private let navView = UIView()
     
     private let layout = UICollectionViewFlowLayout()
     
-    private let dataSource: [Menu] = [
+    private let pointsOfMenu: [Menu] = [
         Menu(image: UIImage(imageLiteralResourceName: "Nursing"), title: "Уход"),
         Menu(image: UIImage(imageLiteralResourceName: "Medicine"), title: "Медицина"),
         Menu(image: UIImage(imageLiteralResourceName: "Calendar"), title: "Календарь"),
         Menu(image: UIImage(imageLiteralResourceName: "Subscription"), title: "Подписка")
     ]
-    
-    private let array: [Int] = [1, 2, 3, 4]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +32,6 @@ final class CareViewController: UIViewController {
         setupNavigationBar()
         setupUI()
         setupSearchBar()
-        //        print(dataSource.count)
-        //        setupSearchController()
     }
     
     private func addSubviews() {
@@ -61,23 +58,25 @@ final class CareViewController: UIViewController {
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
         menuCollectionView.backgroundColor = .clear
-        
     }
     
     private func setupSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        searchController.searchBar.searchTextField.layer.masksToBounds = true
-        searchController.searchBar.searchTextField.layer.cornerRadius = 5
-        searchController.searchBar.barTintColor = .systemIndigo
-    
         
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
+//        searchController.searchBar.placeholder = "Search"
+//        navigationItem.searchController = searchController
+//        searchController.searchBar.searchTextField.layer.masksToBounds = true
+//        searchController.searchBar.searchTextField.layer.cornerRadius = 5
+//        searchController.searchBar.barTintColor = .systemIndigo
+        
+        
+        
+        //Не забыть погуглить, что лучше: серчконтроллер или серчбар
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = AppColor.grayColor
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationController?.navigationBar.clipsToBounds = true
     }
@@ -85,13 +84,19 @@ final class CareViewController: UIViewController {
     private func setupSearchBar() {
         navigationItem.titleView = searchBar
         searchBar.searchTextField.backgroundColor = .white
-        searchBar.placeholder = "Поиск"
+        searchBar.placeholder = "  Поиск"
         searchBar.searchTextField.font = .montserrat(17, .regular)
+        searchBar.delegate = self
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(systemName: "person"), for: .bookmark, state: .normal)
+        searchBar.searchTextField.layer.borderWidth = 1
+        searchBar.searchTextField.layer.borderColor = AppColor.orangeColor.cgColor
+        searchBar.searchTextField.layer.cornerRadius = 10
     }
     
     private func setupUI() {
         view.backgroundColor = .white
-        navView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        navView.backgroundColor = AppColor.grayColor
         navView.layer.cornerRadius = 20
     }
 }
@@ -99,12 +104,12 @@ final class CareViewController: UIViewController {
 
 extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return pointsOfMenu.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CareCollectionViewCell.identifier, for: indexPath) as? CareCollectionViewCell {
-            cell.setInfo(dataSource[indexPath.row])
+            cell.setInfo(pointsOfMenu[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
