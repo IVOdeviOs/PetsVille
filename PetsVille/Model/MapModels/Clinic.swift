@@ -21,8 +21,12 @@ let aibolit = Object(
     longitude: 27.438450,
     isAroundTheClock: false,
     phoneNumber: "+375-33-376-44-24",
-    rating: 4.8,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 5.0,
+    arrayOfPhoto: [
+        UIImageView(image: UIImage(named: "aibolit1")),
+        UIImageView(image: UIImage(named: "aibolit2")),
+        UIImageView(image: UIImage(named: "aibolit3"))
+    ]
 )
 
 let nineLifes = Object(
@@ -34,8 +38,12 @@ let nineLifes = Object(
     longitude: 27.541170,
     isAroundTheClock: false,
     phoneNumber: "+375-33-344-23-43",
-    rating: 4.4,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 3.4,
+    arrayOfPhoto: [
+        UIImageView(image: UIImage(named: "9lifes1")),
+        UIImageView(image: UIImage(named: "9lifes2")),
+        UIImageView(image: UIImage(named: "9lifes3"))
+    ]
 )
 
 let doctorVet = Object(
@@ -48,7 +56,10 @@ let doctorVet = Object(
     isAroundTheClock: true,
     phoneNumber: "+375-29-160-26-02",
     rating: 4.6,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "drVet1")),
+                   UIImageView(image: UIImage(named: "drVet2")),
+                   UIImageView(image: UIImage(named: "drVet3"))
+                  ]
 )
 
 let arrayOfClinics: [Object] = [aibolit, nineLifes, doctorVet]

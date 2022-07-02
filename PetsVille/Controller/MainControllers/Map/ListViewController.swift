@@ -1,39 +1,26 @@
 import UIKit
 
 final class ListViewController: UIViewController {
-
+    
     // MARK: Private
     
     private var tableView = UITableView()
     private let separatorLine = UIView()
+    var id: Int = 0
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
     private var arrayOfButtons: [String] = ["Клиники", "На карте", "Открыто", "Фото"]
-     var arrayOfClinics = [Object]() {
+    var arrayOfObject = [Object]() {
         didSet {
             tableView.reloadData()
         }
     }
-     var arrayOfShops = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-     var arrayOfWalkingGrounds = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-     var arrayOfCafes = [Object]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(arrayOfObject.count)
+        appendingArrayOfObject()
         addSubviews()
         setupCollectionView()
         setupTableView()
@@ -46,19 +33,34 @@ final class ListViewController: UIViewController {
     
     // MARK: - Setups
     
+    private func appendingArrayOfObject() {
+        switch id {
+        case 1:
+            arrayOfObject = arrayOfClinics
+        case 2:
+            arrayOfObject = arrayOfShops
+        case 3:
+            arrayOfObject = arrayOfCafes
+        case 4:
+            arrayOfObject = arrayOfWalkingGrounds
+        default:
+            arrayOfObject = arrayOfClinics
+        }
+    }
+    
     private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(separatorLine)
         view.addSubview(collectionView)
     }
-
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
+        tableView.separatorColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
         self.tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func addConstraints() {
@@ -70,13 +72,13 @@ final class ListViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
         separatorLine.translatesAutoresizingMaskIntoConstraints = false
-        separatorLine.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 0).isActive = true
+        separatorLine.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 5).isActive = true
         separatorLine.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         separatorLine.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         separatorLine.heightAnchor.constraint(equalToConstant: 4).isActive = true
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: separatorLine.topAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
@@ -87,6 +89,7 @@ final class ListViewController: UIViewController {
         view.backgroundColor = .white
         tableView.backgroundColor = .white
         collectionView.backgroundColor = .white
+        separatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
     }
     
     private func setupCollectionView() {
@@ -104,49 +107,34 @@ final class ListViewController: UIViewController {
     // MARK: - Helpers
 }
 
-    // MARK: - Extensions
+// MARK: - Extensions
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let vc = MapViewController()
-        switch vc.idToObjectsList {
-        case 1:
-            return arrayOfClinics.count
-            case 2:
-                return arrayOfShops.count
-                case 3:
-                    return arrayOfCafes.count
-                    case 4:
-                        return arrayOfWalkingGrounds.count
-        default:
-            return 0
-        }
+        return arrayOfObject.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell {
-            let vc = MapViewController()
-            switch vc.idToObjectsList {
-            case 1:
-                cell.set(object: arrayOfClinics[indexPath.row])
-            case 2:
-                cell.set(object: arrayOfShops[indexPath.row])
-            case 3:
-                cell.set(object: arrayOfCafes[indexPath.row])
-            case 4:
-                cell.set(object: arrayOfWalkingGrounds[indexPath.row])
-            default:
-                break
-            }
+            cell.set(object: arrayOfObject[indexPath.row])
+            //            let viewSeparatorLine = UIView(frame: CGRect(
+            //                x: 0,
+            //                y: cell.contentView.frame.size.height - 2.0,
+            //                width: cell.contentView.frame.size.width,
+            //                height: 2
+            //            ))
+            //            viewSeparatorLine.backgroundColor = UIColor(red: 254/255, green: 243/255, blue: 235/255, alpha: 1)
+            //            cell.contentView.addSubview(viewSeparatorLine)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = InfoAboutObjectViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        //        let vc = InfoAboutObjectViewController()
+        //        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

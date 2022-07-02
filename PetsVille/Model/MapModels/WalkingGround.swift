@@ -9,8 +9,10 @@ let landera = Object(
     longitude: 27.488428,
     isAroundTheClock: true,
     phoneNumber: "",
-    rating: 3.6,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 1.3,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "landera1")),
+                   UIImageView(image: UIImage(named: "landera2")),
+                  ]
 )
 
 let sobachiaPloschadka = Object(
@@ -22,8 +24,11 @@ let sobachiaPloschadka = Object(
     longitude: 27.623734,
     isAroundTheClock: true,
     phoneNumber: "",
-    rating: 4.3,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 2.1,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "dogGround1")),
+                   UIImageView(image: UIImage(named: "dogGround2")),
+                   UIImageView(image: UIImage(named: "dogGround3"))
+                  ]
 )
 
 let pogulianka = Object(
@@ -35,8 +40,9 @@ let pogulianka = Object(
     longitude: 27.445602,
     isAroundTheClock: true,
     phoneNumber: "",
-    rating: 4.1,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 4.2,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "pogulianka")),
+                  ]
 )
 
 let arrayOfWalkingGrounds: [Object] = [landera, sobachiaPloschadka, pogulianka]

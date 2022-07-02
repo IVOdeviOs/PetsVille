@@ -20,7 +20,7 @@
 		35FC3221286F049200BA7A98 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35FC321D286F049200BA7A98 /* Montserrat-Bold.ttf */; };
 		35FC3222286F049200BA7A98 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35FC321E286F049200BA7A98 /* Montserrat-SemiBold.ttf */; };
 		35FC3224286F04BB00BA7A98 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3223286F04BB00BA7A98 /* Montserrat-Medium.ttf */; };
-		DC85A8A82864B79C00A60679 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A72864B79C00A60679 /* Object.swift */; };
+		DC85A8A82864B79C00A60679 /* Clinic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A72864B79C00A60679 /* Clinic.swift */; };
 		DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8A92864B7CA00A60679 /* Cafe.swift */; };
 		DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AB2864B7D800A60679 /* WalkingGround.swift */; };
 		DC85A8AE2864B94900A60679 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85A8AD2864B94900A60679 /* Shop.swift */; };
@@ -81,7 +81,7 @@
 		35FC321D286F049200BA7A98 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		35FC321E286F049200BA7A98 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		35FC3223286F04BB00BA7A98 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		DC85A8A72864B79C00A60679 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		DC85A8A72864B79C00A60679 /* Clinic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clinic.swift; sourceTree = "<group>"; };
 		DC85A8A92864B7CA00A60679 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		DC85A8AB2864B7D800A60679 /* WalkingGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingGround.swift; sourceTree = "<group>"; };
 		DC85A8AD2864B94900A60679 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		DC85A8A62864B76200A60679 /* MapModels */ = {
 			isa = PBXGroup;
 			children = (
-				DC85A8A72864B79C00A60679 /* Object.swift */,
+				DC85A8A72864B79C00A60679 /* Clinic.swift */,
 				DC85A8AF2864FC0200A60679 /* MyAnnotation.swift */,
 				DC85A8AD2864B94900A60679 /* Shop.swift */,
 				DC85A8AB2864B7D800A60679 /* WalkingGround.swift */,
@@ -458,7 +458,7 @@
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
-				DC85A8A82864B79C00A60679 /* Object.swift in Sources */,
+				DC85A8A82864B79C00A60679 /* Clinic.swift in Sources */,
 				35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */,
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */,

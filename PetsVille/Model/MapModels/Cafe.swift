@@ -9,8 +9,11 @@ let imbir = Object(
     longitude: 27.503272,
     isAroundTheClock: false,
     phoneNumber: "+375-29-664-51-10",
-    rating: 4.2,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    rating: 2.2,
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "imbir1")),
+                   UIImageView(image: UIImage(named: "imbir2")),
+                   UIImageView(image: UIImage(named: "imbir3"))
+                  ]
 )
 
 let naUgliah = Object(
@@ -23,7 +26,10 @@ let naUgliah = Object(
     isAroundTheClock: false,
     phoneNumber: "+375-29-101-55-53",
     rating: 3.9,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "naUgliah1")),
+                   UIImageView(image: UIImage(named: "naUgliah2")),
+                   UIImageView(image: UIImage(named: "naUgliah3"))
+                  ]
 )
 
 let sochi = Object(
@@ -36,7 +42,10 @@ let sochi = Object(
     isAroundTheClock: false,
     phoneNumber: "+375-29-355-75-95",
     rating: 4.1,
-    arrayOfPhoto: [UIImageView(image: UIImage(named: ""))]
+    arrayOfPhoto: [UIImageView(image: UIImage(named: "sochi1")),
+                   UIImageView(image: UIImage(named: "sochi2")),
+                   UIImageView(image: UIImage(named: "sochi3"))
+                  ]
 )
 
 let arrayOfCafes: [Object] = [imbir, naUgliah, sochi]

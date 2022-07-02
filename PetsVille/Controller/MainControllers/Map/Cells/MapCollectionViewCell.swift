@@ -1,15 +1,15 @@
 import UIKit
 
 final class MapCollectionViewCell: UICollectionViewCell {
-
+    
     static let identifier = "MapCollectionViewCell"
-
+    
     // MARK: Private
-
-      let label = UILabel()
-
+    
+    let label = UILabel()
+    
     // MARK: - Lifecycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -23,17 +23,17 @@ final class MapCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - API
-
+    
     func setButtonText(buttonText: String) {
         label.text = buttonText
     }
-
+    
     // MARK: - Setups
-
+    
     private func addSubviews() {
         contentView.addSubview(label)
     }
-
+    
     private func setupConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
@@ -41,7 +41,7 @@ final class MapCollectionViewCell: UICollectionViewCell {
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
     }
-
+    
     private func setupUI() {
         contentView.backgroundColor = .clear
         label.backgroundColor =  UIColor(red: 255/255, green: 188/255, blue: 139/255, alpha: 1)
