@@ -6,24 +6,23 @@ struct Menu {
 }
 
 final class CareViewController: UIViewController {
-    
+    // MARK: Private
+    // MARK: - Outlets
     private lazy var menuCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-    private let navBarAppearence = UINavigationBarAppearance()
     private var searchController = UISearchController()
-    
     private let searchBar = UISearchBar()
-    
     private let navView = UIView()
-    
+    // MARK: Private
+    // MARK: - Properties
     private let layout = UICollectionViewFlowLayout()
-    
     private let pointsOfMenu: [Menu] = [
         Menu(image: UIImage(imageLiteralResourceName: "Nursing"), title: "Уход"),
         Menu(image: UIImage(imageLiteralResourceName: "Medicine"), title: "Медицина"),
         Menu(image: UIImage(imageLiteralResourceName: "Calendar"), title: "Календарь"),
         Menu(image: UIImage(imageLiteralResourceName: "Subscription"), title: "Подписка")
     ]
-    
+    // MARK: Private
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -33,7 +32,8 @@ final class CareViewController: UIViewController {
         setupUI()
         setupSearchBar()
     }
-    
+    // MARK: Private
+    // MARK: - Setups
     private func addSubviews() {
         view.addAllSubviews(menuCollectionView, navView)
     }
@@ -61,7 +61,6 @@ final class CareViewController: UIViewController {
     }
     
     private func setupSearchController() {
-        
 //        searchController = UISearchController(searchResultsController: nil)
 //        searchController.searchResultsUpdater = self
 //        searchController.searchBar.placeholder = "Search"
@@ -69,8 +68,6 @@ final class CareViewController: UIViewController {
 //        searchController.searchBar.searchTextField.layer.masksToBounds = true
 //        searchController.searchBar.searchTextField.layer.cornerRadius = 5
 //        searchController.searchBar.barTintColor = .systemIndigo
-        
-        
         
         //Не забыть погуглить, что лучше: серчконтроллер или серчбар
     }
@@ -88,7 +85,7 @@ final class CareViewController: UIViewController {
         searchBar.searchTextField.font = .montserrat(17, .regular)
         searchBar.delegate = self
         searchBar.showsBookmarkButton = true
-        searchBar.setImage(UIImage(systemName: "person"), for: .bookmark, state: .normal)
+        searchBar.setImage(UIImage(systemName: "location"), for: .bookmark, state: .normal)
         searchBar.searchTextField.layer.borderWidth = 1
         searchBar.searchTextField.layer.borderColor = AppColor.orangeColor.cgColor
         searchBar.searchTextField.layer.cornerRadius = 10
@@ -100,8 +97,12 @@ final class CareViewController: UIViewController {
         navView.layer.cornerRadius = 20
     }
 }
+// MARK: - Actions
+// MARK: Public
+// MARK: - API
+// MARK: - Helpers
 
-
+//MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewFlowLayout
 extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pointsOfMenu.count

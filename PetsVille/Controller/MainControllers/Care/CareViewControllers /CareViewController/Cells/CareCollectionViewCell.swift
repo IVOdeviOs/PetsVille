@@ -49,7 +49,7 @@ final class CareCollectionViewCell: UICollectionViewCell {
     private func setupUI() {
         menuTextLabel.font = .montserrat(24, .semibold)
         menuTextLabel.textAlignment = .center
-        menuTextLabel.textColor = .black
+        menuTextLabel.textColor = AppColor.textColor
         
         mainView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         menuTextLabel.layer.cornerRadius = 10
