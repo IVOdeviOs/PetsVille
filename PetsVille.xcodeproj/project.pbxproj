@@ -29,6 +29,7 @@
 		DCA8571B286DB9E2006692CA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8571A286DB9E2006692CA /* ListViewController.swift */; };
 		DCA8571D286DBA27006692CA /* ListViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8571C286DBA27006692CA /* ListViewControllerCell.swift */; };
 		DD0BBF3E286CFFB400D3310A /* OwnerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0BBF3D286CFFB400D3310A /* OwnerInformationViewController.swift */; };
+		DD16C52A2872D73B00A3A5C3 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = DD16C5292872D73B00A3A5C3 /* FSCalendar */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -134,6 +135,7 @@
 				DD9859672864E689008801A1 /* FirebaseDatabase in Frameworks */,
 				DD9859632864E689008801A1 /* FirebaseAuth in Frameworks */,
 				DD98596B2864E689008801A1 /* FirebaseFunctions in Frameworks */,
+				DD16C52A2872D73B00A3A5C3 /* FSCalendar in Frameworks */,
 				DD98595A2864E632008801A1 /* FacebookLogin in Frameworks */,
 				DD98596D2864E689008801A1 /* FirebaseInAppMessaging-Beta in Frameworks */,
 			);
@@ -386,6 +388,7 @@
 				DD98596E2864E689008801A1 /* FirebaseInstallations */,
 				DD9859702864E689008801A1 /* FirebaseMessaging */,
 				DD9859722864E689008801A1 /* FirebaseStorage */,
+				DD16C5292872D73B00A3A5C3 /* FSCalendar */,
 			);
 			productName = PetsVille;
 			productReference = DDBBD723283C071B0092847A /* PetsVille.app */;
@@ -418,6 +421,7 @@
 			packageReferences = (
 				DD9859542864E632008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				DD98595D2864E689008801A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DD16C5282872D73B00A3A5C3 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = DDBBD724283C071B0092847A /* Products */;
 			projectDirPath = "";
@@ -709,6 +713,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD16C5282872D73B00A3A5C3 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.3;
+			};
+		};
 		DD9859542864E632008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -728,6 +740,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD16C5292872D73B00A3A5C3 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD16C5282872D73B00A3A5C3 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
 		DD9859552864E632008801A1 /* FacebookBasics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD9859542864E632008801A1 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
