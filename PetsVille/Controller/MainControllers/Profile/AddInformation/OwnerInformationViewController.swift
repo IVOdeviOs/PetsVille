@@ -122,7 +122,9 @@ final class OwnerInformationViewController: UIViewController {
         
         aboutMeLabel.text = "О себе"
         aboutMeLabel.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
-        aboutMeTextView.font = .systemFont(ofSize: 18)
+      
+        aboutMeTextView.font = .montserrat(18, .regular)
+        aboutMeTextView.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
     }
 
     private func ownerSettings() {

@@ -17,8 +17,12 @@ extension UITextField{
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
         line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-
+            
+        font = .montserrat(18, .medium)
+        textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
+        
         label.text = text
+        label.font = .montserrat(16, .regular)
         label.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
 
         line.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
