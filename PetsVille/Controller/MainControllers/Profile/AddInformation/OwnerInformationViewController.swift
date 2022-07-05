@@ -1,8 +1,11 @@
 import UIKit
 
 final class OwnerInformationViewController: UIViewController {
+
     // MARK: - Properties
     // MARK: Public
+    var areas = [String]()
+    lazy var screenWidth = UIScreen.main.bounds.width
 
     // MARK: Private
     private let appearance = UINavigationBarAppearance()
@@ -12,9 +15,11 @@ final class OwnerInformationViewController: UIViewController {
     private let nameTextField = UITextField()
     private let bDayTextField = UITextField()
     private let phoneTextField = UITextField()
-    private let countryTextFIeld = UITextField()
+    private let countryTextField = UITextField()
     private let aboutMeLabel = UILabel()
     private let aboutMeTextView = UITextView()
+    private let areaPicker = UIPickerView()
+    private var selectedArea = "Фрунзенский"
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -24,13 +29,16 @@ final class OwnerInformationViewController: UIViewController {
         setupUI()
         setupNavigationBar()
         setupTextField()
+        setupPickerView()
         tapImageView()
     }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         ownerImage.layer.cornerRadius = 8
         ownerImage.layer.masksToBounds = true
     }
+
     // MARK: - API
 
     // MARK: - Setups
@@ -40,7 +48,7 @@ final class OwnerInformationViewController: UIViewController {
                             nameTextField,
                             bDayTextField,
                             phoneTextField,
-                            countryTextFIeld,
+                            countryTextField,
                             aboutMeLabel,
                             aboutMeTextView)
     }
@@ -76,14 +84,14 @@ final class OwnerInformationViewController: UIViewController {
         phoneTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         phoneTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
-        countryTextFIeld.translatesAutoresizingMaskIntoConstraints = false
-        countryTextFIeld.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 30).isActive = true
-        countryTextFIeld.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        countryTextFIeld.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        countryTextFIeld.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        countryTextField.translatesAutoresizingMaskIntoConstraints = false
+        countryTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 30).isActive = true
+        countryTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        countryTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        countryTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         aboutMeLabel.translatesAutoresizingMaskIntoConstraints = false
-        aboutMeLabel.topAnchor.constraint(equalTo: countryTextFIeld.bottomAnchor, constant: 30).isActive = true
+        aboutMeLabel.topAnchor.constraint(equalTo: countryTextField.bottomAnchor, constant: 30).isActive = true
         aboutMeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         aboutMeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         aboutMeLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
@@ -93,7 +101,6 @@ final class OwnerInformationViewController: UIViewController {
         aboutMeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         aboutMeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         aboutMeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -88).isActive = true
-
     }
 
     private func setupTextField() {
@@ -102,12 +109,44 @@ final class OwnerInformationViewController: UIViewController {
         nameTextField.underlined(placeholders: "", text: "Имя")
         bDayTextField.underlined(placeholders: "", text: "Дата рождения")
         phoneTextField.underlined(placeholders: "", text: "Телефон")
-        countryTextFIeld.underlined(placeholders: "", text: "Город")
+        countryTextField.underlined(placeholders: "", text: "Район")
+        bDayTextField.setInputDatePicker(target: self, selector: #selector(saveBDay))
 
+        phoneTextField.text = "+375"
         aboutMeLabel.text = "О себе"
         aboutMeLabel.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
-
         aboutMeTextView.font = .systemFont(ofSize: 18)
+    }
+
+    private func setupPickerView() {
+        areas = ["Фрунзенский", "Московский", "Партизанский", "Октябрьский", "Советский", "Первомайский", "Ленинский", "Центральный", "Заводской"]
+        areaPicker.frame = CGRect(x: 0,
+                                  y: 0,
+                                  width: screenWidth,
+                                  height: 220)
+
+        areaPicker.delegate = self
+        areaPicker.dataSource = self
+
+        countryTextField.inputView = areaPicker
+        let toolBar = UIToolbar(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: screenWidth,
+                                              height: 44))
+        let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                      target: nil,
+                                      action: nil)
+        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                     target: nil,
+                                     action: #selector(cancelInputView))
+
+        let done = UIBarButtonItem(barButtonSystemItem: .done,
+                                   target: target,
+                                   action: #selector(saveAreaCountry))
+
+        toolBar.backgroundColor = .white
+        toolBar.setItems([cancel, spacing, done], animated: false)
+        countryTextField.inputAccessoryView = toolBar
     }
 
     private func setupUI() {
@@ -126,7 +165,7 @@ final class OwnerInformationViewController: UIViewController {
 
     private func setupNavigationBar() {
         title = "Профиль"
-        
+
         appearance.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -138,20 +177,45 @@ final class OwnerInformationViewController: UIViewController {
 
         backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backNavButton))
     }
+
     private func tapImageView() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imagePickerBtnAction))
         ownerImage.isUserInteractionEnabled = true
         ownerImage.addGestureRecognizer(tap)
     }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    // MARK: - Helpers
-    
-    @objc private func backNavButton(){
-        print(#function)
 
+    // MARK: - Helpers
+
+    @objc private func backNavButton() {
+        print(#function)
     }
+
+    @objc func saveBDay() {
+        if let datePickers = bDayTextField.inputView as? UIDatePicker {
+
+            let dateAnswer = DateFormatter()
+            dateAnswer.dateFormat = "dd MMM yyyy"
+            let releasingDate: String = dateAnswer.string(from: datePickers.date)
+
+            bDayTextField.text = releasingDate
+            print("\(releasingDate) ")
+        }
+        bDayTextField.endEditing(true)
+    }
+
+    @objc func saveAreaCountry() {
+        countryTextField.text = selectedArea
+        countryTextField.endEditing(true)
+    }
+
+    @objc func cancelInputView() {
+        resignFirstResponder()
+    }
+
     @objc private func imagePickerBtnAction() {
         let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
@@ -164,6 +228,7 @@ final class OwnerInformationViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
 extension OwnerInformationViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     private func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
@@ -205,5 +270,26 @@ extension OwnerInformationViewController: UIImagePickerControllerDelegate & UINa
         if let image = info[.editedImage] as? UIImage {
             ownerImage.image = image
         }
+    }
+}
+
+extension OwnerInformationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        areas.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        areas[row]
+    }
+
+    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        selectedArea = areas[row]
+        print(selectedArea)
     }
 }

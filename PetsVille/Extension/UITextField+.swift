@@ -1,16 +1,17 @@
 import UIKit
 
-extension UITextField {
+extension UITextField{
+
     func underlined(placeholders: String, text: String) {
         let label = UILabel()
         let line = UIView()
         addAllSubviews(label, line)
-        
+
         label.translatesAutoresizingMaskIntoConstraints = false
         label.bottomAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         label.widthAnchor.constraint(equalToConstant: 200).isActive = true
         label.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        
+
         line.translatesAutoresizingMaskIntoConstraints = false
         line.topAnchor.constraint(equalTo: bottomAnchor, constant: 1).isActive = true
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -19,9 +20,49 @@ extension UITextField {
 
         label.text = text
         label.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
-        
+
         line.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
 
         attributedPlaceholder = NSAttributedString(string: placeholders, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+    }
+
+    func setInputDatePicker(target: Any, selector: Selector) {
+        let screenWidth = UIScreen.main.bounds.width
+
+        let datePickers = UIDatePicker(frame: CGRect(x: 0,
+                                                     y: 0,
+                                                     width: screenWidth,
+                                                     height: 220))
+        datePickers.datePickerMode = .date
+
+        if #available(iOS 14, *) {
+            datePickers.preferredDatePickerStyle = .wheels
+            datePickers.locale = Locale(identifier: "ru_RU")
+            datePickers.sizeToFit()
+        }
+        inputView?.backgroundColor = .white
+        inputView = datePickers
+        let toolBar = UIToolbar(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: screenWidth,
+                                              height: 44))
+        let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                      target: nil,
+                                      action: nil)
+        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                     target: nil,
+                                     action: #selector(cancel))
+
+        let done = UIBarButtonItem(barButtonSystemItem: .done,
+                                   target: target,
+                                   action: selector)
+
+        toolBar.backgroundColor = .white
+        toolBar.setItems([cancel, spacing, done], animated: false)
+        inputAccessoryView = toolBar
+    }
+
+    @objc func cancel() {
+        resignFirstResponder()
     }
 }
