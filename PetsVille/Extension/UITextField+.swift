@@ -2,7 +2,7 @@ import UIKit
 
 extension UITextField{
 
-    func underlined(placeholders: String, text: String) {
+    func underlined( text: String) {
         let label = UILabel()
         let line = UIView()
         addAllSubviews(label, line)
@@ -23,7 +23,7 @@ extension UITextField{
 
         line.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
 
-        attributedPlaceholder = NSAttributedString(string: placeholders, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+//        attributedPlaceholder = NSAttributedString(string: placeholders, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }
 
     func setInputDatePicker(target: Any, selector: Selector) {

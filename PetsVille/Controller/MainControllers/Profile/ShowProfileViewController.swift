@@ -11,11 +11,13 @@ final class ShowProfileViewController: UIViewController {
     private let viewOwner = UIView()
     private var stackView = UIStackView()
     private let nameLabel = UILabel()
-    private let countryLabel = UILabel()
+    private let areaLabel = UILabel()
     private let ageLabel = UILabel()
     private let imagePerson = UIImageView()
     private let tableView = UITableView()
     private let addPetsButton = UIButton()
+    private var ownerModel = [Owner]()
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,21 @@ final class ShowProfileViewController: UIViewController {
         setupOwnerView()
         setupTableView()
     }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tabBarController?.tabBar.isHidden = false
-
+        imagePerson.layer.cornerRadius = 8
+        imagePerson.layer.masksToBounds = true
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let users = CoreDataManager.instance.getPerson() else { return }
+        ownerModel = users
+        ownerSettings()
+    }
+
     // MARK: - API
 
     // MARK: - Setups
@@ -41,7 +53,7 @@ final class ShowProfileViewController: UIViewController {
     }
 
     private func setupStackView() {
-        stackView = UIStackView(arrangedSubviews: [nameLabel, countryLabel, ageLabel])
+        stackView = UIStackView(arrangedSubviews: [nameLabel, areaLabel, ageLabel])
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.alignment = .leading
@@ -55,7 +67,22 @@ final class ShowProfileViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.register(PetsTableViewCell.self, forCellReuseIdentifier: PetsTableViewCell.reuseIdentifier)
+    }
 
+    private func ownerSettings() {
+   
+        nameLabel.text = ownerModel.first?.name ?? "Имя"
+        areaLabel.text = ownerModel.first?.area ?? "Район"
+        
+        let brDay = Calendar.current.dateComponents([.year, .month, .day], from: ownerModel.first?.bDay ?? .now)
+
+        let today = Calendar.current.dateComponents([.year, .month, .day], from: .now )
+
+        let age = Int16(today.year! - brDay.year!)
+
+        ageLabel.text = "\(String(age)) лет"
+        
+        imagePerson.image = UIImage(data: (ownerModel.first?.photo ?? UIImage(named: "Hello")?.pngData())!)
     }
 
     private func setupConstrains() {
@@ -92,16 +119,21 @@ final class ShowProfileViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-        nameLabel.text = "Имя"
-        nameLabel.font = .systemFont(ofSize: 20)
-        nameLabel.textColor = .black
-        countryLabel.text = "Город"
-        ageLabel.text = "Возраст"
-        imagePerson.image = UIImage(named: "Hello")
+        nameLabel.font = .montserrat(20, .semibold)
+        nameLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
+
+        areaLabel.font = .montserrat(16, .regular)
+        areaLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
+
+        ageLabel.font = .montserrat(16, .regular)
+        ageLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
+        //        imagePerson.image = UIImage(named: "Hello")
         addPetsButton.setTitle("+ Добавить питомца", for: .normal)
         addPetsButton.setTitleColor(.black, for: .normal)
         addPetsButton.backgroundColor = UIColor(red: 1, green: 0.737, blue: 0.546, alpha: 1)
         addPetsButton.layer.cornerRadius = 8
+        
+      
     }
 
     private func setupOwnerView() {
@@ -111,7 +143,6 @@ final class ShowProfileViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ownerInformation))
         viewOwner.isUserInteractionEnabled = true
         viewOwner.addGestureRecognizer(tap)
-
     }
 
     private func setupNavigationBar() {
@@ -131,32 +162,28 @@ final class ShowProfileViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.layer.cornerRadius = 20
         navigationItem.hidesBackButton = true
-        
     }
 
     // MARK: - Helpers
     @objc func settingsProfile() {}
-    @objc func ownerInformation(){
+    @objc func ownerInformation() {
         let vc = OwnerInformationViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension ShowProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         if let cell = tableView.dequeueReusableCell(withIdentifier: PetsTableViewCell.reuseIdentifier,
-                                                    for: indexPath) as? PetsTableViewCell {
+                                                    for: indexPath) as? PetsTableViewCell
+        {
             return cell
         }
         return UITableViewCell()
     }
-  
-    
-    
 }

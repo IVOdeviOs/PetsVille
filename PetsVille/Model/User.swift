@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct User {
+struct Owner {
     var photo: Data {
         didSet { _ = UIImage(data: photo)! }
     }

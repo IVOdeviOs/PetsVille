@@ -15,11 +15,12 @@ final class OwnerInformationViewController: UIViewController {
     private let nameTextField = UITextField()
     private let bDayTextField = UITextField()
     private let phoneTextField = UITextField()
-    private let countryTextField = UITextField()
+    private let areaTextField = UITextField()
     private let aboutMeLabel = UILabel()
     private let aboutMeTextView = UITextView()
     private let areaPicker = UIPickerView()
     private var selectedArea = "Фрунзенский"
+    private var ownerModel = [Owner]()
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -39,6 +40,13 @@ final class OwnerInformationViewController: UIViewController {
         ownerImage.layer.masksToBounds = true
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let users = CoreDataManager.instance.getPerson() else { return }
+        ownerModel = users
+        ownerSettings()
+    }
+
     // MARK: - API
 
     // MARK: - Setups
@@ -48,7 +56,7 @@ final class OwnerInformationViewController: UIViewController {
                             nameTextField,
                             bDayTextField,
                             phoneTextField,
-                            countryTextField,
+                            areaTextField,
                             aboutMeLabel,
                             aboutMeTextView)
     }
@@ -84,14 +92,14 @@ final class OwnerInformationViewController: UIViewController {
         phoneTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         phoneTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
-        countryTextField.translatesAutoresizingMaskIntoConstraints = false
-        countryTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 30).isActive = true
-        countryTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        countryTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        countryTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        areaTextField.translatesAutoresizingMaskIntoConstraints = false
+        areaTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 30).isActive = true
+        areaTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        areaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        areaTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         aboutMeLabel.translatesAutoresizingMaskIntoConstraints = false
-        aboutMeLabel.topAnchor.constraint(equalTo: countryTextField.bottomAnchor, constant: 30).isActive = true
+        aboutMeLabel.topAnchor.constraint(equalTo: areaTextField.bottomAnchor, constant: 30).isActive = true
         aboutMeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         aboutMeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         aboutMeLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
@@ -105,17 +113,34 @@ final class OwnerInformationViewController: UIViewController {
 
     private func setupTextField() {
         phoneTextField.keyboardType = .phonePad
-
-        nameTextField.underlined(placeholders: "", text: "Имя")
-        bDayTextField.underlined(placeholders: "", text: "Дата рождения")
-        phoneTextField.underlined(placeholders: "", text: "Телефон")
-        countryTextField.underlined(placeholders: "", text: "Район")
+        nameTextField.underlined(text: "Имя")
+        bDayTextField.underlined(text: "Дата рождения")
+        phoneTextField.underlined(text: "Телефон")
+        areaTextField.underlined(text: "Район")
         bDayTextField.setInputDatePicker(target: self, selector: #selector(saveBDay))
 
-        phoneTextField.text = "+375"
+        
         aboutMeLabel.text = "О себе"
         aboutMeLabel.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
         aboutMeTextView.font = .systemFont(ofSize: 18)
+    }
+
+    private func ownerSettings() {
+        nameTextField.text = ownerModel.first?.name
+        
+        phoneTextField.text = ownerModel.first?.phoneNumber ?? "+375"
+
+        let dateAnswer = DateFormatter()
+        dateAnswer.dateFormat = "dd MMM yyyy"
+        let releasingDate: String = dateAnswer.string(from: ownerModel.first?.bDay ?? Date(timeIntervalSince1970: .leastNonzeroMagnitude))
+        
+       
+        
+        bDayTextField.text = releasingDate
+        ownerImage.image = UIImage(data: (ownerModel.first?.photo ?? UIImage(named: "Hello")?.pngData())!)
+
+        areaTextField.text = ownerModel.first?.area
+        aboutMeTextView.text = ownerModel.first?.aboutMe
     }
 
     private func setupPickerView() {
@@ -128,7 +153,7 @@ final class OwnerInformationViewController: UIViewController {
         areaPicker.delegate = self
         areaPicker.dataSource = self
 
-        countryTextField.inputView = areaPicker
+        areaTextField.inputView = areaPicker
         let toolBar = UIToolbar(frame: CGRect(x: 0,
                                               y: 0,
                                               width: screenWidth,
@@ -146,7 +171,7 @@ final class OwnerInformationViewController: UIViewController {
 
         toolBar.backgroundColor = .white
         toolBar.setItems([cancel, spacing, done], animated: false)
-        countryTextField.inputAccessoryView = toolBar
+        areaTextField.inputAccessoryView = toolBar
     }
 
     private func setupUI() {
@@ -175,6 +200,8 @@ final class OwnerInformationViewController: UIViewController {
         navigationController?.navigationBar.layer.cornerRadius = 20
         tabBarController?.tabBar.isHidden = true
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(backNavButton))
+
         backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backNavButton))
     }
 
@@ -191,7 +218,27 @@ final class OwnerInformationViewController: UIViewController {
     // MARK: - Helpers
 
     @objc private func backNavButton() {
-        print(#function)
+        guard let datePickers = bDayTextField.inputView as? UIDatePicker else {
+            let dateAnswer = DateFormatter()
+            dateAnswer.dateFormat = "dd MMM yyyy"
+            return
+        }
+    
+        let name = nameTextField.text ?? "Имя"
+        let bDay = datePickers.date
+        let phoneNumber = phoneTextField.text ?? "+375291234567"
+        let area = selectedArea
+        let aboutMe = aboutMeTextView.text ?? ""
+
+        let person = Owner(photo: (ownerImage.image?.pngData())!,
+                           name: name,
+                           bDay: bDay,
+                           phoneNumber: phoneNumber,
+                           area: area,
+                           aboutMe: aboutMe)
+        CoreDataManager.instance.savePerson(person)
+
+        navigationController?.popViewController(animated: true)
     }
 
     @objc func saveBDay() {
@@ -202,14 +249,14 @@ final class OwnerInformationViewController: UIViewController {
             let releasingDate: String = dateAnswer.string(from: datePickers.date)
 
             bDayTextField.text = releasingDate
-            print("\(releasingDate) ")
         }
+        
         bDayTextField.endEditing(true)
     }
 
     @objc func saveAreaCountry() {
-        countryTextField.text = selectedArea
-        countryTextField.endEditing(true)
+        areaTextField.text = selectedArea
+        areaTextField.endEditing(true)
     }
 
     @objc func cancelInputView() {
