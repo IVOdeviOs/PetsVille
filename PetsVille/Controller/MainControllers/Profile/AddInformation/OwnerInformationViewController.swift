@@ -113,31 +113,28 @@ final class OwnerInformationViewController: UIViewController {
 
     private func setupTextField() {
         phoneTextField.keyboardType = .phonePad
-        nameTextField.underlined(text: "Имя")
-        bDayTextField.underlined(text: "Дата рождения")
-        phoneTextField.underlined(text: "Телефон")
-        areaTextField.underlined(text: "Район")
+        nameTextField.underlined(text: "Имя", isHidden: true)
+        bDayTextField.underlined(text: "Дата рождения", isHidden: false)
+        phoneTextField.underlined(text: "Телефон", isHidden: true)
+        areaTextField.underlined(text: "Район", isHidden: false)
         bDayTextField.setInputDatePicker(target: self, selector: #selector(saveBDay))
 
-        
         aboutMeLabel.text = "О себе"
         aboutMeLabel.textColor = UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1)
-      
+
         aboutMeTextView.font = .montserrat(18, .regular)
         aboutMeTextView.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
     }
 
     private func ownerSettings() {
         nameTextField.text = ownerModel.first?.name
-        
+
         phoneTextField.text = ownerModel.first?.phoneNumber ?? "+375"
 
         let dateAnswer = DateFormatter()
         dateAnswer.dateFormat = "dd MMM yyyy"
         let releasingDate: String = dateAnswer.string(from: ownerModel.first?.bDay ?? Date(timeIntervalSince1970: .leastNonzeroMagnitude))
-        
-       
-        
+
         bDayTextField.text = releasingDate
         ownerImage.image = UIImage(data: (ownerModel.first?.photo ?? UIImage(named: "Hello")?.pngData())!)
 
@@ -225,7 +222,7 @@ final class OwnerInformationViewController: UIViewController {
             dateAnswer.dateFormat = "dd MMM yyyy"
             return
         }
-    
+
         let name = nameTextField.text ?? "Имя"
         let bDay = datePickers.date
         let phoneNumber = phoneTextField.text ?? "+375291234567"
@@ -252,7 +249,7 @@ final class OwnerInformationViewController: UIViewController {
 
             bDayTextField.text = releasingDate
         }
-        
+
         bDayTextField.endEditing(true)
     }
 

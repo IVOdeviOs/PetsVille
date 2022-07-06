@@ -2,11 +2,13 @@ import UIKit
 
 extension UITextField{
 
-    func underlined( text: String) {
+    func underlined( text: String,isHidden:Bool) {
         let label = UILabel()
         let line = UIView()
-        addAllSubviews(label, line)
-
+        let chevron = UIImageView()
+        addAllSubviews(label, line, chevron)
+      
+        chevron.image = UIImage(systemName: "chevron.right")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.bottomAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         label.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -17,7 +19,15 @@ extension UITextField{
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
         line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-            
+          
+        chevron.translatesAutoresizingMaskIntoConstraints = false
+        chevron.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+        chevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        chevron.widthAnchor.constraint(equalToConstant: 9).isActive = true
+        chevron.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        
+        chevron.isHidden = isHidden
+        chevron.tintColor = .black
         font = .montserrat(18, .medium)
         textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
         
