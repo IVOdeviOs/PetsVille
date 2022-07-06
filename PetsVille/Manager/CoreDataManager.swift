@@ -117,4 +117,22 @@ final class CoreDataManager {
         }
         return nil
     }
+    func deleteEntity(petsArray: [Pets], indexPath: IndexPath) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PetsEntity")
+        do {
+            let objects = try managedContext.fetch(fetchRequest)
+            managedContext.delete(objects.reversed()[indexPath.row])
+        } catch let error as NSError {
+            print(error)
+        }
+        do {
+            try managedContext.save()
+            guard let fetchArray = CoreDataManager.instance.getPerson() else { return }
+            _ = fetchArray.reversed()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
 }

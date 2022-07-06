@@ -199,4 +199,14 @@ extension ShowProfileViewController: UITableViewDelegate, UITableViewDataSource 
         }
         return UITableViewCell()
     }
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+
+            CoreDataManager.instance.deleteEntity(petsArray: petsModel, indexPath: indexPath)
+            petsModel.remove(at: indexPath.row)
+            tableView.reloadData()
+
+        }
+    }
 }
