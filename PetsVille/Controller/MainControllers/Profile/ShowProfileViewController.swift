@@ -17,7 +17,12 @@ final class ShowProfileViewController: UIViewController {
     private let tableView = UITableView()
     private let addPetsButton = UIButton()
     private var ownerModel = [Owner]()
-
+    private var petsModel = [Pets]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +46,13 @@ final class ShowProfileViewController: UIViewController {
         super.viewDidAppear(animated)
         guard let users = CoreDataManager.instance.getPerson() else { return }
         ownerModel = users
+        guard let pets = CoreDataManager.instance.getPets() else { return }
+        petsModel = pets
         ownerSettings()
     }
 
     // MARK: - API
-
+ 
     // MARK: - Setups
     private func addSubviews() {
         view.addAllSubviews(viewOwner, tableView, addPetsButton)
@@ -127,12 +134,11 @@ final class ShowProfileViewController: UIViewController {
 
         ageLabel.font = .montserrat(16, .regular)
         ageLabel.textColor = UIColor(red: 0.171, green: 0.166, blue: 0.192, alpha: 1)
-        //        imagePerson.image = UIImage(named: "Hello")
         addPetsButton.setTitle("+ Добавить питомца", for: .normal)
         addPetsButton.setTitleColor(.black, for: .normal)
         addPetsButton.backgroundColor = UIColor(red: 1, green: 0.737, blue: 0.546, alpha: 1)
         addPetsButton.layer.cornerRadius = 8
-        
+        addPetsButton.addTarget(self, action: #selector(addPets), for: .touchUpInside)
       
     }
 
@@ -166,6 +172,11 @@ final class ShowProfileViewController: UIViewController {
 
     // MARK: - Helpers
     @objc func settingsProfile() {}
+    @objc func addPets() {
+        let vc = PetsAddInformationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
     @objc func ownerInformation() {
         let vc = OwnerInformationViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -174,7 +185,7 @@ final class ShowProfileViewController: UIViewController {
 
 extension ShowProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        petsModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,6 +193,8 @@ extension ShowProfileViewController: UITableViewDelegate, UITableViewDataSource 
         if let cell = tableView.dequeueReusableCell(withIdentifier: PetsTableViewCell.reuseIdentifier,
                                                     for: indexPath) as? PetsTableViewCell
         {
+            cell.set(pets: petsModel[indexPath.row])
+                       
             return cell
         }
         return UITableViewCell()

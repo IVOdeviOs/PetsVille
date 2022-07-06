@@ -31,6 +31,7 @@
 		DD0BBF3E286CFFB400D3310A /* OwnerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0BBF3D286CFFB400D3310A /* OwnerInformationViewController.swift */; };
 		DD16C52A2872D73B00A3A5C3 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = DD16C5292872D73B00A3A5C3 /* FSCalendar */; };
 		DD16C52C2875FE4100A3A5C3 /* PetsAddInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16C52B2875FE4100A3A5C3 /* PetsAddInformationViewController.swift */; };
+		DD16C52E287613AE00A3A5C3 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16C52D287613AE00A3A5C3 /* Pets.swift */; };
 		DD69D80C2851307F00CE464B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80B2851307E00CE464B /* User.swift */; };
 		DD69D80E2851308D00CE464B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D80D2851308D00CE464B /* Font.swift */; };
 		DD69D8112851376600CE464B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69D8102851376600CE464B /* MapViewController.swift */; };
@@ -93,6 +94,7 @@
 		DCA8571C286DBA27006692CA /* ListViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerCell.swift; sourceTree = "<group>"; };
 		DD0BBF3D286CFFB400D3310A /* OwnerInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerInformationViewController.swift; sourceTree = "<group>"; };
 		DD16C52B2875FE4100A3A5C3 /* PetsAddInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsAddInformationViewController.swift; sourceTree = "<group>"; };
+		DD16C52D287613AE00A3A5C3 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 		DD69D80B2851307E00CE464B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD69D80D2851308D00CE464B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD69D8102851376600CE464B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				DD69D80B2851307E00CE464B /* User.swift */,
 				DC85A8A62864B76200A60679 /* MapModels */,
+				DD16C52D287613AE00A3A5C3 /* Pets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,
 				DC85A8A82864B79C00A60679 /* Clinic.swift in Sources */,
 				35F52B2D2858BF69002C37E3 /* ResizibleLayout.swift in Sources */,
+				DD16C52E287613AE00A3A5C3 /* Pets.swift in Sources */,
 				355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */,
 				DC85A8AC2864B7D800A60679 /* WalkingGround.swift in Sources */,
 				355C0E9C2856473E0076ABC4 /* CareCollectionViewCell.swift in Sources */,

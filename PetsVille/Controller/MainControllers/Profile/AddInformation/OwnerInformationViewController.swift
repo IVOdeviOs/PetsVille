@@ -4,7 +4,6 @@ final class OwnerInformationViewController: UIViewController {
 
     // MARK: - Properties
     // MARK: Public
-    var areas = [String]()
     lazy var screenWidth = UIScreen.main.bounds.width
 
     // MARK: Private
@@ -21,6 +20,8 @@ final class OwnerInformationViewController: UIViewController {
     private let areaPicker = UIPickerView()
     private var selectedArea = "Фрунзенский"
     private var ownerModel = [Owner]()
+    private var areas = [String]()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -188,7 +189,7 @@ final class OwnerInformationViewController: UIViewController {
     }
 
     private func setupNavigationBar() {
-        title = "Профиль"
+        title = ownerModel.first?.name
 
         appearance.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -259,7 +260,7 @@ final class OwnerInformationViewController: UIViewController {
     }
 
     @objc func cancelInputView() {
-        resignFirstResponder()
+        areaTextField.endEditing(true)
     }
 
     @objc private func imagePickerBtnAction() {
@@ -336,6 +337,5 @@ extension OwnerInformationViewController: UIPickerViewDelegate, UIPickerViewData
     internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
         selectedArea = areas[row]
-        print(selectedArea)
     }
 }

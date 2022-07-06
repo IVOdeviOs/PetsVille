@@ -8,7 +8,18 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="Binary"/>
     </entity>
+    <entity name="PetsEntity" representedClassName="PetsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="bDayPets" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="breed" optional="YES" attributeType="String"/>
+        <attribute name="colorPets" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="nickName" optional="YES" attributeType="String"/>
+        <attribute name="petsPhoto" optional="YES" attributeType="Binary"/>
+        <attribute name="viewPets" optional="YES" attributeType="String"/>
+        <attribute name="weightPets" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="OwnerEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="PetsEntity" positionX="-54" positionY="36" width="128" height="149"/>
     </elements>
 </model>

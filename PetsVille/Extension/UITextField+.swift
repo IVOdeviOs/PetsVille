@@ -7,7 +7,8 @@ extension UITextField{
         let line = UIView()
         let chevron = UIImageView()
         addAllSubviews(label, line, chevron)
-      
+        autocapitalizationType = .none
+
         chevron.image = UIImage(systemName: "chevron.right")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.bottomAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
