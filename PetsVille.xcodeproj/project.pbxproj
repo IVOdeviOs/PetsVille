@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3518C58F287D9A6800649628 /* MedicineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518C58E287D9A6800649628 /* MedicineCollectionViewCell.swift */; };
 		35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35229CC828649C8A00E9C917 /* UIViewController+.swift */; };
 		355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8B285643690076ABC4 /* MedicineViewController.swift */; };
 		355C0E8E285643BD0076ABC4 /* СalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3518C58E287D9A6800649628 /* MedicineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewCell.swift; sourceTree = "<group>"; };
 		35229CC828649C8A00E9C917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		355C0E8B285643690076ABC4 /* MedicineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewController.swift; sourceTree = "<group>"; };
 		355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СalendarViewController.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				355C0E9B2856473E0076ABC4 /* CareCollectionViewCell.swift */,
+				3518C58E287D9A6800649628 /* MedicineCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				355C0E982856448E0076ABC4 /* SubscriptionViewController.swift in Sources */,
 				35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */,
 				DDB56D37283C0B7C00C16CC3 /* NotificationManager.swift in Sources */,
+				3518C58F287D9A6800649628 /* MedicineCollectionViewCell.swift in Sources */,
 				DD16C52C2875FE4100A3A5C3 /* PetsAddInformationViewController.swift in Sources */,
 				DD69D80E2851308D00CE464B /* Font.swift in Sources */,
 				DDB56D3B283C0BB700C16CC3 /* UIColor+.swift in Sources */,

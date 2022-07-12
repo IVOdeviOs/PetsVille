@@ -29,10 +29,6 @@ final class CalendarViewController: UIViewController {
     
     private func setupNavBar() {
         title = "Календарь"
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"),
-        //                                                           style: .plain,
-        //                                                           target: self,
-        //                                                           action: #selector(questionPopUpWindow))
         navigationItem.leftBarButtonItem?.tintColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"),
                                                             style: .plain,
@@ -44,9 +40,9 @@ final class CalendarViewController: UIViewController {
         navBarAppearence.titleTextAttributes = [.foregroundColor: UIColor.black]
         navBarAppearence.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearence
-        navigationController?.navigationBar.layer.cornerRadius = 20
+        navigationController?.navigationBar.tintColor = .gray
+        navigationController?.navigationBar.standardAppearance = navBarAppearence
+        navigationController?.navigationBar.layer.cornerRadius = 0
     }
     
     private func setupCalendar() {

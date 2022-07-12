@@ -141,9 +141,8 @@ extension CareViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         case 2:
             let calendarVC = CalendarViewController()
-//            navigationController?.pushViewController(calendarVC, animated: true)
-            calendarVC.modalPresentationStyle = .overFullScreen
-            present(calendarVC, animated: true)
+            navigationController?.pushViewController(calendarVC, animated: true)
+            
         case 3:
             let subscriptionVC = SubscriptionViewController()
             navigationController?.pushViewController(subscriptionVC, animated: true)
