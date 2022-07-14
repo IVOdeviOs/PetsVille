@@ -27,6 +27,8 @@ final class MedicineTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
+        addConstraints()
+        setupUI()
     }
     
     @available(*, unavailable)
@@ -64,6 +66,37 @@ final class MedicineTableViewCell: UITableViewCell {
         mainClinicInfoStackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20).isActive = true
         mainClinicInfoStackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         
+        photoStackView.translatesAutoresizingMaskIntoConstraints = false
+        photoStackView.topAnchor.constraint(equalTo: mainClinicInfoStackView.bottomAnchor, constant: -10).isActive = true
+        photoStackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20).isActive = true
+        photoStackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
+        
+        reviewStackView.translatesAutoresizingMaskIntoConstraints = false
+        reviewStackView.topAnchor.constraint(equalTo: photoStackView.bottomAnchor, constant: 20).isActive = true
+        reviewStackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20).isActive = true
+        reviewStackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
     }
     
+    private func setupUI() {
+        mainView.backgroundColor = .white
+        setupClinicInfoUI()
+        reviewLabel.text = "Отзыв: Приём прошёл классно"
+        workTimeLabel.text = "20:00"
+    }
+    
+    private func setupClinicInfoUI() {
+        clinicTitleLabel.font = .montserrat(20, .semibold)
+        clinicAdressLabel.font = .montserrat(12, .regular)
+        workTimeLabel.font = .montserrat(12, .regular)
+        workTimeLabel.textColor = .gray
+    }
+    
+    private func setupInfoStackView(_ params: Object) {
+        clinicTitleLabel.text = params.name
+        clinicAdressLabel.text = params.address
+        firstClinicPhotoImageView.image = params.arrayOfPhoto[0].image
+        secondClinicPhotoImageView.image = params.arrayOfPhoto[1].image
+        thirdClinicPhotoImageView.image = params.arrayOfPhoto[2].image
+        
+    }
 }
