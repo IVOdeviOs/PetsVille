@@ -122,6 +122,7 @@ final class MedicineTableViewCell: UITableViewCell {
         setupClinicInfoUI()
         setupUIPhotoStackView()
         setupAllReviewsStackView()
+        setupUIButtons()
     }
     
     private func setupClinicInfoUI() {
@@ -140,6 +141,7 @@ final class MedicineTableViewCell: UITableViewCell {
         
         ratingStackView.spacing = 5
         
+        workTimeLabel.textAlignment = .right
         workTimeLabel.textColor = .gray
         numberOfRatingLabel.textColor = .gray
         
