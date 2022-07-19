@@ -11,5 +11,10 @@ extension UIView {
         layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: alphaCGFloat).cgColor
         
     }
+    
+    func addCornerRadius(_ cornerRadius: Int) {
+        self.layer.cornerRadius = CGFloat(cornerRadius)
+        self.layer.masksToBounds = true
+    }
 }
 
