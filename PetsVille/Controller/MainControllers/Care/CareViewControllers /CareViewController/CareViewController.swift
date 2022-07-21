@@ -73,9 +73,9 @@ final class CareViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = AppColor.grayColor
-        navigationController?.navigationBar.layer.cornerRadius = 20
-        navigationController?.navigationBar.clipsToBounds = true
+//        navigationController?.navigationBar.backgroundColor = AppColor.grayColor
+//        navigationController?.navigationBar.layer.cornerRadius = 20
+//        navigationController?.navigationBar.clipsToBounds = true
     }
     
     private func setupSearchBar() {

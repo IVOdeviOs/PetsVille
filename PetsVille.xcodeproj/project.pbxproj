@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350D85F02889917800F74BC0 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D85EF2889917800F74BC0 /* CustomSearchBar.swift */; };
 		3518C58F287D9A6800649628 /* MedicineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518C58E287D9A6800649628 /* MedicineCollectionViewCell.swift */; };
 		35229CC928649C8A00E9C917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35229CC828649C8A00E9C917 /* UIViewController+.swift */; };
 		355C0E8C285643690076ABC4 /* MedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C0E8B285643690076ABC4 /* MedicineViewController.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350D85EF2889917800F74BC0 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		3518C58E287D9A6800649628 /* MedicineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewCell.swift; sourceTree = "<group>"; };
 		35229CC828649C8A00E9C917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		355C0E8B285643690076ABC4 /* MedicineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewController.swift; sourceTree = "<group>"; };
@@ -150,9 +152,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350D85EE2889915400F74BC0 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				350D85EF2889917800F74BC0 /* CustomSearchBar.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		355C0E8A285643400076ABC4 /* CareViewControllers  */ = {
 			isa = PBXGroup;
 			children = (
+				355C0E9A285647170076ABC4 /* Cells */,
+				350D85EE2889915400F74BC0 /* CustomViews */,
 				35F52B2B2858BF4E002C37E3 /* CareViewController */,
 				355C0E8B285643690076ABC4 /* MedicineViewController.swift */,
 				355C0E8D285643BD0076ABC4 /* СalendarViewController.swift */,
@@ -176,7 +188,6 @@
 			children = (
 				35F52B2C2858BF69002C37E3 /* ResizibleLayout.swift */,
 				DD69D8142851379100CE464B /* CareViewController.swift */,
-				355C0E9A285647170076ABC4 /* Cells */,
 			);
 			path = CareViewController;
 			sourceTree = "<group>";
@@ -485,6 +496,7 @@
 				35D1B0CD285724E400022C5D /* UIStackView+.swift in Sources */,
 				DDBBD72B283C071B0092847A /* MainTabBarController.swift in Sources */,
 				DD0BBF3E286CFFB400D3310A /* OwnerInformationViewController.swift in Sources */,
+				350D85F02889917800F74BC0 /* CustomSearchBar.swift in Sources */,
 				DC85A8B32865062800A60679 /* MapCollectionViewCell.swift in Sources */,
 				DD98597A286B9D3E008801A1 /* PetsTableViewCell.swift in Sources */,
 				DC85A8AA2864B7CA00A60679 /* Cafe.swift in Sources */,

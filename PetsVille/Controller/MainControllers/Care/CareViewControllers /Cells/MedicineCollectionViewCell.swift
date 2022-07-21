@@ -41,7 +41,6 @@ final class MedicineTableViewCell: UITableViewCell {
         addSubviews()
         addConstraints()
         setupUI()
-        setupNavigationBar()
     }
     
     @available(*, unavailable)
@@ -71,9 +70,6 @@ final class MedicineTableViewCell: UITableViewCell {
                                               thirdClinicPhotoImageView)
         reviewStackView.addAllArrangedSubviews(reviewLabel,
                                                allReviewsButton)
-    }
-    
-    private func setupNavigationBar() {
     }
     
     private func addConstraints() {
@@ -178,12 +174,12 @@ final class MedicineTableViewCell: UITableViewCell {
     private func setupUIButtons() {
         //        callButton.layer.cornerRadius = callButton.frame.width/2
         callButton.layer.cornerRadius = 25
-        callButton.backgroundColor = .red
+        callButton.backgroundColor = AppColor.redColor
         callButton.setImage(UIImage(systemName: "phone.fill"), for: .normal)
         
         enrollButton.setTitle("Записаться", for: .normal)
         enrollButton.titleLabel?.textColor = .white
-        enrollButton.backgroundColor = .red
+        enrollButton.backgroundColor = AppColor.redColor
         enrollButton.titleLabel?.font = .montserrat(16, .medium)
         enrollButton.layer.cornerRadius = 15
     }
